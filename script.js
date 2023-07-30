@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Vegan Tofu Stir-fry",
 "Chicken Alfredo Pasta",
 "Garlic Butter Shrimp Pasta",
+"Spaghetti Carbonara",
+"Greek Salad",
 
   ];
 
