@@ -1,4 +1,19 @@
+main {
+            padding: 20px; /* Add some padding around the main content */
+        }
 
+.image-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 15px;
+            }
+
+            .image-container img {
+              margin-top: auto;
+                width: 30%;
+                height: auto; /* This will maintain the aspect ratio of the image */
+            }
 
 body {
   background: linear-gradient(to right, #D4F780, white); /* Light green to white gradient */
@@ -36,20 +51,31 @@ footer {
   background-color: linear-gradient(to right, #D4F780, white);
   width: 100%;
   margin-top: auto;
-  height: 20px;
+  height: 80px;
+align-items: center;
+
 }
 
-.footer-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+footer ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove default padding */
+        }
+        footer ul li {
+                    display: inline; /* Display the list items on one line */
+                    margin: 0 10px; /* Add some margin on the sides */
+                }
+                footer a {
+                  color: green;
+                    text-decoration: none; /* Remove underline */
+                }
 
 .footer-links{
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
+    justify-content: center; /* Centers the list items horizontally */
+    gap: 20px; /* Sets space between the list items */
+    list-style: none; /* Removes default list styles */
+    margin: 0; /* Removes default margins */
+    padding: 0;
 }
 
 .footer-links li {
@@ -70,16 +96,12 @@ footer {
   font-weight: 900;
   content: attr(data-icon);
   font-size: 16px;
-  margin-right: 5px;
 }
 
 .footer-links a:hover {
   color: darkgreen;
 }
 
-.footer-nav {
-  margin-top: 10px;
-}
 
 @media screen and (max-width: 768px) {
   .footer-nav {
