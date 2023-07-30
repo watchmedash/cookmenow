@@ -1,8 +1,120 @@
+
+
+body {
+  background: linear-gradient(to right, #D4F780, white); /* Light green to white gradient */
+  color: #333333; /* Dark gray text color */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Gentle on the eyes font */
+  padding: 0px; /* Padding around the body */
+  margin: 0; /* No margin */
+  font-weight: bold;
+  display: flex;
+  flex-direction: column; /* Stack the content vertically */
+  min-height: 100vh; /* Minimum height of the viewport's height */
+}
+
+h1, h2, h3 {
+  text-align: center; /* Centered headers */
+  padding: 10px; /* Padding for headers */
+}
+
+img {
+  display: block; /* Makes sure the image doesn't become inline */
+  margin-left: auto; /* These two lines center the image */
+  margin-right: auto;
+  width: 50%; /* Adjust this to change the image size */
+  border-radius: 10px; /* Rounded corners */
+}
+
+ul, ol {
+padding: 10px 20px; /* Some padding on the sides and top/bottom */
+margin: 10px 20px; /* Add some margins on the sides and top/bottom */
+line-height: 1.6; /* Increase the space between lines */
+}
+
+
+footer {
+  background-color: linear-gradient(to right, #D4F780, white);
+  width: 100%;
+  margin-top: auto;
+  height: 20px;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-links{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.footer-links li {
+  display: inline-block;
+}
+
+.footer-links a {
+  color: green;
+  text-decoration: none;
+  font-size: 1.5vw;
+  display: block;
+  font-size: 16px;
+  font-size: max(min-font-size, 1.5vw);
+}
+
+.footer-links a::before {
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: attr(data-icon);
+  font-size: 16px;
+  margin-right: 5px;
+}
+
+.footer-links a:hover {
+  color: darkgreen;
+}
+
+.footer-nav {
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-links a {
+    font-size: 16px;
+  }
+}
+
+footer .copyright {
+  text-align: center;
+  font-size: 14px;
+  color: green;
+  margin-top: 20px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* Add the following styles to center the search container */
 .search-container {
   margin-top: 20px;
   text-align: center;
-  max-width: 80%; /* Set the maximum width to 70% of the screen */
+  width: 80%; /* Set the maximum width to 70% of the screen */
   margin: 0 auto; /* Center the search container horizontally */
   margin-bottom: 0; /* Remove the margin at the bottom */
 }
