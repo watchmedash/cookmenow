@@ -135,6 +135,7 @@ footer .copyright {
 /* Add the following styles to center the search container */
 .search-container {
   margin-top: 20px;
+  padding: 8px;
   text-align: center;
   width: 90%; /* Set the maximum width to 70% of the screen */
   margin: 0 auto; /* Center the search container horizontally */
