@@ -143,12 +143,12 @@ footer .copyright {
 
 /* Add styles for the search bar and icon */
 .search-container form {
-  padding: 8px; /* Add desired padding */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
+   padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   display: flex;
   width: 90%;
-  margin: 10px auto;
+margin: 0 auto;
 }
 
 .search-container input {
@@ -179,13 +179,10 @@ footer .copyright {
 
 /* Additional CSS code for the search results */
 #searchResults {
-  position: absolute;
-    z-index: 1000;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
+  top: 100%;
+z-index: 1000;
   display: none;
-  width: 62%;
+  width: 77%;
   margin: 0 auto; /* Center the search results horizontally */
   padding: 10px;
   background-color: rgba(255, 255, 255, 1); /* Add some transparency to the background */
