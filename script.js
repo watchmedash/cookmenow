@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Garlic Butter Shrimp Pasta",
 "Spaghetti Carbonara",
 "Creamy Garlic Parmesan Mushroom Chicken & Bacon",
+"Creamy Shrimp Pasta",
 
   ];
 
