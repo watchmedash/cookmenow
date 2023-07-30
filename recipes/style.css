@@ -1,0 +1,336 @@
+/* Add the following styles to center the search container */
+.search-container {
+  margin-top: 20px;
+  text-align: center;
+  max-width: 80%; /* Set the maximum width to 70% of the screen */
+  margin: 0 auto; /* Center the search container horizontally */
+  margin-bottom: 0; /* Remove the margin at the bottom */
+}
+
+/* Add styles for the search bar and icon */
+.search-container form {
+  padding: 8px; /* Add desired padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 8px 10px; /* Adjust padding as needed */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.search-container button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding: 8px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+}
+
+/* Style the search icon using Font Awesome */
+.search-container button i {
+  font-size: 20px;
+  color: green;
+
+}
+
+/* Additional CSS code for the search results */
+#searchResults {
+  position: absolute;
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+  display: none;
+  width: 62%;
+  margin: 0 auto; /* Center the search results horizontally */
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 1); /* Add some transparency to the background */
+  border-radius: 5px;
+  color: darkgreen; /* Set the font color to red */
+  font-family: 'Exo 2', sans-serif; /* Apply the "Exo 2" font to the search results */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+#searchResults ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#searchResults li {
+  margin-bottom: 5px;
+}
+
+#searchResults a {
+  font-weight: bold;
+  text-decoration: none;
+  color: darkgreen; /* Set the font color of the links to red */
+  font-family: 'Exo 2', sans-serif; /* Apply the "Exo 2" font to the list items */
+}
+
+#searchResults a:hover {
+  text-decoration: underline;
+}
+
+#searchResults p {
+  color: green; /* Set the font color of "No results found" to red */
+}
+
+
+figure {
+    position: relative;
+}
+
+
+figure img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+.logo-title-container {
+    display: flex;
+    align-items: center; /* Vertically center the logo, title, and tagline */
+}
+
+.logo-container {
+    margin-right: 10px; /* Add some spacing between the logo and the title */
+    display: flex; /* Add display flex to allow flex items to be aligned */
+    align-items: center; /* Vertically center the logo inside the container */
+    height: 80px; /* Set the fixed height of the logo container */
+    width: auto; /* Allow the container's width to adjust automatically with the logo's size */
+}
+
+.logo-container img {
+    height: 100%; /* Set the logo's height to 100% of the container's height */
+    width: auto; /* Allow the logo's width to adjust automatically with the height */
+}
+
+.nav-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80%;
+}
+
+.nav-title h1, .nav-title p {
+    font-family: 'Exo 2', sans-serif;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.nav-title h1 {
+    font-size: 2.5vw; /* updated */
+    color: green;
+}
+
+.nav-title p {
+    font-size: 1.25vw; /* updated */
+    color: green;
+}
+
+nav {
+  font-family: 'Exo 2', sans-serif;
+  background: linear-gradient(to right, #D4F780, white);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  height: 100px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  flex-wrap: wrap; /* added */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+}
+
+nav li:not(:last-child) {
+  margin-right: 30px;
+}
+
+nav li a {
+  color: green;
+  text-decoration: none;
+  font-size: 1.5vw;
+  /* Add the following styles to set a minimum font size for the links in the nav bar */
+  min-font-size: 16px;
+  font-size: max(min-font-size, 1.5vw);
+  /* Add hover color */
+  transition: color 0.3s ease;
+}
+
+nav li a:hover {
+  color: darkgreen; /* Set the hover color to red */
+}
+
+/* Add the following CSS to align the icons to the right side */
+nav .icons {
+  display: flex;
+  align-items: center;
+}
+
+/* Add the following media query to adjust the font size for smaller screens */
+@media screen and (max-width: 768px) {
+  nav li a {
+    font-size: 16px; /* Adjust the font size for smaller screens */
+  }
+}
+
+/* Add the following CSS to keep links and icons in one line */
+nav .nav-links {
+  display: flex;
+  align-items: center;
+}
+
+/* Add the following CSS to create space between links and icons */
+nav .nav-links li {
+  margin-right: 10px;
+}
+
+
+/* Additional CSS for the menu icon */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.bar {
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+}
+
+/* Add the following media query to show the menu icon and hide the navigation links when the screen size is reduced */
+@media screen and (max-width: 768px) {
+  nav .nav-links ul {
+    display: flex;
+    flex-direction: column; /* Stack the navigation links in rows */
+    align-items: flex-start; /* Align the navigation links to the left side */
+  }
+
+  nav .nav-links li {
+    margin-bottom: 10px;
+  }
+
+  /* Show the menu icon when the screen size is small */
+  .menu-icon {
+    display: none; /* Remove the menu icon */
+  }
+
+  /* Show the navigation links when the menu icon is hidden */
+  nav ul.show-menu {
+    display: flex;
+  }
+}
+
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.gallery figure {
+    flex: 1 0 calc(12.5% - 2%); /* 8 items per row */
+    max-width: calc(12.5% - 2%);
+    margin: 1%;
+    padding: 0; /* Reduce padding to 5px */
+    box-sizing: border-box;
+    background: none; /* Add a red to dark red gradient background */
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.0);
+    position: relative; /* Make corners rounded */
+}
+
+
+
+.gallery figure::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: none; /* Semi-transparent light red to red gradient */
+    border-radius: 10px; /* Make corners rounded */
+    z-index: -1; /* Place the pseudo-element behind the content */
+}
+
+.gallery figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+     /* Make image corners rounded */
+}
+
+/* Adjust to 4 items per row for screens smaller than 600px */
+@media screen and (max-width: 600px) {
+    .gallery figure {
+        flex: 1 0 calc(25% - 2%);
+        max-width: calc(25% - 2%);
+    }
+}
+
+/* Styles for the image and the caption */
+.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+.gallery figcaption {
+    text-align: center;
+    font-family: 'Exo 2', sans-serif; /* Set font family to Exo 2 */
+    color: darkgreen; /* Change the font color to white */
+    width: 100%; /* Make the caption width same as image width */
+    word-wrap: break-word;
+    margin-top: 10px;
+     /* Wrap the long titles to next line */
+}
+
+.title {
+  margin-top: 10px;
+  color: #fff;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 18px;
+}
+
+/* Remove the buttons */
+.play-button {
+  display: none;
+}

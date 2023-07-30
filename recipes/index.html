@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=64b0f5079f35fb00121494d9&product=sticky-share-buttons' async='async'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+
+
+    <title>Cook Me Now</title>
+
+    <style>
+    body {
+      background: linear-gradient(to right, #D4F780, white); /* Light green to white gradient */
+      color: #333333; /* Dark gray text color */
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Gentle on the eyes font */
+      padding: 0px; /* Padding around the body */
+      margin: 0; /* No margin */
+      font-weight: bold;
+  }
+
+  h1, h2, h3 {
+      text-align: center; /* Centered headers */
+      padding: 10px; /* Padding for headers */
+  }
+
+  img {
+      display: block; /* Makes sure the image doesn't become inline */
+      margin-left: auto; /* These two lines center the image */
+      margin-right: auto;
+      width: 50%; /* Adjust this to change the image size */
+      border-radius: 10px; /* Rounded corners */
+  }
+
+  ul, ol {
+    padding: 10px 20px; /* Some padding on the sides and top/bottom */
+    margin: 10px 20px; /* Add some margins on the sides and top/bottom */
+    line-height: 1.6; /* Increase the space between lines */
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent; /* You can change this color as you like */
+    color: green; /* This is the color of the text */
+    text-align: center;
+    font-weight: bold;
+     font-size: 22px;
+}
+    </style>
+</head>
+<body>
+<header>
+      <nav>
+  <div class="logo-title-container">
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Cook Me Now Logo">
+    </div>
+    <div class="nav-title">
+      <h1>Cook Me Now</h1>
+      <p>Recipes For Cooking</p>
+    </div>
+    <div class="menu-icon">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      </ul>
+    </div>
+</nav>
+
+
+    </header>
+
+
+    <div class="search-container">
+      <form>
+        <input type="text" id="searchInput" placeholder="Search Recipe..." autocomplete="off">
+        <button type="button"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+
+    <div id="searchResults"></div>
+
+
+
+ <div id="gallery-container" class="gallery">
+
+   <figure>
+     <a href="Spaghetti Aglio e Olio.html">
+         <img src="images/Spaghetti-Aglio-Olio 2.jpg">
+
+     </a>
+     <figcaption>Spaghetti Aglio e Olio</figcaption>
+   </figure>
+   <figure>
+     <a href="Chocolate Chip Cookies.html">
+         <img src="images/Chocolate Chip Cookies 2.jpg">
+     </a>
+     <figcaption>Chocolate Chip Cookies</figcaption>
+   </figure>
+   <figure>
+     <a href="Mac and Cheese.html">
+         <img src="images/Mac and Cheese 2.jpg">
+     </a>
+     <figcaption>Mac and Cheese</figcaption>
+   </figure>
+   <figure>
+     <a href="Apple Crumble.html">
+         <img src="images/Apple Crumble 2.jpg">
+     </a>
+     <figcaption>Apple Crumble</figcaption>
+   </figure>
+   <figure>
+     <a href="Greek Salad.html">
+         <img src="images/Greek Salad 2.jpg">
+
+     </a>
+     <figcaption>Greek Salad</figcaption>
+   </figure>
+   <figure>
+     <a href="Vegetable Stir Fry">
+         <img src="images/Vegetable Stir Fry 2.jpg">
+
+     </a>
+     <figcaption>Vegetable Stir Fry</figcaption>
+   </figure>
+   <figure>
+     <a href="Avocado Toast.html">
+         <img src="images/Avocado Toast 2.jpg">
+     </a>
+     <figcaption>Avocado Toast</figcaption>
+   </figure>
+   <figure>
+     <a href="Margherita Pizza.html">
+         <img src="images/Margherita Pizza 2.jpg">
+     </a>
+     <figcaption>Margherita Pizza</figcaption>
+   </figure>
+   <figure>
+     <a href="Classic Caesar Salad.html">
+         <img src="images/Classic Caesar Salad 2.jpg">
+     </a>
+     <figcaption>Classic Caesar Salad</figcaption>
+   </figure>
+   <figure>
+     <a href="Vegan Tofu Stir-fry.html">
+         <img src="images/Vegan Tofu Stir-fry 2.jpg">
+
+     </a>
+     <figcaption>Vegan Tofu Stir-fry</figcaption>
+   </figure>
+
+
+     <!-- Repeat for each image -->
+ </div>
+
+
+
+
+
+<div class="sharethis-inline-share-buttons"></div>
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="homepage.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
