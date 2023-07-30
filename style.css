@@ -114,7 +114,7 @@ footer .copyright {
 .search-container {
   margin-top: 20px;
   text-align: center;
-  width: 80%; /* Set the maximum width to 70% of the screen */
+  width: 90%; /* Set the maximum width to 70% of the screen */
   margin: 0 auto; /* Center the search container horizontally */
   margin-bottom: 0; /* Remove the margin at the bottom */
 }
@@ -125,7 +125,7 @@ footer .copyright {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   position: relative;
   display: flex;
-  width: 80%;
+  width: 90%;
   margin: 10px auto;
 }
 
