@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Classic Caesar Salad",
 "Vegan Tofu Stir-fry",
 "Chicken Alfredo Pasta",
-"Chocolate Chip Cookies",
+"Garlic Butter Shrimp Pasta",
 
   ];
 
