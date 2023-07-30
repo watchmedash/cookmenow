@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Margherita Pizza",
 "Classic Caesar Salad",
 "Vegan Tofu Stir-fry",
-"Chocolate Chip Cookies",
+"Chicken Alfredo Pasta",
 "Chocolate Chip Cookies",
 
   ];
