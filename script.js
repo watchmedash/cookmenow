@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Shrimp Scampi",
 "Lemon Pepper Chicken",
 "Tomato Soup",
-"Creamy Shrimp Pasta",
+"Blueberry Pancakes",
 "Creamy Shrimp Pasta",
 "Creamy Shrimp Pasta",
 "Creamy Shrimp Pasta",
