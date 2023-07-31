@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Chicken Shawarma",
 "Roasted Vegetable Quinoa Salad",
 "Fish Tacos",
-"Creamy Shrimp Pasta",
+"Chicken Parmesan",
 "Creamy Shrimp Pasta",
 "Creamy Shrimp Pasta",
 "Creamy Shrimp Pasta",
