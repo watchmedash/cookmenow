@@ -27,20 +27,6 @@ body {
   min-height: 100vh; /* Minimum height of the viewport's height */
 }
 
-body::before {
-  content: "";
-  background: url('https://www.bakedbymelissa.com/media/wysiwyg/Blog/BLOG-SAVORY-5-GRREN-GODDESS_0168.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: fixed;
-  z-index: -1;
-  backdrop-filter: blur(15px);
-}
 
 h1, h2, h3 {
   text-align: center; /* Centered headers */
