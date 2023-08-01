@@ -37,7 +37,7 @@ img {
   display: block; /* Makes sure the image doesn't become inline */
   margin-left: auto; /* These two lines center the image */
   margin-right: auto;
-  width: 50%; /* Adjust this to change the image size */
+  width: 80%; /* Adjust this to change the image size */
   border-radius: 10px; /* Rounded corners */
 }
 
