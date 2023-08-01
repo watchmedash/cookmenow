@@ -468,3 +468,27 @@ nav .nav-links li {
 .play-button {
   display: none;
 }
+
+.pagination {
+    text-align: center;
+}
+
+.pagination a {
+    display: inline-block;
+    margin: 0 30px;
+    padding: 12px 25px;
+    color: green;
+    font-size: 28px;
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+    transition: background-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.5); /* Add a red to dark red gradient background */
+    border-radius: 10px;
+    margin: 20px auto;
+      box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.3);
+}
+
+.pagination a:hover {
+    background-color: green;
+    color: white;
+}
