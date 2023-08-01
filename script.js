@@ -33,9 +33,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Chicken Parmesan",
 "Beef Stir Fry",
 "Pan-Seared Salmon",
-"Creamy Shrimp Pasta",
-"Creamy Shrimp Pasta",
-"Creamy Shrimp Pasta",
+"Roasted Beetroot and Goat Cheese Salad",
+"Eggs Benedict",
+"Kimchi Fried Rice",
+"Chicken Adobo",
+"Eggs Benedict",
+"Eggs Benedict",
+"Eggs Benedict",
+"Eggs Benedict",
+"Eggs Benedict",
+"Eggs Benedict",
+"Eggs Benedict",
+"Eggs Benedict",
+"Eggs Benedict",
 
   ];
 
