@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Eggs Benedict",
 "Kimchi Fried Rice",
 "Chicken Adobo",
-"Eggs Benedict",
+"Ramen",
 "Eggs Benedict",
 "Eggs Benedict",
 "Eggs Benedict",
