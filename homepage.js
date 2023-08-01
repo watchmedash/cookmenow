@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var numItems = $('figure').length;
-    var perPage = 32;
+    var perPage = 16;
     var numPages = Math.ceil(numItems / perPage);
     var currentPage = 1;  // Default to page 1
 
