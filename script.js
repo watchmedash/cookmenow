@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Beef Pho",
 "Paella",
 "Tom Kha Gai",
-"Ramen",
+"Pad Thai",
 "Ramen",
 "Ramen",
 "Ramen",
