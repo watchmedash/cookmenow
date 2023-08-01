@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Laksa",
 "Bibimbap",
 "Lamb Tagine",
-"Eggs Benedict",
-"Eggs Benedict",
+"Sushi Roll",
+"Hummus",
 "Eggs Benedict",
 "Eggs Benedict",
 
