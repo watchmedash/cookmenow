@@ -62,10 +62,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Osso Buco",
 "Moroccan Couscous",
 "Argentinian Empanadas",
-"Ramen",
-"Ramen",
-"Ramen",
-"Ramen",
+"Shakshuka",
+"Churros",
+"Vegetable Biryani",
+"Moussaka",
 
   ];
 
