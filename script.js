@@ -98,13 +98,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Puto",
 "Tapsilog",
 "Sinarsahang Manok",
-"Feijoada",
-"Feijoada",
-"Feijoada",
-"Feijoada",
-"Feijoada",
-"Feijoada",
-"Feijoada",
+"Pancit Palabok",
+"Ginataang Manok",
+"Lumpiang Shanghai",
+"Pancit Malabon",
+"Kakanin",
+"Palitaw",
+"Nilagang Baka",
 
 
   ];
