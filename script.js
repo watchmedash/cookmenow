@@ -82,10 +82,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Chicken Inasal",
 "Fish Sinigang",
 "Chicken Afritada",
-"Feijoada",
-"Feijoada",
-"Feijoada",
-"Feijoada",
+"Sinigang na Bangus",
+"Halo-Halo",
+"Arroz Caldo",
+
 
 
   ];
