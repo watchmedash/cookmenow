@@ -17,7 +17,7 @@ main {
 
 body {
   background: linear-gradient(to right, #D4F780, white); /* Light green to white gradient */
-  color: #333333; /* Dark gray text color */
+  color: darkgreen; /* Dark gray text color */
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Gentle on the eyes font */
   padding: 0px; /* Padding around the body */
   margin: 0; /* No margin */
@@ -492,3 +492,25 @@ nav .nav-links li {
     background-color: green;
     color: white;
 }
+
+
+.startOverButton {
+            display: inline-block;
+            margin: 0 30px;
+            padding: 12px 25px;
+            color: green;
+            font-size: 28px;
+            text-decoration: none;
+            font-family: 'Exo 2', sans-serif;
+            transition: background-color 0.3s ease;
+            background: rgba(255, 255, 255, 0.5); /* Add a red to dark red gradient background */
+            border-radius: 10px;
+            margin: 20px auto;
+              box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.3);
+              border: none;
+        }
+
+        .startOverButton:hover {
+          background-color: green;
+          color: white;
+        }
