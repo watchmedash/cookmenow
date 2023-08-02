@@ -85,7 +85,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Sinigang na Bangus",
 "Halo-Halo",
 "Arroz Caldo",
-
+"Bibingka",
+"Fresh Lumpia",
+"Ukoy",
+"Turon",
+"Sinampalukang Manok",
+"Beef Caldereta",
+"Pancit Canton",
+"Ensaladang Talong",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
 
 
   ];
