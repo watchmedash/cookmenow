@@ -66,6 +66,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Churros",
 "Vegetable Biryani",
 "Moussaka",
+"Baklava",
+"Coq au Vin",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+"Feijoada",
+
 
   ];
 
