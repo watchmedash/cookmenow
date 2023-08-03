@@ -1,1 +1,1 @@
-Sitemap: https://cookmenow.xyz/sitemap.xml
+Sitemap: https://cookmenow.xyz/index_sitemap.xml
