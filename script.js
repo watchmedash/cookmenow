@@ -135,6 +135,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Pad See Ew",
 "Chocoflan",
 "Sauerbraten",
+"Bulgogi",
+"Chicken Fajitas",
+"Vegan Lentil Curry",
+"Stuffed Bell Peppers",
+"Eggplant Parmesan",
+"Lobster Bisque",
+"Miso Soup",
+"Matzo Ball Soup",
+"Caprese Salad",
+"Chicken Tikka Masala",
+"Dal Makhani",
+"Vegan Black Bean Tacos",
+"Vegan Minestrone Soup",
+"Chicken and Dumplings",
+"Chicken Piccata",
+"Beef Stroganoff",
+"Coq au Riesling",
+"Chicken Katsu Curry",
+"Beef Wellington",
+"Fried Chicken",
+
 
 
 
