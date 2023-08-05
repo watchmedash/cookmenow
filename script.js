@@ -155,7 +155,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
 "Chicken Katsu Curry",
 "Beef Wellington",
 "Fried Chicken",
-
+"Chicken Teriyaki",
+"Chicken Binakol",
+"Chicken Pochero",
+"Chicken Pastel",
+"Chicken Caldereta",
+"Filipino Chicken Barbecue",
+"Chicken Yakitori",
+"Kung Pao Chicken",
+"Japchae",
+"Tom Yum Soup",
+"Korean Bibim Naengmyeon",
+"Vietnamese Bánh Mì",
 
 
 
