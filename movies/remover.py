@@ -5,7 +5,8 @@ directory = r'C:\Users\mojaz\Documents\GitHub\cookmenow\movies'  # Replace with 
 
 # Block to be removed
 block_to_remove = """
- - Watch Free Movies and TV Series Online
+<script async="" src="https://platform-api.sharethis.com/js/sharethis.js#property=66af2dbd595beb00197dfcab&amp;product=sticky-share-buttons">
+</script>
 """
 
 def remove_block_from_html(directory, block):
