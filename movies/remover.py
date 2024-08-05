@@ -5,30 +5,10 @@ directory = r'C:\Users\mojaz\Documents\GitHub\cookmenow\movies'  # Replace with 
 
 # Block to be removed
 block_to_remove = """
-<!--<div class="discontent"><h3>Choose server:</h3></div>
-  <div class="tabs">
-  <div class="custom-tab" onclick="switchVideo('server1', 'video-player', 'https://filemoon.sx/e/olphc307bfpy')">Filemoon</div>
-  <div class="custom-tab" onclick="switchVideo('server2', 'video-player', 'https://vidsrc.me/embed/movie/tt6263850')">Streamy</div>
-  <div class="custom-tab" onclick="switchVideo('server3', 'video-player', 'https://voe.sx/e/fq3plfkkqq7c')">Voe</div>
-   -->
-<div class="button-container"><a class="watch-now-bur" href="../contact.html">Report Error!</a></div>
+<div class="sharethis-inline-share-buttons">
+</div><div class="button-container"><a class="watch-now-bur" href="../contact.html">Report Error!</a></div>
 <div class="content"><div class="watchmenow-info"><h1>What to watch next? 🎥</h1></div></div><div class="related-movies-gallery">
 </div>
-<div id="disqus_thread"></div>
-<script>
-    var disqus_config = function () {
-        this.page.url = window.location.href;  // Use the current page URL
-        this.page.identifier = document.title; // Use the page title as the unique identifier
-    };
-
-    (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://nextflix.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <footer>
 <nav class="footer-nav">
 <ul class="footer-links">
