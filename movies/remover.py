@@ -5,8 +5,7 @@ directory = r'C:\Users\mojaz\Documents\GitHub\cookmenow\movies'  # Replace with 
 
 # Block to be removed
 block_to_remove = """
-<script async="" src="https://platform-api.sharethis.com/js/sharethis.js#property=66af2dbd595beb00197dfcab&amp;product=sticky-share-buttons">
-</script>
+<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412399424552673"></script>
 """
 
 def remove_block_from_html(directory, block):
