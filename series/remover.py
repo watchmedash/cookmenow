@@ -5,57 +5,56 @@ directory = r'C:\Users\mojaz\Documents\GitHub\cookmenow\series'  # Replace with 
 
 # Block to be removed
 block_to_remove = """
-<div class="sharethis-inline-share-buttons">
-</div><div class="button-container"><a class="watch-now-bur" href="../contact.html">Report Error!</a></div>
-<div class="content"><div class="watchmenow-info"><h1>What to watch next? 🎥</h1></div></div><div class="related-movies-gallery">
+<header>
+<nav>
+<div class="logo-title-container">
+<div class="logo-container">
+<img alt="Dashflix Logo" src="https://i.postimg.cc/qMFTZzvm/logodf.webp"/>
 </div>
-<footer>
-<nav class="footer-nav">
-<ul class="footer-links">
+<div class="nav-title">
+<h1>
+       Dashflix
+      </h1>
+<p>
+       Stream Free, Stream Now
+      </p>
+</div>
+<div class="menu-icon">
+<div class="bar">
+</div>
+<div class="bar">
+</div>
+<div class="bar">
+</div>
+</div>
+</div>
+<div class="nav-links">
+<ul>
 <li>
 <a href="../homer.html">
-       Home
-      </a>
+<i class="fas fa-home">
+</i>
+        Home
+       </a>
 </li>
 <li>
 <a href="../contact.html">
-       Contact Us
-      </a>
+<i class="fas fa-envelope">
+</i>
+        Contact Us
+       </a>
 </li>
 <li>
-<a href="../privacy policy.html">
-       Privacy Policy
-      </a>
-</li>
-<li>
-<a href="../dmca.html">
-       DMCA
-      </a>
+<a href="../about.html">
+<i class="fas fa-info-circle">
+</i>
+        About Us
+       </a>
 </li>
 </ul>
-<div class="social-icons">
-<a class="social-icon" href="https://perilastronaut.com/drgbi6nk3?key=b9a8423ba82179e793ae4a5b1096f541">
-<i class="fab fa-instagram">
-</i>
-</a>
-<a class="social-icon" href="https://perilastronaut.com/drgbi6nk3?key=b9a8423ba82179e793ae4a5b1096f541">
-<i class="fab fa-youtube">
-</i>
-</a>
-<a class="social-icon" href="https://perilastronaut.com/drgbi6nk3?key=b9a8423ba82179e793ae4a5b1096f541">
-<i class="fab fa-facebook">
-</i>
-</a>
-<a class="social-icon" href="https://perilastronaut.com/drgbi6nk3?key=b9a8423ba82179e793ae4a5b1096f541">
-<i class="fab fa-twitter">
-</i>
-</a>
 </div>
 </nav>
-<p class="copyright">
-    Dashflix 2024. All rights reserved.
-   </p>
-</footer>
+</header>
 """
 
 def remove_block_from_html(directory, block):
