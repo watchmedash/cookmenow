@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Beacon 23 - Watch Free Movies and TV Series Online" property="og:title"/>
+<meta content="Explore a world of free movies and TV series online at Beacon 23. Enjoy a variety of genres, from classics to the latest releases, all available for streaming." property="og:description"/>
+<meta content="https://nextflix.top/movies/Beacon%2023.html" property="og:url"/>
+<meta content="https://m.media-amazon.com/images/M/MV5BOTZkMzE5MjUtYjRmNC00YmY0LWI2N2EtYjA2ZmEyNGJlZGY2XkEyXkFqcGdeQXVyMjkwOTAyMDU@._V1_SX300.jpg" property="og:image"/>
+<meta content="Watch free movies and TV series online with multiple genres at Beacon 23. Discover classics and the latest releases for streaming." name="description"/>
+<meta content="Free movies, Watch free TV series, Online streaming, Beacon 23, Movie genres, Latest releases, Classic films" name="keywords"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+<link href="https://i.postimg.cc/Z5SgSyzx/favicon-32x32.png" rel="icon" type="image/png"/>
+<link href="../style.css" rel="stylesheet"/><link href=" " rel="stylesheet"/><link href="../video-js.css" rel="stylesheet"/>
+<title>
+   Beacon 23 - Watch Free Movies and TV Series Online
+  </title>
+<script async="" src="https://platform-api.sharethis.com/js/sharethis.js#property=66af2dbd595beb00197dfcab&amp;product=sticky-share-buttons">
+</script>
+<style>
+
+.custom-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.custom-dropdown select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-dropdown select:hover,
+.custom-dropdown select:focus {
+    background-color: #555; /* Darker background color on hover/focus */
+}
+
+.custom-dropdown select option {
+    background-color: #333; /* Dark background color */
+    color: #fff; /* Text color */
+}
+
+        .custom-video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            width: 95%;
+            margin: 0 auto;
+        }
+        .custom-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+<header>
+<nav>
+<div class="logo-title-container">
+<div class="logo-container">
+<img alt="Nextflix Logo" src="https://i.postimg.cc/Kv4RxRFw/logo1.png"/>
+</div>
+<div class="nav-title">
+<h1>
+       Nextflix
+      </h1>
+<p>
+       Stream Free, Stream Now
+      </p>
+</div>
+<div class="menu-icon">
+<div class="bar">
+</div>
+<div class="bar">
+</div>
+<div class="bar">
+</div>
+</div>
+</div>
+<div class="nav-links">
+<ul>
+<li>
+<a href="../homer.html">
+<i class="fas fa-home">
+</i>
+        Home
+       </a>
+</li>
+<li>
+<a href="../contact.html">
+<i class="fas fa-envelope">
+</i>
+        Contact Us
+       </a>
+</li>
+<li>
+<a href="../about.html">
+<i class="fas fa-info-circle">
+</i>
+        About Us
+       </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="content">
+<h1>
+    Beacon 23
+   </h1>
+</div>
+<div class="custom-video-container">
+    <iframe allow="autoplay" allowfullscreen="true" allowtransparency="true" class="custom-iframe" frameborder="0" id="video-player" scrolling="no" src="https://vidsrc.me/embed/tv/tt9174724/2/8" referrerpolicy="origin"></iframe>
+</div>
+
+<div class="hot"><select id="episodeDropdown" onchange="selectEpisode()">
+    <!-- Options will be dynamically populated -->
+</select></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const seasons = [
+            { season: 2, totalEpisodes: 8 },
+            { season: 1, totalEpisodes: 8 },
+            // Add more seasons as needed with their respective episode counts
+        ];
+
+        let currentSeason = seasons[0].season;
+        let currentEpisode = seasons[0].totalEpisodes;
+
+        const episodeDropdown = document.getElementById('episodeDropdown');
+
+        // Populate the dropdown with episode options for all seasons
+        seasons.forEach(season => {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = `Season ${season.season}`;
+
+            for (let episode = season.totalEpisodes; episode >= 1; episode--) {
+                const option = document.createElement('option');
+                option.value = `${season.season}-${episode}`;
+                option.text = `Season ${season.season} Episode ${episode}`;
+                optgroup.appendChild(option);
+            }
+
+            episodeDropdown.appendChild(optgroup);
+        });
+
+        function switchVideo(season, episode) {
+            const videoPlayer = document.getElementById('video-player');
+            videoPlayer.src = `https://vidsrc.me/embed/tv/tt9174724/${season}/${episode}`;
+        }
+
+        function selectEpisode() {
+            const [season, episode] = episodeDropdown.value.split('-');
+            switchVideo(parseInt(season, 10), parseInt(episode, 10));
+        }
+
+        // Initialize video player with the first episode
+        switchVideo(currentSeason, currentEpisode);
+
+        // Expose function to global scope for dropdown onchange attribute
+        window.selectEpisode = selectEpisode;
+    });
+</script>
+<div class="sharethis-inline-share-buttons">
+</div><div class="button-container"><a class="watch-now-bur" href="../contact.html">Report Error!</a></div>
+<div class="content"><div class="watchmenow-info"><h1>What to watch next? 🎥</h1></div></div><div class="related-movies-gallery">
+</div>
+<footer>
+<nav class="footer-nav">
+<ul class="footer-links">
+<li>
+<a href="../homer.html">
+       Home
+      </a>
+</li>
+<li>
+<a href="../contact.html">
+       Contact Us
+      </a>
+</li>
+<li>
+<a href="../privacy policy.html">
+       Privacy Policy
+      </a>
+</li>
+<li>
+<a href="../dmca.html">
+       DMCA
+      </a>
+</li>
+</ul>
+<div class="social-icons">
+<a class="social-icon" href="https://perilastronaut.com/gr9n5n0t?key=eff82652240d3dc20b6ea9879deadd74">
+<i class="fab fa-instagram">
+</i>
+</a>
+<a class="social-icon" href="https://perilastronaut.com/gr9n5n0t?key=eff82652240d3dc20b6ea9879deadd74">
+<i class="fab fa-youtube">
+</i>
+</a>
+<a class="social-icon" href="https://perilastronaut.com/gr9n5n0t?key=eff82652240d3dc20b6ea9879deadd74">
+<i class="fab fa-facebook">
+</i>
+</a>
+<a class="social-icon" href="https://perilastronaut.com/gr9n5n0t?key=eff82652240d3dc20b6ea9879deadd74">
+<i class="fab fa-twitter">
+</i>
+</a>
+</div>
+</nav>
+<p class="copyright">
+    Nextflix 2024. All rights reserved.
+   </p>
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+<script src="../video-switcher.js"></script>
+<script src="../video.min.js">
+</script>
+<script src="../relate.js"></script>
+<script src="../defer-images.js"></script>
+<script type='text/javascript' src='//perilastronaut.com/01/de/ba/01deba3984e693c00ff2684ebc2028e4.js'></script>
+</body>
+</html>
