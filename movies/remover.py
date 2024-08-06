@@ -1,7 +1,7 @@
 import os
 
 # Directory containing your HTML files
-directory = r'C:\Users\mojaz\Documents\GitHub\cookmenow\movies'  # Replace with your actual directory path
+directory = r'C:\Users\HP\Documents\GitHub\cookmenow\movies'  # Replace with your actual directory path
 
 # Block to be removed
 block_to_remove = """
