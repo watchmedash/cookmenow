@@ -5,7 +5,17 @@ directory = r'C:\Users\mojaz\Documents\GitHub\cookmenow\movies'  # Replace with 
 
 # Block to be removed
 block_to_remove = """
-<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412399424552673"></script>
+<header>
+<nav>
+<div class="logo-title-container">
+<div class="logo-container"><img alt="Dashflix Logo" src="https://i.postimg.cc/qMFTZzvm/logodf.webp"/></div>
+<div class="nav-title"><h1>Dashflix</h1><p>Stream Free, Stream Now</p></div>
+</div><div class="nav-links"><ul>
+<li><a href="../home.html"><i class="fas fa-home"></i>Home</a></li>
+<li><a href="../contact.html"><i class="fas fa-envelope"></i>Contact Us</a></li>
+<li><a href="../about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+</ul></div></nav>
+</header>
 """
 
 def remove_block_from_html(directory, block):
