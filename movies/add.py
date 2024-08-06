@@ -1,7 +1,7 @@
 import os
 
 # Define the script to be added
-script_code = "<script type='text/javascript' src='//perilastronaut.com/01/de/ba/01deba3984e693c00ff2684ebc2028e4.js'></script>"
+script_code = '<div class="button-container"><a class="watch-now-bur" href="https://dashflix.top/home">Home</a></div>'
 
 # Get the current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
