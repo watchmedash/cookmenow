@@ -5,48 +5,11 @@ directory = r'C:\Users\HP\Documents\GitHub\cookmenow\movies'  # Replace with you
 
 # Block to be removed
 block_to_remove = """
-<header>
-<nav>
-<div class="logo-title-container">
-<div class="logo-container">
-<img alt="Nextflix Logo" src="https://i.postimg.cc/Kv4RxRFw/logo1.png"/>
-</div>
-<div class="nav-title">
-<h1>
-       Nextflix
-      </h1>
-<p>
-       Stream Free, Stream Now
-      </p>
-</div>
-</div>
-<div class="nav-links">
-<ul>
-<li>
-<a href="../home.html">
-<i class="fas fa-home">
-</i>
-        Home
-       </a>
-</li>
-<li>
-<a href="../contact.html">
-<i class="fas fa-envelope">
-</i>
-        Contact Us
-       </a>
-</li>
-<li>
-<a href="../about.html">
-<i class="fas fa-info-circle">
-</i>
-        About Us
-       </a>
-</li>
-</ul>
-</div>
-</nav>
-</header>
+<div class="discontent"><h3>Choose server:</h3></div>
+<div class="tabs">
+<div class="custom-tab" onclick="switchVideo('server1', 'video-player', 'https://filemoon.sx/e/aesepk62f61n')">Filemoon</div>
+<div class="custom-tab" onclick="switchVideo('server2', 'video-player', 'https://streamtape.com/e/M6XPjvKrLRhB1a')">Streamtape</div>
+<div class="custom-tab" onclick="switchVideo('server3', 'video-player', 'https://voe.sx/e/nf9tulrbq6ys')">Voe</div>-->
 """
 
 def remove_block_from_html(directory, block):
