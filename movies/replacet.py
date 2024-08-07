@@ -10,4 +10,4 @@ def replace_text_in_files(directory, old_text, new_text):
                     print(line.replace(old_text, new_text), end='')
 
 # Replace "Mercenary Enrollment" with "Overgeared" in all HTML files in the current directory
-replace_text_in_files('.', ' - Watch Free Movies and TV Series Online', '')
+replace_text_in_files('.', '<script async="" crossorigin="anonymous" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2412399424552673"></script></head>', '</head>')
