@@ -19,14 +19,6 @@ block_to_remove = """
        Stream Free, Stream Now
       </p>
 </div>
-<div class="menu-icon">
-<div class="bar">
-</div>
-<div class="bar">
-</div>
-<div class="bar">
-</div>
-</div>
 </div>
 <div class="nav-links">
 <ul>
