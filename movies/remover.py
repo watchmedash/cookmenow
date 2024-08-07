@@ -5,36 +5,48 @@ directory = r'C:\Users\HP\Documents\GitHub\cookmenow\movies'  # Replace with you
 
 # Block to be removed
 block_to_remove = """
-<style>
-}
-.video-container {
-   position: relative;
-   padding-bottom: 56.25%; /* 16:9 aspect ratio */
-   height: 0;
-   overflow: hidden;
-   width: 80%;
-   max-width: 800px; /* Optional: Set a max-width for larger screens */
-   margin: 0 auto;
-}
-.video-container iframe {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   border: 0; /* Optional: Removes border around iframe */
-   object-fit: cover;
-}
-.overlay {
-    position: absolute;
-    top: 10px; /* Adjust this to cover the pop-out icon */
-    right: 10px; /* Adjust this to cover the pop-out icon */
-    width: 50px; /* Adjust this to cover the pop-out icon */
-    height: 50px; /* Adjust this to cover the pop-out icon */
-    background: transparent;
-    z-index: 10;
-}
-    </style>
+<header>
+<nav>
+<div class="logo-title-container">
+<div class="logo-container">
+<img alt="Nextflix Logo" src="https://i.postimg.cc/Kv4RxRFw/logo1.png"/>
+</div>
+<div class="nav-title">
+<h1>
+       Nextflix
+      </h1>
+<p>
+       Stream Free, Stream Now
+      </p>
+</div>
+</div>
+<div class="nav-links">
+<ul>
+<li>
+<a href="../home.html">
+<i class="fas fa-home">
+</i>
+        Home
+       </a>
+</li>
+<li>
+<a href="../contact.html">
+<i class="fas fa-envelope">
+</i>
+        Contact Us
+       </a>
+</li>
+<li>
+<a href="../about.html">
+<i class="fas fa-info-circle">
+</i>
+        About Us
+       </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
 """
 
 def remove_block_from_html(directory, block):
