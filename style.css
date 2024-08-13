@@ -37,7 +37,7 @@
     margin-top: 10px;
     display: inline-block;
     padding: 6px 15px;
-    background: linear-gradient(45deg, #D8D8D8, #000000); /* Gradient background with red hues */
+    background: linear-gradient(45deg, #D8D8D8, #000000);
     color: #fff;
     text-decoration: none;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -45,7 +45,7 @@
     border: 2px solid #B1B1B1;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s, background 0.3s, box-shadow 0.3s; /* Smooth transitions */
+    transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
 }
 
 .watch-now-bur:hover {
@@ -566,7 +566,7 @@ figure img {
 
 /* Reset margin and padding for the whole page */
 body {
-  background: radial-gradient(circle, #4D4D4D, #000000);
+  background:#000000;
   margin: 0;
   padding: 0;
 }
@@ -579,7 +579,7 @@ body {
 
 nav {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: radial-gradient(circle, #4D4D4D, #000000);
+  background: #000000;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -654,9 +654,9 @@ body::after {
   top: 1px; /* To start below the navigation bar */
   left: 0;
   width: 100%;
-  height: calc(100% - 80px); /* Adjust the height to cover the remaining space between footer and page body */
+  height: calc(100% - 80px);
   background-repeat: repeat-y;
-  background-size: cover; /* Set background-size to "cover" to make the image cover the entire container */
+  background-size: cover;
   opacity: 0.3;
   z-index: -1;
 }
@@ -708,7 +708,7 @@ body::after {
 
 nav {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: radial-gradient(circle, #4D4D4D, #000000);
+  background: #000000;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -812,7 +812,7 @@ nav .nav-links li {
 }
 
 footer {
-  background-color: radial-gradient(circle, #4D4D4D, #000000);
+  background-color: #000000;
   padding: 10px 0;
   width: 100%;
   bottom: 0; /* Position the footer at the bottom */
