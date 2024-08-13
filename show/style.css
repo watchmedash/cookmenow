@@ -1,0 +1,261 @@
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background-color: #121212; /* Dark background */
+color: #ffffff; /* Light text color */
+}
+
+.container {
+padding: 20px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+gap: 10px;
+padding: 20px;
+}
+
+.grid-item {
+text-align: center;
+background-color: #1e1e1e;
+padding: 10px;
+border-radius: 8px;
+overflow: hidden;
+}
+
+img {
+width: 100%;
+height: auto;
+display: block;
+border-radius: 8px;
+transition: transform 0.3s ease-in-out;
+}
+
+.grid-item:hover img {
+transform: scale(1.1);
+}
+
+.player {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.8);
+justify-content: center;
+align-items: center;
+z-index: 1000;
+overflow: auto;
+}
+
+.player-content {
+position: relative;
+max-width: 70%;
+width: 100%;
+height: auto;
+border-radius: 8px;
+overflow: hidden;
+background: #000;
+}
+
+.player iframe {
+width: 100%;
+height: auto;
+aspect-ratio: 16/9;
+border: none;
+}
+
+.player .close-btn {
+position: absolute;
+top: 10px;
+right: 10px;
+background: #fff;
+border: none;
+border-radius: 50%;
+width: 20px;
+height: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+z-index: 1002; /* Ensure it is above iframe */
+opacity: 0; /* Initially hidden */
+transition: opacity 0.3s ease-in-out;
+}
+
+.player:hover .close-btn, /* Show when player is hovered */
+.player:focus-within .close-btn, /* Show when player is touched on mobile */
+.player .close-btn.show {
+opacity: 1; /* Show the button */
+}
+
+.player .close-btn::before {
+content: '✖';
+font-size: 10px;
+color: #000;
+}
+
+#season-episode-selection {
+display: none;
+position: fixed;
+bottom: 90px; /* Distance from the bottom */
+left: 50%;
+transform: translateX(-50%);
+width: calc(100% - 40px); /* Adjust to fit within player content */
+display: flex;
+justify-content: center;
+gap: 10px;
+box-sizing: border-box;
+border-radius: 8px;
+z-index: 1001; /* Ensure it is above iframe */
+}
+
+select {
+margin: 0;
+background-color: #333;
+color: #fff;
+border: 1px solid #555;
+border-radius: 4px;
+}
+
+#filters {
+display: flex;
+justify-content: center;
+gap: 10px; /* Adjust the gap between dropdowns as needed */
+margin: 20px 0; /* Add some margin above and below */
+}
+
+#filters select {
+padding: 5px;
+background-color: #333;
+color: #fff;
+border: 1px solid #555;
+border-radius: 4px;
+}
+
+#search-container {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px auto;
+max-width: 500px;
+}
+
+#search-wrapper {
+position: relative;
+flex-grow: 1; /* Allows the search wrapper to take up available space */
+}
+
+#search-input {
+padding: 10px 40px 10px 10px;
+width: 100%;
+border: 1px solid #555;
+border-radius: 4px;
+background-color: #333;
+color: #fff;
+box-sizing: border-box;
+}
+
+#search-button {
+position: absolute;
+top: 50%;
+right: 10px;
+transform: translateY(-50%);
+background: none;
+border: none;
+color: #fff;
+cursor: pointer;
+}
+
+#refreshButton {
+padding: 10px;
+margin-left: 10px;
+border: 1px solid #555;
+border-radius: 4px;
+background-color: #333;
+color: #fff;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+#refreshButton:hover {
+background-color: #444;
+}
+
+#refreshButton i {
+font-size: 16px;
+}
+
+#goToTopButton {
+position: fixed;
+bottom: 20px;
+right: 20px;
+padding: 10px 15px;
+font-size: 18px;
+color: #fff;
+background-color: #333;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+transition: background-color 0.3s ease;
+display: none; /* Hidden by default */
+z-index: 1000; /* Ensure it stays on top */
+}
+
+#goToTopButton:hover {
+background-color: #444;
+}
+
+#goToTopButton i {
+font-size: 20px;
+}
+
+/* Add these styles to your style.css */
+.nav-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.nav-btn:hover {
+    background-color: #555;
+}
+
+.nav-btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .nav-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .nav-btn:hover {
+            background-color: #555;
+        }
+
+        .notice {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #fff;
+            font-size: 14px;
+            z-index: 1001; /* Ensure it is above other content */
+            max-width: calc(100% - 20px); /* Adjust for padding */
+            text-align: center;
+        }
