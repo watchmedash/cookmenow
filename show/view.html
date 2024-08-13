@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TV Show Viewer</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        const allowedDomains = ['dashflix.top', 'dash-tv.com', 'dashtv.top'];
+        const referrer = document.referrer;
+        const referrerHost = referrer ? new URL(referrer).host : '';
+
+        if (!allowedDomains.includes(referrerHost)) {
+            document.body.innerHTML = 'Access Denied';
+        }
+    </script>
 </head>
 <body>
 
