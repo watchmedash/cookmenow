@@ -1,7 +1,7 @@
 import os
 
 # Define the script to be added
-script_code = '<script src="https://alwingulla.com/88/tag.min.js" data-zone="88676" async data-cfasync="false"></script>'
+script_code = "<script type='text/javascript' src='//perilastronaut.com/c4/d5/02/c4d502002b9c4e29427b68a75921dd77.js'></script>"
 
 # Get the current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -15,12 +15,12 @@ for filename in os.listdir(current_dir):
         with open(filepath, 'r', encoding='utf-8') as file:
             content = file.read()
 
-        # Find the position of the <body oncontextmenu="return false;"> tag
-        position = content.rfind('<body oncontextmenu="return false;">')
+        # Find the position of the </body> tag
+        position = content.rfind('</body>')
 
-        # If the tag is found, insert the script code after it
+        # If the tag is found, insert the script code before it
         if position != -1:
-            new_content = content[:position + len('<body oncontextmenu="return false;">')] + script_code + "\n" + content[position + len('<body oncontextmenu="return false;">'):]
+            new_content = content[:position] + script_code + "\n" + content[position:]
             # Write the new content back to the file
             with open(filepath, 'w', encoding='utf-8') as file:
                 file.write(new_content)
