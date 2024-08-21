@@ -1,7 +1,7 @@
 import os
 
 # Define the script to be added
-script_code = '<div class="image-contained"><a href="https://anime-x.top"><img src="https://i.postimg.cc/wMqsKcWp/anime-ad.gif" alt="Watch Anime Online Free"></a></div>'
+script_code = '<div class="image-contained"><a href="https://dash-tv.com"><img src="https://i.postimg.cc/T11ZV59f/dash-tv-ad.gif" alt="Watch TV Shows Online Free"></a></div>'
 
 # Get the current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -17,7 +17,7 @@ for filename in os.listdir(current_dir):
                 content = file.read()
 
             # Find the position of the <div class="content"> tag
-            position = content.rfind('<div class="content">')
+            position = content.rfind('<script src="../relate.js"></script>')
 
             # If the tag is found, insert the script code before it
             if position != -1:
