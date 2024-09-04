@@ -5,27 +5,7 @@ directory = r'C:\Users\HP\Documents\GitHub\cookmenow\movies'  # Replace with you
 
 # Block to be removed
 block_to_remove = """
-<div class="sharethis-inline-share-buttons">
-</div><div class="button-container"><a class="watch-now-bur" href="../contact.html">Report Error!</a></div>
-<div class="content"><div class="watchmenow-info"><h1>What to watch next? 🎥</h1></div></div><div class="related-movies-gallery">
-</div>
-<footer>
-<nav class="footer-nav">
-<ul class="footer-links">
-<li><a href="../homer.html">Home</a></li>
-<li><a href="../contact.html">Contact Us</a></li>
-<li><a href="../privacy policy.html">Privacy Policy</a></li>
-<li><a href="../dmca.html">DMCA</a></li>
-</ul>
-<div class="social-icons">
-<a class="social-icon" href="https://perilastronaut.com/gr9n5n0t?key=eff82652240d3dc20b6ea9879deadd74"><i class="fab fa-instagram"></i></a>
-<a class="social-icon" href="https://perilastronaut.com/gr9n5n0t?key=eff82652240d3dc20b6ea9879deadd74"><i class="fab fa-youtube"></i></a>
-<a class="social-icon" href="https://perilastronaut.com/gr9n5n0t?key=eff82652240d3dc20b6ea9879deadd74"><i class="fab fa-facebook"></i></a>
-<a class="social-icon" href="https://perilastronaut.com/gr9n5n0t?key=eff82652240d3dc20b6ea9879deadd74"><i class="fab fa-twitter"></i></a>
-</div>
-</nav>
-<p class="copyright">Nextflix 2024. All rights reserved.</p>
-</footer>
+<script src="//perilastronaut.com/27/b0/7b/27b07be5dbd507b6465940348cb90da5.js" type="text/javascript"></script>
 """
 
 def remove_block_from_html(directory, block):
