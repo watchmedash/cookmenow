@@ -1,7 +1,7 @@
 import os
 import re
 
-def replace_div_in_files(directory, old_div_pattern, new_div_content):
+def replace_two_divs_in_files(directory, old_div_pattern, new_div_content):
     for root, dirs, files in os.walk(directory):
         for file in files:
             if file.endswith('.html'):
@@ -31,40 +31,44 @@ def replace_div_in_files(directory, old_div_pattern, new_div_content):
                 except Exception as e:
                     print(f"Error processing {filepath}: {e}")
 
-# More flexible regex pattern to handle variations in spacing and newlines
+# Regular expression pattern to match exactly two <div class="image-contained"> blocks
 old_div_pattern = re.compile(r'''
-    <div\s+class="image-contained">\s*   # Match div with class="image-contained"
-    <a\s+href="https://go\.dashflix\.top/free50dollars">\s*  # Match the a tag with href
-    <img[^>]*?>\s*</a>\s*</div>\s*       # Match the img tag inside the a tag and closing div
-    \s*                                  # Allow for optional whitespace or newlines between blocks
-    <div\s+class="image-contained">\s*   # Second div block
+    <div\s+class="image-contained">\s*   # Match the first div
     <a\s+href="https://go\.dashflix\.top/free50dollars">\s*
-    <img[^>]*?>\s*</a>\s*</div>\s*
-    \s*                                  # Allow for optional whitespace or newlines between blocks
-    <div\s+class="image-contained">\s*   # Third div block
+    <img[^>]*?>\s*</a>\s*</div>\s*       # Match the img inside the a tag
+    \s*                                  # Allow optional whitespace or newlines between blocks
+    <div\s+class="image-contained">\s*   # Match the second div
     <a\s+href="https://go\.dashflix\.top/free50dollars">\s*
     <img[^>]*?>\s*</a>\s*</div>
 ''', re.DOTALL | re.VERBOSE)
 
-# Define the new div content to replace the old divs
+# New content to replace the matched divs
 new_div_content = '''
 <div class="terra">
     <script type="text/javascript">
         atOptions = {
-            'key' : '1e3bb364d2648c38d52a0b681932f0e1',
+            'key' : '2a96efd2197a238b07deb35984b19d75',
             'format' : 'iframe',
-            'height' : 90,
-            'width' : 728,
+            'height' : 60,
+            'width' : 468,
             'params' : {}
         };
     </script>
-    <script type="text/javascript" src="//perilastronaut.com/1e3bb364d2648c38d52a0b681932f0e1/invoke.js"></script>
+    <script type="text/javascript" src="//perilastronaut.com/2a96efd2197a238b07deb35984b19d75/invoke.js"></script>
 </div>
 <div class="terra">
-    <script async="async" data-cfasync="false" src="//perilastronaut.com/011adeeaa3099f7cac95f3cae6e94d52/invoke.js"></script>
-    <div id="container-011adeeaa3099f7cac95f3cae6e94d52"></div>
+    <script type="text/javascript">
+        atOptions = {
+            'key' : 'bf040c76d43b39046092658d84c88123',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+        };
+    </script>
+    <script type="text/javascript" src="//perilastronaut.com/bf040c76d43b39046092658d84c88123/invoke.js"></script>
 </div>
 '''
 
-# Call the function to replace the div content recursively in all files
-replace_div_in_files('.', old_div_pattern, new_div_content)
+# Call the function to replace the divs recursively in all files
+replace_two_divs_in_files('.', old_div_pattern, new_div_content)
