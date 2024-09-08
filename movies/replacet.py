@@ -10,22 +10,41 @@ def replace_div_in_files(directory, old_div_pattern, new_div_content):
                     with open(filepath, 'r', encoding='utf-8') as f:
                         content = f.read()
 
-                    # Replace only the specific old div pattern when there are exactly 3 consecutive divs
-                    new_content = re.sub(old_div_pattern, new_div_content, content, flags=re.DOTALL)
+                    # Find and print any matches
+                    matches = old_div_pattern.findall(content)
+                    if matches:
+                        print(f"Found matches in {filepath}:")
+                        for match in matches:
+                            print(match)
+                    else:
+                        print(f"No matches found in {filepath}")
 
-                    with open(filepath, 'w', encoding='utf-8') as f:
-                        f.write(new_content)
+                    # Replace the old div pattern with new content
+                    new_content = old_div_pattern.sub(new_div_content, content)
+
+                    # If changes were made, write the new content
+                    if new_content != content:
+                        with open(filepath, 'w', encoding='utf-8') as f:
+                            f.write(new_content)
                         print(f"Replaced text in {filepath}")
 
                 except Exception as e:
                     print(f"Error processing {filepath}: {e}")
 
-# Define the specific pattern to match three consecutive divs with the same structure
+# More flexible regex pattern to handle variations in spacing and newlines
 old_div_pattern = re.compile(r'''
-    (<div\s+class="image-contained">\s*
-    <a\s+href="https://go\.dashflix\.top/free50dollars">.*?</a>\s*
-    </div>\s*){3}
-''', re.DOTALL)
+    <div\s+class="image-contained">\s*   # Match div with class="image-contained"
+    <a\s+href="https://go\.dashflix\.top/free50dollars">\s*  # Match the a tag with href
+    <img[^>]*?>\s*</a>\s*</div>\s*       # Match the img tag inside the a tag and closing div
+    \s*                                  # Allow for optional whitespace or newlines between blocks
+    <div\s+class="image-contained">\s*   # Second div block
+    <a\s+href="https://go\.dashflix\.top/free50dollars">\s*
+    <img[^>]*?>\s*</a>\s*</div>\s*
+    \s*                                  # Allow for optional whitespace or newlines between blocks
+    <div\s+class="image-contained">\s*   # Third div block
+    <a\s+href="https://go\.dashflix\.top/free50dollars">\s*
+    <img[^>]*?>\s*</a>\s*</div>
+''', re.DOTALL | re.VERBOSE)
 
 # Define the new div content to replace the old divs
 new_div_content = '''
