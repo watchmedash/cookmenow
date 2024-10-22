@@ -1,3 +1,45 @@
+/* Dark-themed styles for the select element */
+#video-source {
+    background-color: #333; /* Dark background */
+    color: #fff; /* White text */
+    border: 1px solid #555; /* Slightly lighter border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding for better spacing */
+    width: 100%; /* Full width */
+    font-size: 16px; /* Font size */
+    appearance: none; /* Remove default dropdown arrow */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Add a custom arrow icon using a pseudo-element */
+#video-source::after {
+    content: "▼"; /* Custom dropdown arrow */
+    position: absolute; /* Position it absolutely */
+    right: 15px; /* Position from the right */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for centering */
+    color: #fff; /* Arrow color */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Add hover effects */
+#video-source:hover {
+    border-color: #777; /* Change border color on hover */
+}
+
+/* Optional: Style the dropdown options */
+#video-source option {
+    background-color: #444; /* Dark background for options */
+    color: #fff; /* White text for options */
+}
+
+#video-source option:hover {
+    background-color: #555; /* Darker background on hover */
+}
+
+
 .floating-button {
     position: fixed;
     bottom: 20px;
