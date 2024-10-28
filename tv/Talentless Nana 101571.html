@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Talentless Nana</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    label, select {
+        font-size: 1.1em;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+    }
+    select {
+        margin: 5px 0 20px;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 200px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+    </style>
+    
+</head>
+<body oncontextmenu="return false;">
+
+<div>
+    <label for="season">Select Season:</label>
+    <select id="season" onchange="updateEpisodes()"></select>
+</div>
+<div>
+    <label for="episode">Select Episode:</label>
+    <select id="episode" onchange="changeSource()"></select>
+</div>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; max-width: 600px;">
+    <iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+    style="width: 100%; height: 100%; position: absolute;">
+    </iframe>
+</div>
+
+<div>
+    <h2>Talentless Nana</h2>
+    <p>It is the year 20XX. Earth was assaulted by monsters that would come to be known as "the Enemy of Humanity." In order to deal with this threat, special schools composed of teenagers with extraordinary abilities were formed. These people, who came to be known as "the Talented," had abilities that could defy the rules of reality.
+
+Among these people with supernatural powers was an outlier, an individual who was sent to one of these schools despite having no innate special abilities whatsoever. This is the story of our protagonist, who attempts to defeat the Enemies of Humanity through the use of intelligence and manipulation alone.</p>
+    <img src="https://image.tmdb.org/t/p/original/erj3B3eRpcd9CEPN55IAY8aupwc.jpg" alt="Talentless Nana poster" />
+</div>
+
+<a href="shows.html" class="back-button">← Back to Shows List</a>
+
+
+    <script>
+    const api_key = "4f599baa15d072c9de346b2816a131b8";
+    const tmdb_id = "101571";
+    const video_url_template = "https://vidsrc.xyz/embed/tv?tmdb=101571&season={season}&episode={episode}";
+
+    function loadSeasons() {
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                const seasonDropdown = document.getElementById("season");
+                data.seasons.forEach(season => {
+                    const option = document.createElement("option");
+                    option.value = season.season_number;
+                    option.textContent = "Season " + season.season_number;
+                    seasonDropdown.appendChild(option);
+                });
+                updateEpisodes();
+            })
+            .catch(error => console.error("Error fetching seasons:", error));
+    }
+
+    function updateEpisodes() {
+        const season = document.getElementById("season").value;
+        const episodeDropdown = document.getElementById("episode");
+        episodeDropdown.innerHTML = "";
+
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}/season/${season}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                data.episodes.forEach(episode => {
+                    if (new Date(episode.air_date) <= new Date()) {
+                        const option = document.createElement("option");
+                        option.value = episode.episode_number;
+                        option.textContent = "Episode " + episode.episode_number;
+                        episodeDropdown.appendChild(option);
+                    }
+                });
+                changeSource();
+            })
+            .catch(error => console.error("Error fetching episodes:", error));
+    }
+
+    function changeSource() {
+        const season = document.getElementById("season").value;
+        const episode = document.getElementById("episode").value;
+        const iframe = document.getElementById("video-player");
+        iframe.src = video_url_template.replace("{season}", season).replace("{episode}", episode);
+    }
+
+    document.addEventListener("DOMContentLoaded", loadSeasons);
+    </script>
+    
+
+</body>
+</html>

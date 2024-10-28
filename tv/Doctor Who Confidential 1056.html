@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Doctor Who Confidential</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    label, select {
+        font-size: 1.1em;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+    }
+    select {
+        margin: 5px 0 20px;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 200px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+    </style>
+    
+</head>
+<body oncontextmenu="return false;">
+
+
+<!-- Season and Episode Dropdowns -->
+<div>
+    <label for="season">Select Season:</label>
+    <select id="season" onchange="updateEpisodes()"></select>
+</div>
+<div>
+    <label for="episode">Select Episode:</label>
+    <select id="episode" onchange="changeSource()"></select>
+</div>
+
+<!-- Video iframe -->
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; max-width: 600px;">
+    <iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+    style="width: 100%; height: 100%; position: absolute;">
+    </iframe>
+</div>
+
+<!-- TV Show Details -->
+<div>
+    <h2>Doctor Who Confidential</h2>
+    <p>Doctor Who Confidential is a documentary series created by the British Broadcasting Corporation to complement the revival of the long-running British science fiction television series Doctor Who. Each episode was broadcast on BBC Three on Saturdays, immediately after the broadcast of the weekly television episode on BBC One. The running time of the first two series was 30 minutes, being extended to 45 minutes in the third. BBC Three also broadcast a cut-down edition of the programme, lasting 15 minutes, shown after the repeats on Sundays and Fridays and after the weekday evening repeats of earlier seasons.
+
+Described as focusing on the human element of the series, Confidential features behind-the-scenes footage on the making of Doctor Who through clips and interviews with the cast, production crew and other people, including those who have participated in the television series over the years of its existence. Each episode deals with a different topic, and in most cases refers to the Doctor Who episode that preceded it.
+
+There have also been two episodes of Doctor Who Confidential broadcast apart from the showing of Doctor Who episodes: in November 2006 an edition subtitled "Music and Monsters" was produced going behind the scenes of a televised concert of soundtrack music produced as part of that year's Children in Need appeal, and on 3 January 2009, a special edition was broadcast to announce the actor chosen to play the Eleventh Doctor.</p>
+    <img src="https://image.tmdb.org/t/p/original/3TAO5VgSyICVTL5Hvv6L4V12nig.jpg" alt="Doctor Who Confidential poster" />
+</div>
+
+<a href="shows.html" class="back-button">← Back to Shows List</a>
+
+
+    <script>
+    const api_key = "4f599baa15d072c9de346b2816a131b8";
+    const tmdb_id = "1056";
+    const video_url_template = "https://vidsrc.xyz/embed/tv?tmdb=1056&season={season}&episode={episode}";
+
+    // Fetch seasons data and populate season dropdown
+    function loadSeasons() {
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                const seasonDropdown = document.getElementById("season");
+                data.seasons.forEach(season => {
+                    const option = document.createElement("option");
+                    option.value = season.season_number;
+                    option.textContent = "Season " + season.season_number;
+                    seasonDropdown.appendChild(option);
+                });
+                updateEpisodes(); // Load episodes for the first season
+            })
+            .catch(error => console.error("Error fetching seasons:", error));
+    }
+
+    // Fetch episodes based on selected season and populate episode dropdown
+    function updateEpisodes() {
+        const season = document.getElementById("season").value;
+        const episodeDropdown = document.getElementById("episode");
+        episodeDropdown.innerHTML = "";  // Clear previous episodes
+
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}/season/${season}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                data.episodes.forEach(episode => {
+                    if (new Date(episode.air_date) <= new Date()) { // Only include released episodes
+                        const option = document.createElement("option");
+                        option.value = episode.episode_number;
+                        option.textContent = "Episode " + episode.episode_number;
+                        episodeDropdown.appendChild(option);
+                    }
+                });
+                changeSource(); // Set the video source to the first episode
+            })
+            .catch(error => console.error("Error fetching episodes:", error));
+    }
+
+    // Change the iframe source based on selected season and episode
+    function changeSource() {
+        const season = document.getElementById("season").value;
+        const episode = document.getElementById("episode").value;
+        const iframe = document.getElementById("video-player");
+        iframe.src = video_url_template.replace("{season}", season).replace("{episode}", episode);
+    }
+
+    document.addEventListener("DOMContentLoaded", loadSeasons);
+    </script>
+    
+
+</body>
+</html>

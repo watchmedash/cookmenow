@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>My Stepmom's Daughter Is My Ex</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    label, select {
+        font-size: 1.1em;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+    }
+    select {
+        margin: 5px 0 20px;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 200px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+    </style>
+    
+</head>
+<body oncontextmenu="return false;">
+
+<div>
+    <label for="season">Select Season:</label>
+    <select id="season" onchange="updateEpisodes()"></select>
+</div>
+<div>
+    <label for="episode">Select Episode:</label>
+    <select id="episode" onchange="changeSource()"></select>
+</div>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; max-width: 600px;">
+    <iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+    style="width: 100%; height: 100%; position: absolute;">
+    </iframe>
+</div>
+
+<div>
+    <h2>My Stepmom's Daughter Is My Ex</h2>
+    <p>Ah, high school. Is there any better place to start fresh after a horrible middle school relationship? Nope! Not unless your ex ends up at the same school as you and is now your stepsibling. What was supposed to be a sanctuary of peace where I could avoid ever seeing her again has become a living nightmare! Everywhere I look, I see her—in my house, in my school, in my class. There's no escape! She even claims that she's the older sibling. Like hell she is!
+
+But I won't lose to her. After all, I'm the older brother in this new family situation. That's right, we're family now. No matter how much we may have thought we loved each other before, we saw one another's true colors and realized we weren't meant for each other. That's why even though we may keep up a buddy-buddy sibling act for the sake of our parents, things will never go back to the way they used to be.</p>
+    <img src="https://image.tmdb.org/t/p/original/eQMIfN5L2eIwOeFep6Dt6H7X4kg.jpg" alt="My Stepmom's Daughter Is My Ex poster" />
+</div>
+
+<a href="shows.html" class="back-button">← Back to Shows List</a>
+
+
+    <script>
+    const api_key = "4f599baa15d072c9de346b2816a131b8";
+    const tmdb_id = "129516";
+    const video_url_template = "https://vidsrc.xyz/embed/tv?tmdb=129516&season={season}&episode={episode}";
+
+    function loadSeasons() {
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                const seasonDropdown = document.getElementById("season");
+                data.seasons.forEach(season => {
+                    const option = document.createElement("option");
+                    option.value = season.season_number;
+                    option.textContent = "Season " + season.season_number;
+                    seasonDropdown.appendChild(option);
+                });
+                updateEpisodes();
+            })
+            .catch(error => console.error("Error fetching seasons:", error));
+    }
+
+    function updateEpisodes() {
+        const season = document.getElementById("season").value;
+        const episodeDropdown = document.getElementById("episode");
+        episodeDropdown.innerHTML = "";
+
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}/season/${season}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                data.episodes.forEach(episode => {
+                    if (new Date(episode.air_date) <= new Date()) {
+                        const option = document.createElement("option");
+                        option.value = episode.episode_number;
+                        option.textContent = "Episode " + episode.episode_number;
+                        episodeDropdown.appendChild(option);
+                    }
+                });
+                changeSource();
+            })
+            .catch(error => console.error("Error fetching episodes:", error));
+    }
+
+    function changeSource() {
+        const season = document.getElementById("season").value;
+        const episode = document.getElementById("episode").value;
+        const iframe = document.getElementById("video-player");
+        iframe.src = video_url_template.replace("{season}", season).replace("{episode}", episode);
+    }
+
+    document.addEventListener("DOMContentLoaded", loadSeasons);
+    </script>
+    
+
+</body>
+</html>

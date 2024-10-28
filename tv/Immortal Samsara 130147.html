@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Immortal Samsara</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    label, select {
+        font-size: 1.1em;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+    }
+    select {
+        margin: 5px 0 20px;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 200px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+    </style>
+    
+</head>
+<body oncontextmenu="return false;">
+
+<div>
+    <label for="season">Select Season:</label>
+    <select id="season" onchange="updateEpisodes()"></select>
+</div>
+<div>
+    <label for="episode">Select Episode:</label>
+    <select id="episode" onchange="changeSource()"></select>
+</div>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; max-width: 600px;">
+    <iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+    style="width: 100%; height: 100%; position: absolute;">
+    </iframe>
+</div>
+
+<div>
+    <h2>Immortal Samsara</h2>
+    <p>Yan Dan is the only descendant of an ancient tribe, the four-leaf scorpion. Since ancient times, her whole body has been a treasure of medicine. She and her twin sister Zhixi were able to cultivate into human form at the Queen Mother's Feast a hundred years in advance and encountered the biggest trial in her life - the love trial. She fell in love with Lord Ying Yuan but had to spend the next 800 years forgetting him. However, at this time, Yu Mo suddenly entered her life, and become her great support. Every day, Yu Mo takes Yan Dan out to do good deeds. One day while they were punishing evil, they meet Lord Ying Yuan's current reincarnation, Tang Zhou, who is currently a demon hunter. They help Tang Zhou search for the four ancient artifacts, and also discover a mysterious secret.</p>
+    <img src="https://image.tmdb.org/t/p/original/guScvEfq9QpnRwCjzYwQFbSSIr7.jpg" alt="Immortal Samsara poster" />
+</div>
+
+<a href="shows.html" class="back-button">← Back to Shows List</a>
+
+
+    <script>
+    const api_key = "4f599baa15d072c9de346b2816a131b8";
+    const tmdb_id = "130147";
+    const video_url_template = "https://vidsrc.xyz/embed/tv?tmdb=130147&season={season}&episode={episode}";
+
+    function loadSeasons() {
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                const seasonDropdown = document.getElementById("season");
+                data.seasons.forEach(season => {
+                    const option = document.createElement("option");
+                    option.value = season.season_number;
+                    option.textContent = "Season " + season.season_number;
+                    seasonDropdown.appendChild(option);
+                });
+                updateEpisodes();
+            })
+            .catch(error => console.error("Error fetching seasons:", error));
+    }
+
+    function updateEpisodes() {
+        const season = document.getElementById("season").value;
+        const episodeDropdown = document.getElementById("episode");
+        episodeDropdown.innerHTML = "";
+
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}/season/${season}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                data.episodes.forEach(episode => {
+                    if (new Date(episode.air_date) <= new Date()) {
+                        const option = document.createElement("option");
+                        option.value = episode.episode_number;
+                        option.textContent = "Episode " + episode.episode_number;
+                        episodeDropdown.appendChild(option);
+                    }
+                });
+                changeSource();
+            })
+            .catch(error => console.error("Error fetching episodes:", error));
+    }
+
+    function changeSource() {
+        const season = document.getElementById("season").value;
+        const episode = document.getElementById("episode").value;
+        const iframe = document.getElementById("video-player");
+        iframe.src = video_url_template.replace("{season}", season).replace("{episode}", episode);
+    }
+
+    document.addEventListener("DOMContentLoaded", loadSeasons);
+    </script>
+    
+
+</body>
+</html>

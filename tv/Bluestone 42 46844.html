@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Bluestone 42</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    label, select {
+        font-size: 1.1em;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+    }
+    select {
+        margin: 5px 0 20px;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 200px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+    </style>
+    
+</head>
+<body oncontextmenu="return false;">
+
+
+<!-- Season and Episode Dropdowns -->
+<div>
+    <label for="season">Select Season:</label>
+    <select id="season" onchange="updateEpisodes()"></select>
+</div>
+<div>
+    <label for="episode">Select Episode:</label>
+    <select id="episode" onchange="changeSource()"></select>
+</div>
+
+<!-- Video iframe -->
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; max-width: 600px;">
+    <iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+    style="width: 100%; height: 100%; position: absolute;">
+    </iframe>
+</div>
+
+<!-- TV Show Details -->
+<div>
+    <h2>Bluestone 42</h2>
+    <p>Bluestone 42 is a comedy drama about a British bomb disposal detachment in Afghanistan. So what’s the average working day for a hero? Make your keen young colleague deal with the boring paperwork? Wind up your fellow employees? Flirt with the new girl on the team? Or deal with an unseen enemy who’s trying to blow you up? Bluestone 42 is a comedy drama about a bunch of soldiers who just happen to be risking their lives diffusing hidden bombs. But who says they can’t have some fun alongside the serious professional stuff? This hilarious and often surprising series follows the adventures of a bunch of diverse characters living and working together at an army base in Afghanistan. This is a show about something easily forgotten; soldiers really enjoy being soldiers, but it’s not just a show for soldiers and it’s not just about the Army: it’s also a show for anybody who has ever fallen in love, experienced status battles at work or had a fear of failure. It is packed with the lively workmate banter and relationship minefields that most people will recognise. Even if they don’t face danger on a daily basis...</p>
+    <img src="https://image.tmdb.org/t/p/original/nxHMf7PnrVHv5y5GWHCJyN9zYWV.jpg" alt="Bluestone 42 poster" />
+</div>
+
+<a href="shows.html" class="back-button">← Back to Shows List</a>
+
+
+    <script>
+    const api_key = "4f599baa15d072c9de346b2816a131b8";
+    const tmdb_id = "46844";
+    const video_url_template = "https://vidsrc.xyz/embed/tv?tmdb=46844&season={season}&episode={episode}";
+
+    // Fetch seasons data and populate season dropdown
+    function loadSeasons() {
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                const seasonDropdown = document.getElementById("season");
+                data.seasons.forEach(season => {
+                    const option = document.createElement("option");
+                    option.value = season.season_number;
+                    option.textContent = "Season " + season.season_number;
+                    seasonDropdown.appendChild(option);
+                });
+                updateEpisodes(); // Load episodes for the first season
+            })
+            .catch(error => console.error("Error fetching seasons:", error));
+    }
+
+    // Fetch episodes based on selected season and populate episode dropdown
+    function updateEpisodes() {
+        const season = document.getElementById("season").value;
+        const episodeDropdown = document.getElementById("episode");
+        episodeDropdown.innerHTML = "";  // Clear previous episodes
+
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}/season/${season}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                data.episodes.forEach(episode => {
+                    if (new Date(episode.air_date) <= new Date()) { // Only include released episodes
+                        const option = document.createElement("option");
+                        option.value = episode.episode_number;
+                        option.textContent = "Episode " + episode.episode_number;
+                        episodeDropdown.appendChild(option);
+                    }
+                });
+                changeSource(); // Set the video source to the first episode
+            })
+            .catch(error => console.error("Error fetching episodes:", error));
+    }
+
+    // Change the iframe source based on selected season and episode
+    function changeSource() {
+        const season = document.getElementById("season").value;
+        const episode = document.getElementById("episode").value;
+        const iframe = document.getElementById("video-player");
+        iframe.src = video_url_template.replace("{season}", season).replace("{episode}", episode);
+    }
+
+    document.addEventListener("DOMContentLoaded", loadSeasons);
+    </script>
+    
+
+</body>
+</html>

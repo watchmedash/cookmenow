@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>The Mystery Files of Shelby Woo</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    label, select {
+        font-size: 1.1em;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+    }
+    select {
+        margin: 5px 0 20px;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 200px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+    </style>
+    
+</head>
+<body oncontextmenu="return false;">
+
+
+<!-- Season and Episode Dropdowns -->
+<div>
+    <label for="season">Select Season:</label>
+    <select id="season" onchange="updateEpisodes()"></select>
+</div>
+<div>
+    <label for="episode">Select Episode:</label>
+    <select id="episode" onchange="changeSource()"></select>
+</div>
+
+<!-- Video iframe -->
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; max-width: 600px;">
+    <iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+    style="width: 100%; height: 100%; position: absolute;">
+    </iframe>
+</div>
+
+<!-- TV Show Details -->
+<div>
+    <h2>The Mystery Files of Shelby Woo</h2>
+    <p>The Mystery Files of Shelby Woo is a youth-oriented action mystery television series that ran on Nickelodeon between 1996 and 1998. A total of 41 episodes of 30 minutes each were produced. Episodes were taped at the now defunct Nickelodeon Studios in Orlando, Florida.
+
+Starring Irene Ng as the title character, the series revolves around the adventures of a young teenage girl who lives with her innkeeper grandfather and works as a non-sworn intern at the local police department where she helps out with odds and ends around the office. Occasionally an intriguing case comes to Shelby's attention, prompting her to apply her unique insight and enlist the help of her friends to solve it. Her supervisors, however, do not appreciate her help, as she is only a teenager. Her grandfather also does not want her getting involved in cases, often reminding her, "We are not detectives with warrant badges, we are innkeepers with brooms." Many of the stories, with three clear suspects, keep the audience guessing until the truth is ultimately explained.
+
+The show is set in the cities of Cocoa Beach, Florida and Boston, Massachusetts.
+
+On December 28, 2011, TeenNick aired the episode "The Smoke Screen Case" on the The '90s Are All That block.</p>
+    <img src="https://image.tmdb.org/t/p/original/ArrCCFlyWCxwCYLiMAhLnSXiG6w.jpg" alt="The Mystery Files of Shelby Woo poster" />
+</div>
+
+<a href="shows.html" class="back-button">← Back to Shows List</a>
+
+
+    <script>
+    const api_key = "4f599baa15d072c9de346b2816a131b8";
+    const tmdb_id = "9843";
+    const video_url_template = "https://vidsrc.xyz/embed/tv?tmdb=9843&season={season}&episode={episode}";
+
+    // Fetch seasons data and populate season dropdown
+    function loadSeasons() {
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                const seasonDropdown = document.getElementById("season");
+                data.seasons.forEach(season => {
+                    const option = document.createElement("option");
+                    option.value = season.season_number;
+                    option.textContent = "Season " + season.season_number;
+                    seasonDropdown.appendChild(option);
+                });
+                updateEpisodes(); // Load episodes for the first season
+            })
+            .catch(error => console.error("Error fetching seasons:", error));
+    }
+
+    // Fetch episodes based on selected season and populate episode dropdown
+    function updateEpisodes() {
+        const season = document.getElementById("season").value;
+        const episodeDropdown = document.getElementById("episode");
+        episodeDropdown.innerHTML = "";  // Clear previous episodes
+
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}/season/${season}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                data.episodes.forEach(episode => {
+                    if (new Date(episode.air_date) <= new Date()) { // Only include released episodes
+                        const option = document.createElement("option");
+                        option.value = episode.episode_number;
+                        option.textContent = "Episode " + episode.episode_number;
+                        episodeDropdown.appendChild(option);
+                    }
+                });
+                changeSource(); // Set the video source to the first episode
+            })
+            .catch(error => console.error("Error fetching episodes:", error));
+    }
+
+    // Change the iframe source based on selected season and episode
+    function changeSource() {
+        const season = document.getElementById("season").value;
+        const episode = document.getElementById("episode").value;
+        const iframe = document.getElementById("video-player");
+        iframe.src = video_url_template.replace("{season}", season).replace("{episode}", episode);
+    }
+
+    document.addEventListener("DOMContentLoaded", loadSeasons);
+    </script>
+    
+
+</body>
+</html>

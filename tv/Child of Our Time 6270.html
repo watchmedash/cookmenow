@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Child of Our Time</title>
+
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    label, select {
+        font-size: 1.1em;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+    }
+    select {
+        margin: 5px 0 20px;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 200px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+    </style>
+    
+</head>
+<body oncontextmenu="return false;">
+
+
+<!-- Season and Episode Dropdowns -->
+<div>
+    <label for="season">Select Season:</label>
+    <select id="season" onchange="updateEpisodes()"></select>
+</div>
+<div>
+    <label for="episode">Select Episode:</label>
+    <select id="episode" onchange="changeSource()"></select>
+</div>
+
+<!-- Video iframe -->
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; max-width: 600px;">
+    <iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+    style="width: 100%; height: 100%; position: absolute;">
+    </iframe>
+</div>
+
+<!-- TV Show Details -->
+<div>
+    <h2>Child of Our Time</h2>
+    <p>Child of Our Time is a documentary commissioned by the BBC, co-produced with the Open University and presented by Robert Winston. It follows the lives of 25 children, born at the beginning of the 21st century, as they grow from infancy, through childhood, and on to becoming young adults.
+
+The aim of the series is to build up a coherent and scientifically accurate picture of how the genes and the environment of growing children interact to make a fully formed adult. A large portion of the series is made up of experiments designed to examine these questions. The main topic under consideration is: "Are we born or are we made?". The nature of the family in contemporary Britain is also addressed.
+
+The project is planned to run for 20 years, following its subjects from birth until the age of 20. During the first half of its run a set of about three or four episodes was produced annually. After 2008 new episodes became less frequent, and in 2011 there was some doubt about the future of the programme, including from Winston himself. In February 2013 it was announced that the series would resume, with two new episodes presented by Winston. Rather than the psychological experiments of previous series, these episodes focused on the first interviews with the participating children themselves and their families.</p>
+    <img src="https://image.tmdb.org/t/p/originalNone" alt="Child of Our Time poster" />
+</div>
+
+<a href="shows.html" class="back-button">← Back to Shows List</a>
+
+
+    <script>
+    const api_key = "4f599baa15d072c9de346b2816a131b8";
+    const tmdb_id = "6270";
+    const video_url_template = "https://vidsrc.xyz/embed/tv?tmdb=6270&season={season}&episode={episode}";
+
+    // Fetch seasons data and populate season dropdown
+    function loadSeasons() {
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                const seasonDropdown = document.getElementById("season");
+                data.seasons.forEach(season => {
+                    const option = document.createElement("option");
+                    option.value = season.season_number;
+                    option.textContent = "Season " + season.season_number;
+                    seasonDropdown.appendChild(option);
+                });
+                updateEpisodes(); // Load episodes for the first season
+            })
+            .catch(error => console.error("Error fetching seasons:", error));
+    }
+
+    // Fetch episodes based on selected season and populate episode dropdown
+    function updateEpisodes() {
+        const season = document.getElementById("season").value;
+        const episodeDropdown = document.getElementById("episode");
+        episodeDropdown.innerHTML = "";  // Clear previous episodes
+
+        fetch(`https://api.themoviedb.org/3/tv/${tmdb_id}/season/${season}?api_key=${api_key}`)
+            .then(response => response.json())
+            .then(data => {
+                data.episodes.forEach(episode => {
+                    if (new Date(episode.air_date) <= new Date()) { // Only include released episodes
+                        const option = document.createElement("option");
+                        option.value = episode.episode_number;
+                        option.textContent = "Episode " + episode.episode_number;
+                        episodeDropdown.appendChild(option);
+                    }
+                });
+                changeSource(); // Set the video source to the first episode
+            })
+            .catch(error => console.error("Error fetching episodes:", error));
+    }
+
+    // Change the iframe source based on selected season and episode
+    function changeSource() {
+        const season = document.getElementById("season").value;
+        const episode = document.getElementById("episode").value;
+        const iframe = document.getElementById("video-player");
+        iframe.src = video_url_template.replace("{season}", season).replace("{episode}", episode);
+    }
+
+    document.addEventListener("DOMContentLoaded", loadSeasons);
+    </script>
+    
+
+</body>
+</html>
