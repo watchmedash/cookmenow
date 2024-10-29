@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Betrayed</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/598439">Server 1</option>
+<option value="https://embed.su/embed/movie/598439">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/598439">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/598439">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=598439&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/598439">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/598439"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Betrayed (2020)</h2>
+<p><strong>Genres:</strong> Drama, History, War</p>
+<p><strong>Plot:</strong> During World War II, millions of Jews from all over Europe are deported and killed in German concentration camps. When the German troops invade Norway, the Norwegian Jews feel safe and protected. But anti-Semitism knows no borders and as the war escalates in Europe, the situation changes drastically. Suddenly, their radios are taken away; their passports are stamped with a big J and one day, all the men men over the age of 15 are arrested and taken to prisons camps. Many of the women left behind are too frightened to escape and are desperately waiting for their husbands and sons to come back home. On November 26, 1942, hundreds of Jews are picked up by the police in the middle of the night and are transported to the dock in Oslo. Unknowing and frightened men, women, children, sick and old are forced on board the awaiting German cargo ship "SS DONAU". The ship leaves with 532 Norwegian Jews onboard; 302 men, 188 women and 42 children. The end station is Auschwitz.</p>
+<img src="https://image.tmdb.org/t/p/original/AhllNkf3UE4VdlmPQmTIbAQTiZ6.jpg" alt="Betrayed poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>
