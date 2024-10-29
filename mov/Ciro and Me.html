@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ciro and Me</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/509729">Server 1</option>
+<option value="https://embed.su/embed/movie/509729">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/509729">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/509729">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=509729&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/509729">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/509729"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Ciro and Me (2018)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> Ciro Galindo was born on August 29th, 1952 in Colombia. Wherever he's gone, war has found him. After twenty years of friendship, I understood Ciro 's life sums up Colombia's history. As so many Colombians he is a survivor, who has run away from war for more than sixty years, and now dreams of living in peace. "Ciro and Me" is a journey to memory, seeking to give sorrow words; a journey, similar to that of Colombia in times of peace, in search to recover its dignity.</p>
+<img src="https://image.tmdb.org/t/p/original/65i0LxfxWwYI9Dm7jSEiwvqtW5S.jpg" alt="Ciro and Me poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>
