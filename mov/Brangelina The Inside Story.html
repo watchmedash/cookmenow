@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brangelina: The Inside Story</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/966496">Server 1</option>
+<option value="https://embed.su/embed/movie/966496">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/966496">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/966496">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=966496&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/966496">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/966496"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Brangelina: The Inside Story (2021)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> Brad Pitt and Angelina Jolie. Brangelina...One of the most iconic and sought-after celebrity couples. For more than a decade, the glamorous pair fascinated and were idolised by many. For a while, it seemed that Brangelina was the perfect love story and that nothing would be able to take away the shine of their romance. But...behind closed doors, behind the glitz, the glamour, and the fame, the golden couple began to crumble. Before it all went wrong, we take a look at the couple that will always be remembered as one of the most charismatic, enigmatic and compelling duos of present-day Hollywood. Out of a movie set encounter, a fictional romance turned into a real-life romance for two of the most famous actors of the modern Hollywood scene. After a decade of hysteria, the world grieved the loss of one of the world's most influential and talented duos. They have come a long way, and they reached an influence never before seen in the industry, both together, and apart.</p>
+<img src="https://image.tmdb.org/t/p/original/x22uM7h8Fb7Ix8DBfWqeGd7gvzg.jpg" alt="Brangelina: The Inside Story poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

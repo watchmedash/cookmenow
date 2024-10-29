@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inugami</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/68494">Server 1</option>
+<option value="https://embed.su/embed/movie/68494">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/68494">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/68494">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=68494&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/68494">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/68494"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Inugami (2001)</h2>
+<p><strong>Genres:</strong> Horror, Romance, Thriller</p>
+<p><strong>Plot:</strong> Akira, a teacher from Tokyo, has just arrived in a small rural town to begin his new job. Soon after arriving, he meets, and begins to fall for, Miki, a papermaker and part of a large and unusual family. When he learns of an ancient legend that the family carries the curse of the Inugami, or Dog God, he brushes it off as silly superstition. After a series of mysterious deaths, however, the townspeople begin to grow restless, and Akira must confront the truth about Miki and her family.</p>
+<img src="https://image.tmdb.org/t/p/original/bcEsO3o6sg1S5OTXdtXg7FW3dS8.jpg" alt="Inugami poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

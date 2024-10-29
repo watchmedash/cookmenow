@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Holiday Engagement</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/82099">Server 1</option>
+<option value="https://embed.su/embed/movie/82099">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/82099">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/82099">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=82099&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/82099">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/82099"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Holiday Engagement (2011)</h2>
+<p><strong>Genres:</strong> Comedy, Romance, TV Movie</p>
+<p><strong>Plot:</strong> Thirty-something Hillary Burns has spent her life trying to get the approval of her parents, in the shadow of her more successfully-attached siblings. So when Hillary's fiance, workaholic lawyer Jason King, dumps her because she isn't willing to relocate for his potential promotion, she panics because she had been promising to bring him home to meet her expectant family, whom she does not want to let down! As a last-minute idea, her best friend Sophie convinces her to actually hire someone to "play the role" of Jason for her return home on Thanksgiving.. leading to an interesting combination of sparks & revelations for all involved.</p>
+<img src="https://image.tmdb.org/t/p/original/4yM1krPnjkWhIOmrY33mVQgSwXJ.jpg" alt="Holiday Engagement poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

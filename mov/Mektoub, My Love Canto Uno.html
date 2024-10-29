@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Mektoub, My Love: Canto Uno</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/337676">Server 1</option>
+<option value="https://embed.su/embed/movie/337676">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/337676">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/337676">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=337676&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/337676">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/337676"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Mektoub, My Love: Canto Uno (2017)</h2>
+<p><strong>Genres:</strong> Romance, Drama</p>
+<p><strong>Plot:</strong> Amin, an aspiring screenwriter living in Paris, returns home for the summer, to a fishing village in the South of France. It is a time of reconnecting with his family and his childhood friends. Together with his cousin Tony and his best friend Ophélie, he spends his time between the Tunisian restaurant run by his parents, the local bars and the beaches frequented by girls on holiday. Enchanted by the many female characters who surround him, Amin remains in awe of these summer sirens while his dionysiac cousin throws himself into their carnal delights with euphoria. Armed with his camera and guided by the bright simmer light of the Mediterranean coast, Amin pursues his philosophical quest while gathering inspiration for his screenplays. When it comes to love, only Mektoub (‘destiny' in Arabic) can decide.</p>
+<img src="https://image.tmdb.org/t/p/original/ny0Qjh2cpWUCq53hzf6rzgA3zRH.jpg" alt="Mektoub, My Love: Canto Uno poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

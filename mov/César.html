@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>César</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/43873">Server 1</option>
+<option value="https://embed.su/embed/movie/43873">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/43873">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/43873">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=43873&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/43873">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/43873"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>César (1936)</h2>
+<p><strong>Genres:</strong> Comedy, Drama</p>
+<p><strong>Plot:</strong> Honoré Panisse is dying, cheerfully, with friends, wife, and son at his side. He confesses to the priest in front of his friends; he insists that the doctor be truthful. But, he cannot bring himself to tell his son Césariot that his real father is Marius, the absent son of César, Césariot's godfather. Panisse leaves that to Fanny, the lad's mother. Dissembling that he's off to see a friend, Césariot then seeks Marius, now a mechanic in Toulon. Posing as a journalist, Césariot spends time with Marius and leaves believing tales he is a petty thief. Only after the truth comes out can Marius, Fanny, César, and Césariot step beyond the falsehoods, benign though they may be.</p>
+<img src="https://image.tmdb.org/t/p/original/bD2tr5HY23lWMw5b4LgI6YunCPA.jpg" alt="César poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

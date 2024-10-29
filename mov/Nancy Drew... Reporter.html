@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nancy Drew... Reporter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/23280">Server 1</option>
+<option value="https://embed.su/embed/movie/23280">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/23280">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/23280">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=23280&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/23280">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/23280"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Nancy Drew... Reporter (1939)</h2>
+<p><strong>Genres:</strong> Comedy, Crime, Mystery</p>
+<p><strong>Plot:</strong> While participating in a contest at a local newspaper in which school children are asked to submit a news story, local attorney Carson Drew's daughter Nancy intercepts a real story assignment. She "covers" the inquest of the death of a woman who was poisoned. Nancy doesn't think the young woman accused of the crime is guilty and corrals her neighbor Ted into searching for a vital piece of evidence and stumbles onto the identity of the real killer.</p>
+<img src="https://image.tmdb.org/t/p/original/wFlJKXPWf360M9b1088dHtEUutE.jpg" alt="Nancy Drew... Reporter poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

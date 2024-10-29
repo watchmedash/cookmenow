@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Audubon</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/783403">Server 1</option>
+<option value="https://embed.su/embed/movie/783403">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/783403">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/783403">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=783403&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/783403">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/783403"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Audubon (2017)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> Audubon: Naturalist and 19th century painter, John James Audubon was one of the most remarkable men of early America. A contemporary of Lewis & Clark and Davey Crockett, he explored the American frontier in search of ""the feathered tribes"" he loved and studied. A self-taught artist and ornithologist, he left a legacy of art and science that made him famous in his lifetime and endures to this day. His portrait hangs in the White House, his statue stands over the entrance to the American Museum of Natural History, and his name was adopted by the nation's first conservation organization. The program, filmed in locations where Audubon painted, brings to life his timeless paintings with dazzling footage of the living birds he immortalized - and celebrates visually the natural world he described in his writings. Interviews reveal the man, explore his art, and put his groundbreaking work in modern perspective.</p>
+<img src="https://image.tmdb.org/t/p/original/v8tSejh6HQC5VD3SFm5PjFmgAfa.jpg" alt="Audubon poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

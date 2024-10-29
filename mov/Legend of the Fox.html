@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Legend of the Fox</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/154349">Server 1</option>
+<option value="https://embed.su/embed/movie/154349">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/154349">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/154349">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=154349&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/154349">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/154349"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Legend of the Fox (1980)</h2>
+<p><strong>Genres:</strong> Action, Drama</p>
+<p><strong>Plot:</strong> Chin Siu Ho plays a young man who believes himself to be an orphan. Until one rainy night when he and three different men find themselves taking shelter from the storm in the same place. Here the man who raised him tells him at last the story of who his parents were. His father (Lu Feng) was a great swordsman trying to dispel rumors of a wrongdoing and return a lost sword to its rightful owner. Kuo Choi and Chiang Sheng (also master swordsmen) are the parties that Lu Feng is trying to rectify things with. Through cowardly trickery on Chiang's part, a duel ensues and it all winds up with Lu's death. His son is taken to safety by a servant (the man who since raised him). Now with the truth told, Chin Siu Ho seeks out Kuo Choi's aid and seeks vengeance for the wrongful death of his father.</p>
+<img src="https://image.tmdb.org/t/p/original/aynE51LRI6FxPcCNj5f0uYbQ59H.jpg" alt="Legend of the Fox poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

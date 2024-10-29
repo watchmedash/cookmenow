@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nuts!</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/376236">Server 1</option>
+<option value="https://embed.su/embed/movie/376236">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/376236">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/376236">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=376236&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/376236">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/376236"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Nuts! (2016)</h2>
+<p><strong>Genres:</strong> Documentary, Animation</p>
+<p><strong>Plot:</strong> The true story of John Romulus Brinkley, a small-town Kansas doctor who discovers in 1917 that he can cure impotence by transplanting goat testicles into men. And that’s just the tipping point in this stranger-than-fiction tale. With the balls of a P.T. Barnum, the gonads of goats, and the wishful dreams of flaccid men, Brinkley amassed a fortune, was almost elected Governor of Kansas, invented junk mail and the infomercial, and built the world’s most powerful radio station. By the time all of the twists and turns of Brinkley’s story are revealed, Nuts! certainly earns its title.</p>
+<img src="https://image.tmdb.org/t/p/original/rytoWiX1qVM0B1MvfAWwMGulKT6.jpg" alt="Nuts! poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

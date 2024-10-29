@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>James May at the Edge of Space</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/134856">Server 1</option>
+<option value="https://embed.su/embed/movie/134856">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/134856">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/134856">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=134856&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/134856">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/134856"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>James May at the Edge of Space (2009)</h2>
+<p><strong>Genres:</strong> Documentary, TV Movie</p>
+<p><strong>Plot:</strong> James May always wanted to be an astronaut. Now, 40 years after the first Apollo landings, he gets a chance to fly to the edge of space in a U2 spy plane. But first he has to undergo three gruelling days of training with the US Air Force and learn to use a space suit to stay alive in air so thin it can kill in an instant. He discovers that during the flight there are only two people higher than him, and they are both real astronauts on the International Space Station.</p>
+<img src="https://image.tmdb.org/t/p/original/vu8Ij6YYkLwEIVUnKMjj3Pfr4y4.jpg" alt="James May at the Edge of Space poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

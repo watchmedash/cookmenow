@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nature Unleashed:  Avalanche</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/149634">Server 1</option>
+<option value="https://embed.su/embed/movie/149634">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/149634">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/149634">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=149634&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/149634">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/149634"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Nature Unleashed:  Avalanche (2004)</h2>
+<p><strong>Genres:</strong> Action, Adventure</p>
+<p><strong>Plot:</strong> It begins on a glacier nestled on a frozen peak high in the wild Ural Mountains of Russia, kissed by clouds, the top of the world. A lonely, forbidding place, it's home to THOM CUSSLER and brother, JOCK, a pair of transplanted westerners seeking their fortune in Russia's new capitalist economy. They run a hard-luck snowmobile tour business that takes adventurous winter tourists up the mountains to experience the ultimate extreme winter thrill. During one such excursion, a massive ledge of snow at the top of the ridge suddenly collapses and an avalanche crashes down! Only the quick thinking and expert driving of Thom and Jock saves them. The tiny village of Dubroz, nestled far below, is not so lucky. Avalanche sirens wail, but the panicked villagers barely have time to act as the avalanche crashes down! A wall of snow smashes into one end of the village, blasting-in windows, collapsing and burying buildings... Written by GFT Entertainment</p>
+<img src="https://image.tmdb.org/t/p/original/jILdqkaAZyyANMmyiKwlDWHxeSV.jpg" alt="Nature Unleashed:  Avalanche poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

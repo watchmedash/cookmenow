@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Man</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/48709">Server 1</option>
+<option value="https://embed.su/embed/movie/48709">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/48709">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/48709">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=48709&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/48709">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/48709"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>My Man (1996)</h2>
+<p><strong>Genres:</strong> Romance, Comedy, Drama</p>
+<p><strong>Plot:</strong> In Lyon, where many are unemployed, Marie is a prostitute who loves her work: she's thoughtful and exuberant toward clients old and young, slim or flabby. One night, a homeless man sleeps in the foyer of her apartment house; she gives him a hot meal, then a place on the floor to sleep by her radiator, then she offers herself. She falls in love, giving him new life, clothes, a place to live. When he grouses that he must bar hop while she uses the flat for her work, she finds them a larger flat. He grows restless, seducing a manicurist and pressing her to prostitution. He's arrested for procuring, so Marie must decide what to do; he, too, must face the consequences of his choices.</p>
+<img src="https://image.tmdb.org/t/p/original/A2vNKPMD1JnsgOV0Adimhd9vIPA.jpg" alt="My Man poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

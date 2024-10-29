@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Monsterous Holiday</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/228942">Server 1</option>
+<option value="https://embed.su/embed/movie/228942">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/228942">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/228942">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=228942&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/228942">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/228942"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>A Monsterous Holiday (2013)</h2>
+<p><strong>Genres:</strong> Animation, Comedy, Family, Horror</p>
+<p><strong>Plot:</strong> Geeky school kid Andy dreams of being a great inventor, but he’s having trouble coming up with a “big idea” that will win the Science Fair and beat scheming twins April and May.  Even worse his Dad is pressuring him into joining the football team, that he just happens to coach and his big brother just happens to be the star of. Andy decides to ask the town’s resident scientist, Dr. Frankenstein, for advice, but on a visit to his creepy mansion instead he meets a green football-loving teenage monster named Frank, who wishes he could join in the way Andy can.  Excitedly Andy realizes that he and Frank may just be able to solve each other’s troubles by switching places, and his plan goes smoothly until suddenly they’ve got a monster problem on their hands that threatens the entire town.</p>
+<img src="https://image.tmdb.org/t/p/original/3WZH82bi5fG8vSKgcU45yWoSJZQ.jpg" alt="A Monsterous Holiday poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

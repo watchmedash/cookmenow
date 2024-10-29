@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>In the Army Now</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/12475">Server 1</option>
+<option value="https://embed.su/embed/movie/12475">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/12475">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/12475">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=12475&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/12475">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/12475"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>In the Army Now (1994)</h2>
+<p><strong>Genres:</strong> Comedy</p>
+<p><strong>Plot:</strong> Bones Conway and Jack Kaufman didn't really know what they were in for when they enlisted in the U.S. Army; they just wanted to get a job and make some money. But these new recruits are so hapless, they run the risk of getting kicked out before their military careers even begin. Soon, though, they're sent to the Middle East to fight for their country -- which they manage to do in their own wacky ways.</p>
+<img src="https://image.tmdb.org/t/p/original/cNIIDaJM9nsDP9tTmAN6sjKpeiN.jpg" alt="In the Army Now poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

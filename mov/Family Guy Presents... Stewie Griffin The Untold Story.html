@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Family Guy Presents... Stewie Griffin: The Untold Story</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/65215">Server 1</option>
+<option value="https://embed.su/embed/movie/65215">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/65215">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/65215">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=65215&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/65215">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/65215"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Family Guy Presents... Stewie Griffin: The Untold Story (2005)</h2>
+<p><strong>Genres:</strong> Adventure, Animation, Comedy</p>
+<p><strong>Plot:</strong> The major sub-plot circles around the youngest Griffin, Stewie, who has a near-death experience at a pool when a lifeguard chair falls on him, but he survives. After having a vision of being in Hell, he decides to change his ways, but this doesn't last long. While watching television, he and Brian spot a man that looks like Stewie. Brian is convinced that he is Stewie's real father, until Stewie learns that the man is actually himself as an adult, taking a vacation from his own time period. Baby Stewie visits thirty years later to discover that his adult self, going by the name Stu, is a single blue-collar middle-aged virgin working at a Circuit City-type store. Meanwhile, Peter and Lois are trying to teach their two older kids, Meg and Chris, to date. In the future, Chris, who hasn't changed much, is working as a cop and is married to a foul-mouthed hustler named Vanessa. Meg is now called Ron, since she had a sex-change after college.</p>
+<img src="https://image.tmdb.org/t/p/original/mro2I5vlcwn2XHwgSDwk1DvhanM.jpg" alt="Family Guy Presents... Stewie Griffin: The Untold Story poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Latest News from the Cosmos</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/425720">Server 1</option>
+<option value="https://embed.su/embed/movie/425720">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/425720">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/425720">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=425720&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/425720">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/425720"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Latest News from the Cosmos (2016)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> Nearly 30 years-old, Hélène still looks like a teenager. She is the author of powerful texts with corrosive humor. It is part, as she says herself, of a "badly calibrated lot, not entering anywhere". Her telepathic poetry speaks of her world and of ours. She accompanies a director who adapts her work to the theater, she talks with a mathematician ... Yet Helene can not talk or hold a pen, she has never learned to read or write. It when she turns 20 that her mother discovers that she can communicate by arranging letters on a sheet of paper. One of the many mysteries of the one that calls herself Babouillec ...</p>
+<img src="https://image.tmdb.org/t/p/original/rz5GT1As6cpu5V6pt77ioTS3ZYv.jpg" alt="Latest News from the Cosmos poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>
