@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Leave It to the Nurses</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/364727">Server 1</option>
+<option value="https://embed.su/embed/movie/364727">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/364727">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/364727">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=364727&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/364727">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/364727"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Leave It to the Nurses (2002)</h2>
+<p><strong>Genres:</strong> Comedy</p>
+<p><strong>Plot:</strong> Flighty young nurse Izumi Asakura longs to have her honeymoon in a far off tropical paradise but her doctor husband feels that he cannot afford to take time off from developing his career. To Izumi's dismay, Wakabakai General Hospital is fast becoming a far less pleasant place to work, thanks to the appointment of a militaristic chief nurse who demands steadfast adherence to protocol. Things get much worse, however, via the arrival of Saruwatari, a hypochondriac desperate to be re-admitted so that he can enjoy the attentions of nurse Shoko Ozaki. When the chief nurse has him ejected by security, Saruwatari comes back armed and takes everyone on the floor hostage. Shoko happened to be on her lunch break at the time and has trouble getting back into the building when the police swarm around it en masse. The authorities are not sure just how to deal with the situation, though, since the "victims" seem to be taking things far less seriously than they are.</p>
+<img src="https://image.tmdb.org/t/p/original/qtOCoquulaphZDq5VQUjtwwlVsB.jpg" alt="Leave It to the Nurses poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

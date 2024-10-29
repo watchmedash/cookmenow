@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Tiger Walks</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/64872">Server 1</option>
+<option value="https://embed.su/embed/movie/64872">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/64872">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/64872">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=64872&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/64872">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/64872"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>A Tiger Walks (1964)</h2>
+<p><strong>Genres:</strong> Drama, Family</p>
+<p><strong>Plot:</strong> A tiger escapes from a circus truck as it passes by a small town, and hides itself in the surrounding woods. This throws the town into a panic and everyone wants the animal killed immediately, except for the daughter of the sheriff. She wants to capture the tiger and put it in a zoo, thereby saving the tiger's life. Her determination starts a nationwide campaign among children to raise the money to buy the tiger from the circus, but first, she, her father and an Indian tiger trainer must find the tiger before the National Guard do, who have orders to kill it on sight.</p>
+<img src="https://image.tmdb.org/t/p/original/2wxqtJFPpwlIYnddEOhHYmNzt2F.jpg" alt="A Tiger Walks poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

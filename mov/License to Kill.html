@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>License to Kill</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/262618">Server 1</option>
+<option value="https://embed.su/embed/movie/262618">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/262618">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/262618">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=262618&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/262618">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/262618"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>License to Kill (1964)</h2>
+<p><strong>Genres:</strong> Crime, Action</p>
+<p><strong>Plot:</strong> Didier Formenter, the French scientist, has just put the final touch on an invention that will be able to destroy to destroy any sort of flying apparatus. An international crime gang is very interested in stealing this equipement to sell it to the higher bidder of lawless nations. Menaced, the scientist, who was friends with Nick Carter's father, calls Nick for help. At Nice airport, Nick Carter escapes death, but that night he is unable to stop Formenter's murder. He suspects Bruno, Formenter's adoptive son, and Tonio, the owner of a bar near Formentier's home. Bruno is actually after Formenter's heritage, and for that he tries to kill Catherine, Formentier's granddaughter. Therefore, Nick Carter finds himself against more than a gang, but he will uncover the plots, in time to break every gangster apart.</p>
+<img src="https://image.tmdb.org/t/p/original/4N8SKQ3Y6RxI6OutKmFQ4ZlasJO.jpg" alt="License to Kill poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

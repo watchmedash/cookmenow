@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>It Is No Dream: The Life Of Theodor Herzl</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/125029">Server 1</option>
+<option value="https://embed.su/embed/movie/125029">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/125029">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/125029">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=125029&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/125029">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/125029"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>It Is No Dream: The Life Of Theodor Herzl (2012)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> The latest production of Moriah Films is It Is No Dream: The Life of Theodor Herzl, exploring the life and times of Theodor Herzl, father of the modern state of Israel. Narrated by Academy Award winner, Sir Ben Kingsley and starring Academy Award winner Christoph Waltz as the voice of Theodor Herzl, the film examines how Herzl, a well known journalist and playwright, an assimilated, Budapest born Jew, horrified by the Dreyfus trial in Paris and the anti-Semitism he saw spreading across Europe, took upon himself the task of attempting to create a Jewish homeland in Palestine against all odds. Over the span of 8 years, Herzl organized and led a worldwide political movement that within 50 years led to the establishment of the state of Israel. The film follows Herzl as he meets with Kings, Prime Ministers, Ambassadors, a Sultan, a Pope and government ministers from Constantinople to St. Petersburg, from Paris to Berlin, from Vienna to Vilna in his quest to build a Jewish nation.</p>
+<img src="https://image.tmdb.org/t/p/original/AbgbzxuBQyYHZjPQ8FaNobLjVzW.jpg" alt="It Is No Dream: The Life Of Theodor Herzl poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

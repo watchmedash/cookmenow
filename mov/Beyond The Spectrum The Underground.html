@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Beyond The Spectrum: The Underground</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/586617">Server 1</option>
+<option value="https://embed.su/embed/movie/586617">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/586617">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/586617">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=586617&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/586617">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/586617"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Beyond The Spectrum: The Underground (2021)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> Phil Schneider died in 1996. Previous to his death he had been on tour across the United States speaking out about various subjects including his involvement with building a secret underground base in Dulce, New Mexico for the military. During this time, he was said to have had an encounter with a violent E.T race in the late 1970's which would change his whole life immediately after. This documentary explores some of the information Phil Schneider spoke about to the public in the 1990's by examining each claim in detail with expert opinions from Richard Dolan, Richard Sauder, and Cynthia Drayer (Phil's Ex-Wife). In this documentary you will find never before published photo's of Phil's Autopsy, documents about the Philadelphia Experiment from Oscar Schneider's files (Phil's father) and a very well explained background about Underground Bases.</p>
+<img src="https://image.tmdb.org/t/p/original/rUFnYDnfBpBLCBIh54lu5PJaPWw.jpg" alt="Beyond The Spectrum: The Underground poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

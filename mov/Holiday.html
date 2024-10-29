@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Holiday</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/872891">Server 1</option>
+<option value="https://embed.su/embed/movie/872891">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/872891">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/872891">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=872891&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/872891">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/872891"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Holiday (2021)</h2>
+<p><strong>Genres:</strong> Drama, Thriller</p>
+<p><strong>Plot:</strong> Longing for sun, breath and exotic thrills, Kasia and Tomek set off on a dream trip to the island of Bali in Indonesia. Lying on a paradise beach, their thoughts are very far from their duties resulting from working for large corporations. They both want to have a baby very much, but they also know that before that happens, they must deal with each other and work through their conflicts. One day they decide to go on a trip towards the volcano on the island and the jungle around it. There they meet by chance a mysterious man who invites them to his home. The couple decide to follow in the footsteps of the stranger. The atmosphere thickens minute by minute, and the disturbing aura becomes more and more infiltrated by the Polish couple. Soon there will be events that will lead Kasia and Tomek to a huge internal transformation. Nothing will ever be the way it was. They will both remember this trip to Bali forever.</p>
+<img src="https://image.tmdb.org/t/p/original/8hugwWFnP5vZUDKCO4Jt9avDHCd.jpg" alt="Holiday poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

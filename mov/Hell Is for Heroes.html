@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hell Is for Heroes</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/32041">Server 1</option>
+<option value="https://embed.su/embed/movie/32041">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/32041">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/32041">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=32041&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/32041">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/32041"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Hell Is for Heroes (1962)</h2>
+<p><strong>Genres:</strong> War</p>
+<p><strong>Plot:</strong> World War II drama where the action centers around a single maneuver by a squad of GIs in retaliation against the force of the German Siegfried line. Reese joins a group of weary GIs unexpectedly ordered back into the line when on their way to a rest area. While most of the men withdraw from their positions facing a German pillbox at the far side of a mine-field, half a dozen men are left to protect a wide front. By various ruses, they manage to convince the Germans that a large force is still holding the position. Then Reese leads two of the men in an unauthorized and unsuccessful attack on the pillbox, in which the other two are killed; and when the main platoon returns, he is threatened with court-martial. Rather that face the disgrace, and in an attempt to show he was right, he makes a one-man attack on the pillbox.</p>
+<img src="https://image.tmdb.org/t/p/original/nZ0h8V0jsS5NLKdUZIZ2I2xMWtR.jpg" alt="Hell Is for Heroes poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Artist: Reborn</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/439935">Server 1</option>
+<option value="https://embed.su/embed/movie/439935">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/439935">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/439935">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=439935&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/439935">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/439935"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Artist: Reborn (2017)</h2>
+<p><strong>Genres:</strong> Mystery, Drama, Crime</p>
+<p><strong>Plot:</strong> Oh In-sook, who goes by Gisele in the art world, is a failed artist with nothing going for her. During her shift at her part time job, she meets a cunning and canny art sales representative Jae-bum. Jae-bum believes that Gisele has the potential to become a prominent artist and decides to represent her. He and his colleague James, through their ingenious sales efforts, begin to raise the value of Gisele’s paintings, causing Gisele to gain immense fame. As she is ready to bathe in her success, she unexpectedly dies of reasons unknown shocking the art community. Jaebum sees this as an opportunity to hike the prices on his deceased client’s paintings and decides to go all-in in doing so. However, Gisele miraculously gains consciousness like the Lazarus syndrome, denting Jae-bum’s scheme. In order to save his career, Jaebum suggests to Gisele to stay “dead” and aims to strike a deal with her.</p>
+<img src="https://image.tmdb.org/t/p/original/eRBediTqqWU3SGywitU2GkZwzYW.jpg" alt="The Artist: Reborn poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

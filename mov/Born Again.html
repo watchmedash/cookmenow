@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Born Again</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/420085">Server 1</option>
+<option value="https://embed.su/embed/movie/420085">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/420085">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/420085">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=420085&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/420085">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/420085"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Born Again (2015)</h2>
+<p><strong>Genres:</strong> Drama</p>
+<p><strong>Plot:</strong> Mark Miller's life seems perfect. He has a great job, huge house, and an amazing wife. What some only dream about is his reality. But from one second to the next something happens that changes everything. One day his boss tells him that his company is on the brink of bankruptcy, so they fire him. Mark's enviable life crumbles like a house of cards. He cannot pay his bills anymore, so he loses his cars, his house and due to his frustration, his relationship with his wife also goes bust. He does his best to stop this from happening but he has to realize that he cannot fix his life on his own. He loses everything that was ever important to him, but in the meantime he finds God. After this point he changes something and he has experiences he would have never expected.</p>
+<img src="https://image.tmdb.org/t/p/original/9EP2Ylf4QzQU46UEIbhFixLMEpB.jpg" alt="Born Again poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

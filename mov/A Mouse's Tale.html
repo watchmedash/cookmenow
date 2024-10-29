@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A Mouse's Tale</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/227731">Server 1</option>
+<option value="https://embed.su/embed/movie/227731">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/227731">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/227731">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=227731&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/227731">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/227731"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>A Mouse's Tale (2012)</h2>
+<p><strong>Genres:</strong> Animation, Adventure</p>
+<p><strong>Plot:</strong> A magical adventure begins Once upon a time, within a vast and wild forest there was a fantastic Kingdom called Rodencia, a place where wonderful creatures and powerful wizards lived. It's the story of adventures and love of a small mouse called Edam, a clumsy magician's apprentice and the beautiful and confident mouse Brie, who will have to face many dangerous obstacles in order to obtain the power of the princess's tooth and defeat the troop of rats commanded by the evil Rotex who invades Rodencia (the peaceful kingdom of mice), in order to dominate them and take their treasure. In the middle of the forest; the magic of the light and the darkness, the love and resentment will face together. Edam and Rotex will fight and only one will leave victorious.</p>
+<img src="https://image.tmdb.org/t/p/original/mzHx7Est1rg0D153VPFQ25GmGUK.jpg" alt="A Mouse's Tale poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

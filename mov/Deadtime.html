@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Deadtime</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/329998">Server 1</option>
+<option value="https://embed.su/embed/movie/329998">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/329998">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/329998">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=329998&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/329998">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/329998"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Deadtime (2013)</h2>
+<p><strong>Genres:</strong> Thriller, Action</p>
+<p><strong>Plot:</strong> Trapped in the center of a lucrative organ trafficking racket, Claire (Jessica Hegarty) discovers her father runs the grisly global criminal organization. Her sheltered life now shattered and exposed, Claire must work with Interpol to pursue the hidden truth. This journey thrusts Claire into a dark world, forced to fight for her life against a barrage of deadly hitmen assigned to silence her. No match against such organized assassins, Claire's only hope rests on a chance encounter with a protective guardian, Michael (Rody Claude), who is not all as he seems. Her fight for survival reunites Claire with her father, pushing a family's bond to its limits in a tense and desperate showdown.</p>
+<img src="https://image.tmdb.org/t/p/original/LrhncQStB9IH3jDeQVe00m4MHf.jpg" alt="Deadtime poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

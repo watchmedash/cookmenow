@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Female Teacher: In Front of the Students</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/173705">Server 1</option>
+<option value="https://embed.su/embed/movie/173705">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/173705">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/173705">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=173705&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/173705">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/173705"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Female Teacher: In Front of the Students (1982)</h2>
+<p><strong>Genres:</strong> Drama, Mystery, Horror</p>
+<p><strong>Plot:</strong> The lovely Reiko has taken a new teaching job at a creepy old high school.  She is an extremely attractive woman and the young students in her class have fallen for her.  One night, after tennis practice, she is brutally assaulted in the locker room shower by a man with a stocking over his face.  Left on the floor naked and in shock, she discovers a single puzzle piece left behind by the crazed man.  A few days later, a pair of students enact a perverted sexual revenge on Reiko for kicking someone off the tennis team.  Could one of these students be the man who brutalized her in the locker room?  Who owns the strange puzzle piece?  As the mystery unfolds, Reiko must come to terms with her own sexual urges and fate.</p>
+<img src="https://image.tmdb.org/t/p/original/ilMXOocCCwPWCcDLLa6M0ga8vWt.jpg" alt="Female Teacher: In Front of the Students poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

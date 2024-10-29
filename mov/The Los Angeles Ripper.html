@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Los Angeles Ripper</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/277189">Server 1</option>
+<option value="https://embed.su/embed/movie/277189">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/277189">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/277189">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=277189&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/277189">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/277189"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Los Angeles Ripper (2011)</h2>
+<p><strong>Genres:</strong> Thriller, Horror</p>
+<p><strong>Plot:</strong> Kristy White moves to Los Angeles to stay with her dysfunctional aunt Peggy and her cousin Angel White to pursue her singing career and become a star. Meanwhile, a brutal serial killer is on the loose in the City of Angels. Kristy sets out to explore Los Angeles and to see what this beautiful city has in store for her. She meets and parties with Angel's cool friends and soon realizes they are up to some risky party behavior! When she meets Angel's drug dealing friend Graham things start to get pretty weird and scary for Kristy White. The city of dreams may just become a nightmare for her!</p>
+<img src="https://image.tmdb.org/t/p/original/dM6bSY44zbGcnEM9E3DQ6nBjn1T.jpg" alt="The Los Angeles Ripper poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

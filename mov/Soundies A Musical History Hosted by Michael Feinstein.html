@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Soundies: A Musical History Hosted by Michael Feinstein</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/925217">Server 1</option>
+<option value="https://embed.su/embed/movie/925217">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/925217">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/925217">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=925217&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/925217">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/925217"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Soundies: A Musical History Hosted by Michael Feinstein (2007)</h2>
+<p><strong>Genres:</strong> Documentary, Music, History</p>
+<p><strong>Plot:</strong> Before MTV and the age of television, there were Soundies. First appearing in 1941, these three minute black-and-white films featured artists of the Big Band, Jazz and Swing era, like Duke Ellington, Count Basie, Louis Jordan, Louis Armstrong, Gene Krupa, The Mills Brothers, Les Paul, Cab Calloway, and Fats Waller. The Soundies helped launch the careers of Doris Day, Nat King Cole, Liberace, and Dorothy Dandridge, among others. Viewed for a dime through a special machine called a Panoram, a movie jukebox, these forerunners to the music video could be seen in nightclubs, roadhouses, restaurants and other public venues across the U.S. These classic films remain as glorious time capsules of music, social history, popular culture, and tell the story of a crossroads in our country, when the uncertainties of war, race relations, and emerging technologies combined to write one of the most influential chapters in our nation¹s history.</p>
+<img src="https://image.tmdb.org/t/p/original/dQepqjI6r3GvHUoJkL0zjy7JFrZ.jpg" alt="Soundies: A Musical History Hosted by Michael Feinstein poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

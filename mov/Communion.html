@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Communion</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/428150">Server 1</option>
+<option value="https://embed.su/embed/movie/428150">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/428150">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/428150">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=428150&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/428150">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/428150"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Communion (2016)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> When adults are ineffectual, children have to grow up quickly. Ola is 14 and she takes care of her dysfunctional father, autistic brother and a mother who lives apart from them and is mainly heard the phone. Most of all she wants to reunite a family that simply doesn’t work — like a defective TV set. She lives in the hope of bringing her mother back home. Her 13 year old brother Nikodem’s Holy Communion is a pretext for the family to meet up. Ola is entirely responsible for preparing the perfect family celebration. “Communion” reveals the beauty of the rejected, the strength of the weak and the need for change when change seems impossible. This crash course in growing up teaches us that failure is not final. Especially when love is in question.</p>
+<img src="https://image.tmdb.org/t/p/original/b5N5QRyN2qR8CiKOXuBalxB9kC3.jpg" alt="Communion poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pepe</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/82792">Server 1</option>
+<option value="https://embed.su/embed/movie/82792">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/82792">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/82792">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=82792&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/82792">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/82792"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Pepe (1960)</h2>
+<p><strong>Genres:</strong> Comedy, Music</p>
+<p><strong>Plot:</strong> Mario "Cantinflas" Moreno is a hired hand, Pepe, employed on a ranch. A boozing Hollywood director buys a white stallion that belongs to Pepe's boss. Pepe, determined to get the horse back (as he considers it his family), decides to take off to Hollywood. There he meets film stars including Jimmy Durante, Frank Sinatra, Zsa Zsa Gabór, Bing Crosby, Maurice Chevalier and Jack Lemmon in drag as Daphne from Some Like It Hot. He is also surprised by things that were new in America at the time, such as automatic swinging doors. When he finally reaches the man who bought the horse, he is led to believe there is no hope of getting it back. However, the last scene shows both him and the stallion back at the ranch with several foals.</p>
+<img src="https://image.tmdb.org/t/p/original/th8c4sGS5ZAOW7zhyGWyhykuL0M.jpg" alt="Pepe poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

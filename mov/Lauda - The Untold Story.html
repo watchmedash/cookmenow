@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lauda - The Untold Story</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/347247">Server 1</option>
+<option value="https://embed.su/embed/movie/347247">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/347247">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/347247">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=347247&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/347247">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/347247"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Lauda - The Untold Story (2014)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> In 1976 Niki Lauda survived one of the most famous crashes in Formula One history. Using previously unseen footage, LAUDA: THE UNTOLD STORY explains what happened on that fateful, and near fatal day at the Nurburgring, then follows Lauda’s courageous journey to recovery culminating in a miraculous comeback in Monza just weeks later. The film also investigates the impact that his crash had not just on his own life but on the sport as a whole, looking at the safety developments from the 1900s to the present day. Featuring exclusive access to Mercedes HQ and interviews with Lauda, his family, and motorsports legends past and present including Sir Jackie Stewart, David Coulthard, Mark Webber, Lewis Hamilton, Nico Rosberg, Hans-Joachim Stuck and Jochen Mass. LAUDA: THE UNTOLD STORY is a must-see for all motorsport fans.</p>
+<img src="https://image.tmdb.org/t/p/original/3kHjvxK6zK0n7E8zBexmzMRxOnU.jpg" alt="Lauda - The Untold Story poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

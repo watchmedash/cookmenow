@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Jump</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/718219">Server 1</option>
+<option value="https://embed.su/embed/movie/718219">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/718219">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/718219">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=718219&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/718219">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/718219"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Jump (2020)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> In the Cold War years of the 1970s, an American patrol boat meets a Soviet ship off the east coast of the United States for talks about fishing rights in the Atlantic. In the midst of this, while Russian commanders are aboard the U.S. Coast Guard vessel where the talks are being held, a Lithuanian sailor jumps across the ten feet of icy water separating the boats. Crash-landing on the deck of the American ship, he desperately begs for asylum. Though they try, the Americans ultimately fail to provide protection and the Soviets are allowed to capture him and brutally return him to their vessel. Thus begins a stranger-than-fiction story of imprisonment, discovery, fame, and freedom. Through rare archival footage and a dramatic first-person re-enactment of that fateful day by Simas Kudirka, the would-be defector himself, this tale of one of the biggest Cold War muddles takes us on a journey of uncanny twists of fate, and the emotional sacrifices of becoming a universal symbol of freedom.</p>
+<img src="https://image.tmdb.org/t/p/original/y3R5Z2xPLhf5TpsRAXqK9kP2uS5.jpg" alt="The Jump poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Next Door</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/681349">Server 1</option>
+<option value="https://embed.su/embed/movie/681349">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/681349">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/681349">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=681349&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/681349">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/681349"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Next Door (2021)</h2>
+<p><strong>Genres:</strong> Drama, Comedy</p>
+<p><strong>Plot:</strong> Berlin, the Prenzlauer Berg district. Daniel is a movie star accustomed to success. His loft apartment is stylish and so is his wife, and the nanny has the children under control. Everything is tip-top, bilingual and ready for him to jet off to an audition in London where a role in an American superhero film awaits the celebrated German-Spanish actor. Popping into the local bar on the corner, he finds Bruno sitting there. As transpires by the minute, Bruno has been waiting for this moment for a long time. And so this eternally overlooked man – one of reunification's losers and a victim of the gentrification of what was once East Berlin – takes his revenge. With Daniel as his target...</p>
+<img src="https://image.tmdb.org/t/p/original/uCDPV0QtbQkKILMzQlCUd7kDnjX.jpg" alt="Next Door poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

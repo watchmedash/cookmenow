@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Summer Book</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/114222">Server 1</option>
+<option value="https://embed.su/embed/movie/114222">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/114222">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/114222">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=114222&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/114222">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/114222"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Summer Book (2008)</h2>
+<p><strong>Genres:</strong> Drama, Comedy, Romance</p>
+<p><strong>Plot:</strong> Mustafa is a hard-working and ambitious agricultural merchant who is cold and austere towards his family. One day he has a brain hemorrhage on a business trip and goes into a coma after the operation. Guler is suspicious of her husband having an affair. Veysel, their teenage son, wants to leave the military academy and study business administration. Ali, their 10-year-old son, has to cope both with his bully classmate and the chewing gums he has to sell. Hasan, Mustafa's younger brother, chose to live a life in solitude after getting a divorce, and has always been an outsider to the family. But now, with his brother in coma, he finds himself involved in family affairs. Hasan has to solve the mystery about Mustafa's mistress and the money lost during his trip.</p>
+<img src="https://image.tmdb.org/t/p/original/n0q8JJ12DZAoM9G5k6uoakCdTyi.jpg" alt="Summer Book poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Well Digger's Daughter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/62580">Server 1</option>
+<option value="https://embed.su/embed/movie/62580">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/62580">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/62580">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=62580&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/62580">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/62580"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Well Digger's Daughter (2011)</h2>
+<p><strong>Genres:</strong> Romance, Drama</p>
+<p><strong>Plot:</strong> It's the beginning of the WWII. South of France. Patricia, 18, is the oldest daughter of a well-digger, Pascal, who considers her a princess because of her moral qualities. She's kind, devoted. One day, she briefly meets a young man, Jacques, the son of Mazel, owner of the shop where her father buy his material. He's handsome and teasing. Her father's friend, Felipe, would love to marry her, and he invites her to an aviation show. She accepts his invitation only because she knows Jacques is a pilot and will be there. Soon, she'll carry his child, and he'll be gone, and the family will have to deal with this out-of-wedlock pregnancy...</p>
+<img src="https://image.tmdb.org/t/p/original/o0MGH7xXcbGao6uNJOyRAQj5l1R.jpg" alt="The Well Digger's Daughter poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

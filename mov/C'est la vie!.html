@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>C'est la vie!</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/432068">Server 1</option>
+<option value="https://embed.su/embed/movie/432068">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/432068">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/432068">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=432068&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/432068">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/432068"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>C'est la vie! (2017)</h2>
+<p><strong>Genres:</strong> Comedy</p>
+<p><strong>Plot:</strong> Max is a battle-weary veteran of the wedding-planning racket. His latest — and last — gig is a hell of a fête, involving stuffy period costumes for the caterers, a vain, hyper- sensitive singer who thinks he's a Gallic James Brown, and a morose, micromanaging groom determined to make Max's night as miserable as possible. But what makes the affair too bitter to endure is that Max's colleague and ostensible girlfriend, Joisette, seems to have written him off, coolly going about her professional duties while openly flirting with a much younger server. It's going to be a very long night… especially once the groom's aerial serenade gets underway.</p>
+<img src="https://image.tmdb.org/t/p/original/e9hIxAKPdXo9Fgwca6vT4USOXK6.jpg" alt="C'est la vie! poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

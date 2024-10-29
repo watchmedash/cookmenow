@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Last Time We Were Kids</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/1080936">Server 1</option>
+<option value="https://embed.su/embed/movie/1080936">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/1080936">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/1080936">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=1080936&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/1080936">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/1080936"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Last Time We Were Kids (2023)</h2>
+<p><strong>Genres:</strong> Drama, Comedy, Adventure</p>
+<p><strong>Plot:</strong> Rome, summer 1943. Four children play war while the bombs of real war explode around them.  Italo is the rich son of the Federal, Cosimo has his father in confinement and an atavistic hunger, Vanda is an orphan and a believer, Riccardo comes from a wealthy Jewish family.  They are different but they don't know it and between them "the greatest friendship in the world" is born, impervious to the divisions of history that bloodies Europe.  But on October 16 the Jewish boy is taken away by the Germans together with over a thousand people from the Ghetto.  Thanks to Italo's father Federale, the three friends believe they know where he is and, to honor the "spit pact", decide to leave in secret to convince the Germans to free their friend.  Yet another imaginative mission becomes reality, the three children travel alone in an Italy exhausted by war, among disbanded soldiers, deserters, occupying German troops, exhausted and hungry populations.</p>
+<img src="https://image.tmdb.org/t/p/original/5AWNX2dOWIpj5ghRGUMCF5xvkUH.jpg" alt="The Last Time We Were Kids poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

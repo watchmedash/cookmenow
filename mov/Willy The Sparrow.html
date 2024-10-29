@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Willy The Sparrow</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/37587">Server 1</option>
+<option value="https://embed.su/embed/movie/37587">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/37587">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/37587">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=37587&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/37587">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/37587"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Willy The Sparrow (1989)</h2>
+<p><strong>Genres:</strong> Family, Animation</p>
+<p><strong>Plot:</strong> What would it feel like to be a bird and fly over the trees and housetops? A boy named Willy finds out when the Sparrow Guardian turns him into a Sparrow for shooting a BB gun at the little birds. Suddenly, Willy's own cat thinks of him as lunch but, luckily, some new sparrow friends rush to Willy's rescue. They deliver him to a grandfatherly old bird named Cipur who takes Willy under his wing, teaches him how to fly, and so much more. In return, Willy fulfills Cipur's lifelong dream for knowledge by teaching him ow to read. Willy's new friendship helps him understand that all creatures have feelings and deserve to be treated with kindness and respect. Before Willy is turned back into a boy, he leads the sparrows in a brave but perilous plan to retake their home in the barn from Blacky the cat. Finally, the Sparrow Guardian offers Willy a very special opportunity.</p>
+<img src="https://image.tmdb.org/t/p/original/xDeOmFzH7MA2xL0OjJTPfoq9Uuq.jpg" alt="Willy The Sparrow poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

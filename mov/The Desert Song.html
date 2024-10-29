@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Desert Song</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/232034">Server 1</option>
+<option value="https://embed.su/embed/movie/232034">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/232034">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/232034">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=232034&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/232034">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/232034"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Desert Song (1953)</h2>
+<p><strong>Genres:</strong> Music, Romance</p>
+<p><strong>Plot:</strong> Shiek Yousseff, poses as a friend of the French while secretly plotting to overthrow them. Apposing Yousseff are the Riffs, whose secret leader, The Red Shadow, is Paul Bonnard, a professor who is studying the desert, and whose attacks on the supply trains intended for Yousseff keep the Riff villages in food. Foreign Legion General Birabeau arrives to conduct an investigation, accompanied by his daughter, Margot. Birabeau hires Bonnard to tutor her, and she is attracted to a Legionaire captain, Claud Fontaine. While the general, Bonnard and Fontaine pay a visit to Yousseff, an American newspaper man, Benji Kidd, discovers a secret way in and out of Yousseff's palace, with the aid of Azuri, a dancing girl in love with Bonnard. The latter is forced to resume his role as the Riffs leader, and kidnap Margot until he can convince her of Yousseff's treachery. But Yousseff's men attack the Riff camp and take Margot prisoner.</p>
+<img src="https://image.tmdb.org/t/p/original/Aii6pjZSAPyeehUgNV0ZrnTxFNA.jpg" alt="The Desert Song poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Extinction: The G.M.O. Chronicles</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/79721">Server 1</option>
+<option value="https://embed.su/embed/movie/79721">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/79721">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/79721">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=79721&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/79721">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/79721"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Extinction: The G.M.O. Chronicles (2011)</h2>
+<p><strong>Genres:</strong> Drama, Horror, Science Fiction</p>
+<p><strong>Plot:</strong> A Retrovirus, which was conceived as a tool for industrial genetic engineering, has gotten out of control and is spreading rapidly. While it crosses all organisms within our ecological system completely indiscriminately (mixing plant with animal and humans) most plants prove more resistant because of their complex DNA. However, the simple genes of the plants lead humans to become grotesque mutations, in most cases even to death. Within one week, 90% of mankind are either extinct or no longer human. However, a small fraction of the earth?s population remains immune to the virus and must survive in this new and constantly changing ecological system. Tom cellar is one the survivors and on an old military base in the Eifel he has entrenched himself. Further survivors come together and succeed in carving out a life in this new world. But the GMOs - the ?genetically modified organisms? - constantly develop themselves further, and soon the fence of the base offers no more protection.</p>
+<img src="https://image.tmdb.org/t/p/original/2EMayUEOr9lOK2OXZk7NTJf0E6d.jpg" alt="Extinction: The G.M.O. Chronicles poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

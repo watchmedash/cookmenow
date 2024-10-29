@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Pasta Detectives 3</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/380568">Server 1</option>
+<option value="https://embed.su/embed/movie/380568">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/380568">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/380568">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=380568&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/380568">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/380568"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Pasta Detectives 3 (2016)</h2>
+<p><strong>Genres:</strong> Comedy, Crime, Family, Action</p>
+<p><strong>Plot:</strong> The friends and amateur detectives Rico and Oskar experiencing their last adventure together. Here everything is really only one well, because now they live next door to. Ricos mother Tanya and Buhl are together, Oskar is with his father Lars pulled to Rico into the house. But dies as the grumpy Fitzke, the trouble begins. The stone Breeder inherited Rico his beloved stone-collection over which the boy also very pleased - but then he and his buddy note that Rico's favorite stone calf stone was stolen. The task now is to make the thieves apprehended. And because there are on the way to the Baltic Sea, Rico and Oskar must as soon as possible afterwards. Glad Tanja is flown by Buhl in the "snogging holiday" ...</p>
+<img src="https://image.tmdb.org/t/p/original/cwhE2ZSCACT6eY6AMo1RRq3kvUG.jpg" alt="The Pasta Detectives 3 poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

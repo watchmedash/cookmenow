@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Defiant</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/585051">Server 1</option>
+<option value="https://embed.su/embed/movie/585051">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/585051">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/585051">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=585051&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/585051">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/585051"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Defiant (2019)</h2>
+<p><strong>Genres:</strong> Drama</p>
+<p><strong>Plot:</strong> Now that the bulk of Defiants have either vanished in "The Taking" or been found and executed by order of the Sovereign Leader, the New World has finally come to know true peace. But when a young New World soldier's amnesia begins to wear off, the real truth about where he came from begins to unravel, and the real truth about what the world has become begins to unravel with it. When framed for the murder of the Sovereign Leader, this young soldier must now choose who he is: A51-317, Sovereign Soldier of the New World, or Paul Wooden, Defiant. He must choose whether he can still embrace the New World knowing what he knows now or if he must shift his allegiance. He must choose what he knows for sure. The choice is his: will he be Defiant?</p>
+<img src="https://image.tmdb.org/t/p/original/v7yZ3UxVWMFlyvCN6Kqqkc23NjX.jpg" alt="Defiant poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Highlander: The Search for Vengeance</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/13194">Server 1</option>
+<option value="https://embed.su/embed/movie/13194">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/13194">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/13194">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=13194&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/13194">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/13194"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Highlander: The Search for Vengeance (2007)</h2>
+<p><strong>Genres:</strong> Action, Animation, Fantasy, Science Fiction</p>
+<p><strong>Plot:</strong> Colin MacLeod hunts for the man responsible for the death of his love. He chases the immortal Marcus Octavius across centuries as his quest threatens to take over his life and heart. In his quest, he meets a woman who reminds him of his slain beauty. But it's his final battle with Marcus that will decide not only his fate, but also the fate of everyone in the world.</p>
+<img src="https://image.tmdb.org/t/p/original/f4htbMf2LORgMjKn0litcUFWuWY.jpg" alt="Highlander: The Search for Vengeance poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

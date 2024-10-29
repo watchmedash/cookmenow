@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Miss Impossible</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/384726">Server 1</option>
+<option value="https://embed.su/embed/movie/384726">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/384726">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/384726">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=384726&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/384726">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/384726"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Miss Impossible (2017)</h2>
+<p><strong>Genres:</strong> Drama</p>
+<p><strong>Plot:</strong> They’re all nuts. Her parents, who want to send her off to boarding school. Her new teacher, who expects her to read impossibly old books. Her fellow band members, who make her sing ridiculous lyrics and dress her up in a frilly white dress for their first show. Everyone seems to know what she should do and how she should act. And it’s not like 13-year-old Aurore has any fundamental problem with changing herself either. Who would want to be like this: unhappy, ugly and emotionally withdrawn? But the others don’t seem all that much happier to her either. She definitely doesn’t ever want to be as old, rundown and lonely as her mother. And so she prefers to stay the way she is, to observe and make her biting comments on whatever comes her way.</p>
+<img src="https://image.tmdb.org/t/p/original/9mr4XCmVjNAKu26ZeUmbjf1HD2W.jpg" alt="Miss Impossible poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

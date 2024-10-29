@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conspirators of Pleasure</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/59892">Server 1</option>
+<option value="https://embed.su/embed/movie/59892">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/59892">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/59892">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=59892&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/59892">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/59892"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Conspirators of Pleasure (1996)</h2>
+<p><strong>Genres:</strong> Drama, Animation, Comedy</p>
+<p><strong>Plot:</strong> Six outwardly average individuals have elaborate fetishes they indulge with surreptitious care. A mousy letter carrier makes dough balls she grotesquely ingests before bed. A shop clerk fixates on a TV news reader while he builds a machine to massage and masturbate him. One of his customers makes an elaborate chicken costume for a voodoo-like scene with a doll resembling his plump neighbor. She, in turn, has a doll that resembles him, which she whips and dominates in an abandoned church. The TV news reader has her own fantasy involving carp. Her husband, who is indifferent to her, steals materials to fashion elaborate artifacts that he rubs, scrapes and rolls across his body.</p>
+<img src="https://image.tmdb.org/t/p/original/rqZLPEVEcF703OeAkJNT624f7Zw.jpg" alt="Conspirators of Pleasure poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

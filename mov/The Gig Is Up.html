@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Gig Is Up</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/803689">Server 1</option>
+<option value="https://embed.su/embed/movie/803689">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/803689">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/803689">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=803689&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/803689">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/803689"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Gig Is Up (2021)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> A very human tech doc, uncovers the real costs of the platform economy through the lives of workers from around the world for companies including Uber, Amazon and Deliveroo. From delivering food and driving ride shares to tagging images for AI, millions of people around the world are finding work task by task online. The gig economy is worth over 5 trillion USD globally, and growing. And yet the stories of the workers behind this tech revolution have gone largely neglected. Who are the people in this shadow workforce? It brings their stories into the light. Lured by the promise of flexible work hours, independence, and control over time and money, workers from around the world have found a very different reality. Work conditions are often dangerous, pay often changes without notice, and workers can effectively be fired through deactivation or a bad rating. Through an engaging global cast of characters, it reveals how the magic of technology we are being sold might not be magic at all.</p>
+<img src="https://image.tmdb.org/t/p/original/9jDtRMbqxvOsET97MM4TH89eAbI.jpg" alt="The Gig Is Up poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

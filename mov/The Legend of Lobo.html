@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Legend of Lobo</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/64871">Server 1</option>
+<option value="https://embed.su/embed/movie/64871">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/64871">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/64871">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=64871&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/64871">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/64871"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Legend of Lobo (1962)</h2>
+<p><strong>Genres:</strong> Family, Adventure</p>
+<p><strong>Plot:</strong> You'll be captivated as you track the legendary Lobo through an amazing Southwest adventure. Our story begins with Lobo as an adorable wolf cub and follows his growth into a fearless and majestic leader of the pack. At odds with the local cattlemen, the price on Lobo's head grows, attracting an expert wolf hunter. As they go head to head, Lobo's amazing survival instincts and family devotion leave the hunter with nothing but respect. With the rich narration of Rex Allen, and music from the legendary Sherman Brothers and the popular Sons Of The Pioneers, this is family entertainment at its best!</p>
+<img src="https://image.tmdb.org/t/p/original/1PqlCYQVhvwwXzlNk7uZ5vX4SP9.jpg" alt="The Legend of Lobo poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

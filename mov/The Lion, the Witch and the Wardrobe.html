@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Lion, the Witch and the Wardrobe</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/40611">Server 1</option>
+<option value="https://embed.su/embed/movie/40611">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/40611">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/40611">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=40611&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/40611">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/40611"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Lion, the Witch and the Wardrobe (1979)</h2>
+<p><strong>Genres:</strong> Animation, Family, TV Movie, Fantasy, Adventure</p>
+<p><strong>Plot:</strong> This Emmy Award winner for Best Animated Special is based on the first book of C.S. Lewis' acclaimed series, "The Chronicles of Narnia." Four children pass through a mystic portal in a wardrobe and discover the magical kingdom of Narnia, a land of talking animals and mythical creatures. There, an evil witch's spell has cast the land into eternal winter. Fearing that an ancient prophecy is coming to fruition, and that the children are Narnia's rightful rulers, the White Witch tricks their youngest brother into betraying his family, enacting an ancient magic that she can use to halt the fulfillment of the prophecy. Now, only Aslan, noble lion and High King above all kings in Narnia, can help them defeat the witch, restore springtime to Narnia, and claim their rightful places on the throne.</p>
+<img src="https://image.tmdb.org/t/p/original/29Kn3P0fFAhFcAf2ZuhmUhQYdIa.jpg" alt="The Lion, the Witch and the Wardrobe poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

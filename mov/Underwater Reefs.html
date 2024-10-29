@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Underwater Reefs</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/791554">Server 1</option>
+<option value="https://embed.su/embed/movie/791554">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/791554">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/791554">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=791554&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/791554">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/791554"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Underwater Reefs (1959)</h2>
+<p><strong>Genres:</strong> Drama</p>
+<p><strong>Plot:</strong> Tõnis Hoopkaup is the head of a fishing collective in Tagaranna, a village on the Estonian island of Saaremaa. On the day of his wedding to fishing engineer Riina, he receives two important presents – a new trawling net, which he hopes will help him sail past rival collectives, and a cigarette case with an anchor on it. The case reminds him of his soaring pre-war dreams, when he was in love with the daughter of the most powerful man in Tagaranna. But her hard-hearted father put paid to their wedding plans. Now the bookkeeper Lauer has moved into the old house with his sister Lidia, and Tõnis wants to get close to her, as close as he once was with his great love … The personal and professional misconduct of a functionary who risks foundering morals is at the centre of love triangle drama featuring a wealth of local colour and complex characters.</p>
+<img src="https://image.tmdb.org/t/p/original/kzOblFqI6B8jzqU3JmheBEETPEY.jpg" alt="Underwater Reefs poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

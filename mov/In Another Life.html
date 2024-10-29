@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>In Another Life</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/492692">Server 1</option>
+<option value="https://embed.su/embed/movie/492692">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/492692">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/492692">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=492692&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/492692">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/492692"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>In Another Life (2017)</h2>
+<p><strong>Genres:</strong> Drama</p>
+<p><strong>Plot:</strong> Our once beautiful homeland had become uninhabitable. Too dangerous to walk the streets, drive a car, visit friends. Many had already left Syria. Risking their lives on the open water. Giving all we had to the ruthless, opportunists who trade in the currency of human misery. We all spent what little money we had to reach anywhere, a safe place, a new life away from the bloodshed, the bombing, the murder. Europe was meant to offer us hope. Yet the borders closed one by one. We gave up everything, left all we had behind. Living on hand outs, with no shelter, no money and now no hope. I am here, trapped in Calais Jungle. I don’t know where my wife is. The police treat us like animals. They beat us and spray us with teargas everyday. We cannot move forward, we cannot go back. We have to get out of here. I look into the eyes on this camp and I can see it; The blank emptiness of desperation. In another life I was a teacher. Now I’m a refugee. My name is Adnan.</p>
+<img src="https://image.tmdb.org/t/p/original/19QmBymAbMg2dDihdQf3wR82WS6.jpg" alt="In Another Life poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

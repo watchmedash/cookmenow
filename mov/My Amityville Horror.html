@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Amityville Horror</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/121573">Server 1</option>
+<option value="https://embed.su/embed/movie/121573">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/121573">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/121573">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=121573&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/121573">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/121573"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>My Amityville Horror (2013)</h2>
+<p><strong>Genres:</strong> Documentary, Horror</p>
+<p><strong>Plot:</strong> For the first time in 35 years, Daniel Lutz recounts his version of the infamous Amityville haunting that terrified his family in 1975. George and Kathleen Lutz's story went on to inspire a best-selling novel and the subsequent films have continued to fascinate audiences today. This documentary reveals the horror behind growing up as part of a world-famous haunting and while Daniel's facts may be others' fiction, the psychological scars he carries are indisputable. Documentary filmmaker Eric Walter has combined years of independent research into the Amityville case along with the perspectives of past investigative reporters and eyewitnesses, giving way to the most personal testimony of the subject to date.</p>
+<img src="https://image.tmdb.org/t/p/original/sh7Hbs4PWFFTYOlMLXW3JZt0veK.jpg" alt="My Amityville Horror poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

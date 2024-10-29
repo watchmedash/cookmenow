@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Whispers and Lies</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/112795">Server 1</option>
+<option value="https://embed.su/embed/movie/112795">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/112795">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/112795">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=112795&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/112795">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/112795"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Whispers and Lies (2008)</h2>
+<p><strong>Genres:</strong> Drama, Mystery, TV Movie</p>
+<p><strong>Plot:</strong> Two cousins, Jill and Patti, visit a quaint little town on a perfect little island.Patti came to visit a man she had met and brought her cousin Jill to tag along.The two meet some local men and seem to spark relationships with them. Patti seeks to impress the new mystery man she has met. Patti puts all things aside and goes running off with the man she has recently met.Eventually Patti disappears.Jill looks everywhere for her cousin. Strange things start to happen and finding Patti becomes quite challenging with missed phone calls and ferries that have left. Jill seeks for more answers and continues to push to locate her missing cousin. Jill will stop at nothing to uncover where Patti is.Jill starts to uncover the deep dark secrets of this perfect little island. No one has died on this island in centuries and Jill soon discovers why. It is a secret Jill must expose.</p>
+<img src="https://image.tmdb.org/t/p/original/vz9oZU5Xu5T3tWXdRfpT7OIMQ19.jpg" alt="Whispers and Lies poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

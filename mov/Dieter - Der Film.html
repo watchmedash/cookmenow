@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dieter - Der Film</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/9551">Server 1</option>
+<option value="https://embed.su/embed/movie/9551">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/9551">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/9551">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=9551&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/9551">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/9551"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Dieter - Der Film (2006)</h2>
+<p><strong>Genres:</strong> Animation, Comedy</p>
+<p><strong>Plot:</strong> Dieters grandma knew it from the start. This guy will be special one. She should be right. Even as a child Dieter shows an enormous power when it is necessary to enforce his will. He quickly learn that you can not only impress the girls, but also make a lot of money as a musician. He understands that the success is mainly a question of the postage costs and a healthy liver. That you may not always tell the truth, but you should always have something lying on the high edge.</p>
+<img src="https://image.tmdb.org/t/p/original/hKuF50MPc6GKuqiCCiW37Rvr7NU.jpg" alt="Dieter - Der Film poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>
