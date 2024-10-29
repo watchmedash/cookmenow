@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Principal: Am I In a Love Story?</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/557080">Server 1</option>
+<option value="https://embed.su/embed/movie/557080">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/557080">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/557080">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=557080&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/557080">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/557080"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Principal: Am I In a Love Story? (2018)</h2>
+<p><strong>Genres:</strong> Comedy, Romance</p>
+<p><strong>Plot:</strong> After her parents divorced, Shima Sumitomo lived with her mother. She felt uncomfortable living with her stepfather and she was unable to hang out with people at her high school. Shima Sumitomo decides to move to Hokkaido where her father lives. At her new high school in Hokkaido, she meets classmate Gen Tatebayashi and Wao Sakurai. They are the two most popular boys at her school. A principle of her school is that "Gen and Wao are for everyone." If anyone breaks the rule, that person will be ostracized. Even so, Shima Sumitomo gets closer to Gen and Wao.</p>
+<img src="https://image.tmdb.org/t/p/original/AvLVBzJ8Qf9k7p0b9HrmfZt52CH.jpg" alt="Principal: Am I In a Love Story? poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

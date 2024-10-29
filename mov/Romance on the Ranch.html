@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Romance on the Ranch</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/1266909">Server 1</option>
+<option value="https://embed.su/embed/movie/1266909">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/1266909">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/1266909">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=1266909&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/1266909">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/1266909"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Romance on the Ranch (2024)</h2>
+<p><strong>Genres:</strong> TV Movie, Comedy, Romance, Drama</p>
+<p><strong>Plot:</strong> When starting a new chapter in her life, Sara didn't need any distractions. Selling her place, buying a camper, and heading West was what she felt she needed to find happiness again. When her truck breaks down in the mid-west, she is invited to park her camper on a family ranch while her truck is repaired. Here is where the distractions come in the form of two brothers, who are as different as night and day. Porter is young, strong, and eager to please.</p>
+<img src="https://image.tmdb.org/t/p/original/uRqzyMd8o5RW75rES9so6GQCbXZ.jpg" alt="Romance on the Ranch poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

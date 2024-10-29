@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slap Happy Pappy</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/151859">Server 1</option>
+<option value="https://embed.su/embed/movie/151859">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/151859">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/151859">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=151859&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/151859">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/151859"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Slap Happy Pappy (1940)</h2>
+<p><strong>Genres:</strong> Animation</p>
+<p><strong>Plot:</strong> Porky runs a farm; we see him plowing the fields. But it's primarily a poultry farm; as the sign says, "For sale: Miracle eggs if it's a good egg, it's a miracle." A rabbit, doing a Jack Benny impression (Jack Bunny), paints and inspects eggs. He starts to smash and reject a black egg, but it hatches into a black baby bird doing a Rochester impression. We next visit the Eddie Cackler family, (Eddie Cantor) who have been trying without success to have a son; the next five eggs hatch, and they are again all girls. A Bing Crosby lookalike comes by with a stroller full of sons, and Eddie asks for his secret; he demonstrates by crooning to a chick, who lays dozens of eggs with boys names on them. Eddie croons to his wife, but in a higher pitch, then dances out singing the theme song to other caricatures. The egg hatches, but in answer to Eddie's question, is it really a boy? "Mmmm... could be."</p>
+<img src="https://image.tmdb.org/t/p/original/AmLC8sVHPCSb0wcgPGbQG77Ecfk.jpg" alt="Slap Happy Pappy poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

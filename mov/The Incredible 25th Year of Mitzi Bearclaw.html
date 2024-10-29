@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Incredible 25th Year of Mitzi Bearclaw</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/585377">Server 1</option>
+<option value="https://embed.su/embed/movie/585377">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/585377">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/585377">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=585377&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/585377">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/585377"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Incredible 25th Year of Mitzi Bearclaw (2019)</h2>
+<p><strong>Genres:</strong> Drama, Comedy</p>
+<p><strong>Plot:</strong> As MITZI BEARCLAW turns 25 years-old, she is faced with a tragic decision – stay in the big city to pursue her dream of designing hats or leave her boyfriend and return home to her isolated reserve to help care for her sick mother. Loyal to her family, Mitzi reluctantly returns to Owl Island to find that not much has changed. Her confidence and modern style clash with the sleepy, slow-paced island; the bullies are the same; the handsome HONEYBOY is still running the water taxi; and ANNABELLE, Mitzi’s mother is still as bitter and unloving as ever. She’s also reunited with her spiritual friends, FAITH, HOPE, and CHARITY who guide her as she navigates a year of anger, loss and love. Mitzi is soon surprised to find comfort in being home and starts to question her destiny.</p>
+<img src="https://image.tmdb.org/t/p/original/cq4VciSTnIYQKRYW0nIOKBQ61zP.jpg" alt="The Incredible 25th Year of Mitzi Bearclaw poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stranger at My Door</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/132808">Server 1</option>
+<option value="https://embed.su/embed/movie/132808">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/132808">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/132808">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=132808&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/132808">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/132808"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Stranger at My Door (1956)</h2>
+<p><strong>Genres:</strong> Drama, Western</p>
+<p><strong>Plot:</strong> Notorious outlaw Clay Anderson and gang rob the town bank and flee in separate directions. Riding hard, Clay's horse goes lame and he is forced to pull-up at a nearby farm. He soon discovers that the place belongs to local preacher Hollis Jarret, his new wife, and a son from a previous marriage. Clay, posing as a weary traveler, tries to insinuate himself into a secure hideout, but the reverend isn't fooled. He agrees to allow Clay to remain at the farm for a few days, but his motive isn't the preservation of his family's safety. Hollis reasons that, with time, patience and a lot of faith, he can convince the outlaw to turn over a new leaf. But Clay's criminal tendencies may run deeper than the preacher had imagined</p>
+<img src="https://image.tmdb.org/t/p/original/zNKcGiE9BCfWPX03fyzeRuFIQeQ.jpg" alt="Stranger at My Door poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

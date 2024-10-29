@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>To Love</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/68214">Server 1</option>
+<option value="https://embed.su/embed/movie/68214">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/68214">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/68214">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=68214&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/68214">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/68214"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>To Love (1997)</h2>
+<p><strong>Genres:</strong> Drama, Romance</p>
+<p><strong>Plot:</strong> Mitsu works in a factory and has a crush on Tsutomu, a young man she met on the Tokyo streets. One day the two go out, and after some deception, Tsutomu manages to have his way with her. Coming from a broken home, he is frightened by love, so he cruelly allows her to wake up alone. A month passes and a more grown-up Tsutomu returns. The lovers joyously reunite and move in together. All is blissful until both notice a strange sore on Mitsu's arm. The doctors diagnose it as leprosy. Without telling Tsutomu, Mitsu checks into a leper sanitarium. Hanging out with society's pariahs gives her much insight. She discovers the old lepers to be wonderful people. In turn, Mitsu becomes their source of joy and renewed hope. Still, she misses her Tsutomu. One day, the doctors inform her that they erred and that the sore is not leprosy. Happily she heads back to her true love until she realizes with a guilty pang that to return to him would mean unhappiness for her newfound friends</p>
+<img src="https://image.tmdb.org/t/p/original/4HKWDI2K9dEWxthwwOjMLNJFaQP.jpg" alt="To Love poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

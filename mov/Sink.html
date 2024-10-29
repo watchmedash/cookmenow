@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sink</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/529972">Server 1</option>
+<option value="https://embed.su/embed/movie/529972">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/529972">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/529972">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=529972&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/529972">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/529972"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Sink (2018)</h2>
+<p><strong>Genres:</strong> Drama</p>
+<p><strong>Plot:</strong> Shot mainly in South East London, it’s about Micky Mason, a skilled manual worker who, since the Crash, can find nothing but menial zero hours jobs. He takes a course of action that is completely out of character, but it’s the only way he can see of keeping his family together. It is about surviving, but it’s not all anguish and despair - it’s also warm and tender, and funny. It's about people finding their way through. It’s about Micky Mason; a man out there, right now, doing his best.</p>
+<img src="https://image.tmdb.org/t/p/original/jP2LN6gd5JFMO7FJtLm19rSCAvj.jpg" alt="Sink poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

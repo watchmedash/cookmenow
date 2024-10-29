@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Seventh Sin</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/193873">Server 1</option>
+<option value="https://embed.su/embed/movie/193873">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/193873">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/193873">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=193873&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/193873">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/193873"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Seventh Sin (1957)</h2>
+<p><strong>Genres:</strong> Drama</p>
+<p><strong>Plot:</strong> In post-WWII Hong Kong, unhappily married Carol has an affair with Paul. Her physician husband Walter discovers it and presents her with a choice: travel with him to China (where he will fight a cholera epidemic) or face the scandal of a public divorce. She persuades him to reconsider and he proposes an alternative. If Paul's wife will agree to a divorce and he marries Carol within one week Walter will obtain a quiet divorce. Carol presents Walter's 'deal' to Paul, who regretfully declines, citing respect for his wife.Carol sees as her only choice to accompany Walter to the village, where she meets booze-soaked Tim. He soon introduces her to nuns at the local hospital-convent and Carol begins to re-evaluate her self-absorbed life and character. Working at the convent, Carol learns she is pregnant. She tells Walter she's unsure who is the father and he regrets her honesty. Shortly after, Walter contracts cholera and dies. Carol returns to Hong Kong and an uncertain future.</p>
+<img src="https://image.tmdb.org/t/p/original/ioxiUcd6p7DKtlLDFW1fJeZ1So5.jpg" alt="The Seventh Sin poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>You May Kiss the Bridesmaid</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/735493">Server 1</option>
+<option value="https://embed.su/embed/movie/735493">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/735493">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/735493">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=735493&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/735493">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/735493"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>You May Kiss the Bridesmaid (2021)</h2>
+<p><strong>Genres:</strong> Comedy, Romance, TV Movie</p>
+<p><strong>Plot:</strong> Food influencer Scarlett Bailey is presented with the opportunity of a lifetime to work as a pastry chef in one of NYC's top restaurants. Her life gets put on hold when she returns to her hometown for her sister Maddie's wedding. Scarlett learns that her parents have sold the family home, a B&B, to her childhood flame Liam Perry and that Maddie has lost her wedding venue days before the nuptials. Scarlett suggests they host the event at the B&B and works with Liam to pull off the wedding of Maddie's dreams, trying to put their history behind them. As her dream job in NYC becomes a firm offer, Scarlett is forced to make a decision. She has been falling back in love with Liam and with her childhood home. With the countdown to the wedding day on, will Liam Perry get to kiss the bridesmaid?</p>
+<img src="https://image.tmdb.org/t/p/original/5plXSuT5OG4qDSYpLUKZuHasXl9.jpg" alt="You May Kiss the Bridesmaid poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

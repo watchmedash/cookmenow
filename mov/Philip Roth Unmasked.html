@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Philip Roth: Unmasked</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/178278">Server 1</option>
+<option value="https://embed.su/embed/movie/178278">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/178278">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/178278">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=178278&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/178278">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/178278"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Philip Roth: Unmasked (2013)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> Philip Roth, arguably America’s greatest living novelist, turns 80 on March 19. In 1959, his collection of short stories, Goodbye, Columbus, put him on the map, and 10 years later his hilarious, ribald best-seller, Portnoy’s Complaint, gave rise to the first of many Roth-related controversies in which Judaism, sex, the role of women, and the parent-child relationship would take center stage. In candid interviews, the Pulitzer Prize-winner discusses his distinctly unliterary upbringing in Newark, NJ, his admiration for Saul Bellow and Bernard Malamud, and how Zuckerman may or may not be his alter-ego. Nathan Englander, Mia Farrow, Jonathan Franzen, and Martin Garbus are among those who talk about the man and his writing. Franzen in particular praises Roth for “how brave he must have been to have methodically offended everybody and to have exposed parts of himself no one had ever exposed before.”</p>
+<img src="https://image.tmdb.org/t/p/original/w5Uygd4OGH3gw6NtbqjOyP8goTe.jpg" alt="Philip Roth: Unmasked poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

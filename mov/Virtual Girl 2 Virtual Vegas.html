@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Virtual Girl 2: Virtual Vegas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/341847">Server 1</option>
+<option value="https://embed.su/embed/movie/341847">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/341847">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/341847">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=341847&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/341847">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/341847"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Virtual Girl 2: Virtual Vegas (2001)</h2>
+<p><strong>Genres:</strong> Science Fiction</p>
+<p><strong>Plot:</strong> When the VirTech Corporation unveils one of the most controversial and sought after virtual reality machines ever to be developed, it takes a Las Vegas show by storm. The machine is able to make any fantasy come to life, and everyone wants to try it out. But the popular machine should have undergone more testing and when several clients suffer ad deadly reaction to their wild virtual experience, the company must race to cover up their responsibility at any cost. Life in the Cyber Universe has never been so tempting - or so deadly...</p>
+<img src="https://image.tmdb.org/t/p/original/yTnZGBMBPAFM5vvkQ03aSxytktl.jpg" alt="Virtual Girl 2: Virtual Vegas poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

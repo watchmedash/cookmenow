@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Long and the Short and the Tall</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/68198">Server 1</option>
+<option value="https://embed.su/embed/movie/68198">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/68198">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/68198">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=68198&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/68198">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/68198"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Long and the Short and the Tall (1961)</h2>
+<p><strong>Genres:</strong> War, Comedy, Drama</p>
+<p><strong>Plot:</strong> Based on a play by Willis Hall. A troop of British soldiers are out in the jungle to record jungle noises and troop noises in the jungle so that the recordings can be played back by other troops to divert the enemy to their whereabouts. As they progress to what they think is closer to the base camp they find themselves farther and farther from radio range until the only channel they can get clearly is that of a Japanese broadcast. They now realize they are probably only 10 to 15 miles from a Japanese camp! The tension is added to by rowdy and openly admitted "non-hero" Private Bamforth who has nothing good to say about anyone and especially Corporal Johnstone (who holds an equal dislike for Bamforth). When a Japanese soldier is taken as their prisoner, the true colours of each man comes to the surface</p>
+<img src="https://image.tmdb.org/t/p/original/g6DagP8sQ8778d0VtbB08cb8gaT.jpg" alt="The Long and the Short and the Tall poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Passage</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/488414">Server 1</option>
+<option value="https://embed.su/embed/movie/488414">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/488414">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/488414">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=488414&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/488414">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/488414"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Passage (2008)</h2>
+<p><strong>Genres:</strong> History, Documentary, Drama</p>
+<p><strong>Plot:</strong> With a unique blend of dramatic action and behind-the-scenes documentary footage, filmmaker John Walker shares the multi-layered story of British explorer Sir John Franklin and his crew of 128 men, who perished in the Arctic ice during an ill-fated attempt to discover the Northwest Passage, and John Rae, the Scottish doctor who in 1851, discovered their dismal fate. Rae's dark report, which described the crew’s madness and cannibalism, did not sit well with Sir John's widow, Lady Franklin, nor with many others in British society, including Charles Dickens. They waged a bitter public campaign to discredit Rae's version of events and mark an entire nation of northern Inuit with the label of murderous cannibals. A stunning face-to-face meeting between the great-great grandson of Charles Dickens and Tagak Curley, an honoured Inuit statesman who challenges the fraudulent history, vaults the story from the past into the present and we are witness to history in the making.</p>
+<img src="https://image.tmdb.org/t/p/original/pQM5oBRRIHDe3ikHl0lCO0BAA62.jpg" alt="Passage poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

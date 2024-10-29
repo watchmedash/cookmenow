@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Bride of Darkness</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/276491">Server 1</option>
+<option value="https://embed.su/embed/movie/276491">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/276491">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/276491">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=276491&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/276491">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/276491"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Bride of Darkness (1945)</h2>
+<p><strong>Genres:</strong> Crime, Horror, Drama, Fantasy, Mystery</p>
+<p><strong>Plot:</strong> Sylvie, a young woman who believes to be cursed, lives in the town of Carcassonne with her guardian, Mr. Toulzac. He is a retired teacher who wishes to discover the secret of the Cathars, a Christian sect of the Middle Ages that glorified death over life. Sylvie meets Roland, a composer who instills new hope into her troubled mind. Mr. Toulzac then asks her then to renounce the world and go down a secret tomb he has just found.</p>
+<img src="https://image.tmdb.org/t/p/original/rwchl1euXMT1D9UlxdvnzEkUe3n.jpg" alt="The Bride of Darkness poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

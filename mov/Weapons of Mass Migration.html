@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weapons of Mass Migration</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/1291947">Server 1</option>
+<option value="https://embed.su/embed/movie/1291947">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/1291947">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/1291947">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=1291947&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/1291947">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/1291947"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Weapons of Mass Migration (2024)</h2>
+<p><strong>Genres:</strong> </p>
+<p><strong>Plot:</strong> The border crisis is not taking place by chance. Behind it are official policies, heavy financing, and agreements between the U.S. government and the United Nations. The world is watching different pieces of this unfold, from the caravans gathering and streaming into the United States, to the direct flights of migrants into the American heartland. What is being left out of the discussion is why. In this investigative documentary, Crossroads host Joshua Philipp sets out to investigate what is really taking place behind the border crisis. The journey takes him deep into the jungles of Panama, into the migrant camps in the mouth of the Darien gap, through United Nations facilities, and alongside the programs to process and facilitate mass migration at the U.S.-Mexico border. In this, he sets out to answer key questions, of what is really behind the border crisis, and why is it being done?</p>
+<img src="https://image.tmdb.org/t/p/original/eQgh6Bx4oH4MDiaKKAORxkx3K7b.jpg" alt="Weapons of Mass Migration poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

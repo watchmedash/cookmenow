@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Racer</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/305937">Server 1</option>
+<option value="https://embed.su/embed/movie/305937">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/305937">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/305937">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=305937&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/305937">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/305937"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>The Racer (2020)</h2>
+<p><strong>Genres:</strong> Drama, Comedy</p>
+<p><strong>Plot:</strong> Summer 1998 - the opening stages of Le Tour de France are relocated to Ireland. Belgian rider Dom Chabol (late 30s) has been one of the best “Domestiques” (support riders) on the Tour for the last 20 years. It’s a sacrificial role – setting pace, blocking wind, and providing support to enable the team’s sprinter to victory - winning is not an option. But Dom secretly harbours a desire to wear the yellow jersey - just once before his career is over. At the start of what will likely be his last Tour, Dom is unceremoniously dropped from the Team he has dedicated his life to. His best mate Sonny, the team masseur, fails to reassure him about his future. But a chance liaison with Lynn, a young Irish doctor, softens the blow, and Dom starts to accept - and even enjoy - the idea of civilian life. But as he gears up to go home and to face his estranged sister, a massive doping error knocks another teammate off the Tour and Dom is thrown back in the saddle…</p>
+<img src="https://image.tmdb.org/t/p/original/rwhlCAW285XyDdN0PRlKYxzp68g.jpg" alt="The Racer poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

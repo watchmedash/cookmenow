@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Showrunners: The Art of Running a TV Show</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/147778">Server 1</option>
+<option value="https://embed.su/embed/movie/147778">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/147778">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/147778">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=147778&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/147778">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/147778"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Showrunners: The Art of Running a TV Show (2014)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> “Showrunners” is the first ever feature length documentary film to explore the fascinating world of US television showrunners and the creative forces aligned around them. These are the people responsible for creating, writing and overseeing every element of production on one of the United State’s biggest exports – television drama and comedy series.  Often described as the most complex job in the entertainment business, a showrunner is the chief writer / producer on a TV series and, in most instances, the show’s creator. Battling daily between art and commerce, showrunners manage every aspect of a TV show’s development and production: creative, financial and logistical.</p>
+<img src="https://image.tmdb.org/t/p/original/kWEPPZKsF3OFNZgyEoFc56I3VOr.jpg" alt="Showrunners: The Art of Running a TV Show poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>
