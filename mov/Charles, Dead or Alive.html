@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Charles, Dead or Alive</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/108543">Server 1</option>
+<option value="https://embed.su/embed/movie/108543">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/108543">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/108543">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=108543&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/108543">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/108543"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Charles, Dead or Alive (1970)</h2>
+<p><strong>Genres:</strong> Drama</p>
+<p><strong>Plot:</strong> On the 100th anniversary of the founding of a watchmaking company in Geneva, Charles Dé the founder's 50-year-old grandson has had it: he speaks eccentrically to a reporter, recognizing his grandfather as a craftsman and his son as a businessman, but is evasive about himself. He gives his family the slip and moves in with a young couple he meets by chance, doing the cooking, reading, drinking, and engaging in philosophical discussions with them. The young couple comes to love Charles. In secret, he stays in touch with a daughter, and the rest of the family hires a private investigator to find him, setting in motion a business take-over that threatens his Bohemian happiness.</p>
+<img src="https://image.tmdb.org/t/p/original/j72ljYYQtlnJMd407MNL03StZCC.jpg" alt="Charles, Dead or Alive poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>

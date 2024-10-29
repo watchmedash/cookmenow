@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Brexit Through the Non-political Glass</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/1133980">Server 1</option>
+<option value="https://embed.su/embed/movie/1133980">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/1133980">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/1133980">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=1133980&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/1133980">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/1133980"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Brexit Through the Non-political Glass (2021)</h2>
+<p><strong>Genres:</strong> Documentary</p>
+<p><strong>Plot:</strong> On 1 January 2021, the UK's transition period with the EU ended and new rules and regulations were agreed at the last minute. This is a time for reflection on the social phenomenon that is Brexit - which has now become a British trademark world-over, alongside the Royal Family, fish and chips and Sherlock Holmes. Brexit Through The Non-Political Glass puts politicians and public sentiments to one side, and seeks the opinions of non-partisan world-class experts - the scholars and professional advisors who specialize in this very topic; no politicians and propagandists, and no social media and populism; among the experts is Vernon Bogdanor, the Oxford tutor of former British prime minister David Cameron, who was consulted before the referendum was offered to the nation; you will hear what his advice was.</p>
+<img src="https://image.tmdb.org/t/p/original/eLaNSPeKw13gaBI2PL6WhcZjxXV.jpg" alt="Brexit Through the Non-political Glass poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>
