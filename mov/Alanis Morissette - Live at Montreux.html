@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Alanis Morissette - Live at Montreux</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #1c1c1e;
+        color: #f5f5f5;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    p {
+        font-size: 1.1em;
+        max-width: 600px;
+        text-align: center;
+    }
+    select {
+        margin: 10px 0;
+        padding: 5px;
+        background-color: #333;
+        color: #f5f5f5;
+        border: 1px solid #666;
+        border-radius: 5px;
+    }
+    #video-player {
+        border: 2px solid #444;
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+    img {
+        margin-top: 10px;
+        border-radius: 8px;
+        width: 150px;
+    }
+    .back-button {
+        margin-top: 20px;
+        background-color: #444;
+        color: #f5f5f5;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    .back-button:hover {
+        background-color: #666;
+    }
+</style>
+</head>
+<body oncontextmenu="return false;">
+<select id="video-source" onchange="changeSource()">
+<option value="https://vidsrc.me/embed/movie/188506">Server 1</option>
+<option value="https://embed.su/embed/movie/188506">Server 2</option>
+<option value="https://vidbinge.dev/embed/movie/188506">Server 3</option>
+<option value="https://vidsrc.vip/embed/movie/188506">Server 4</option>
+<option value="https://multiembed.mov/directstream.php?video_id=188506&tmdb=1">Server 5</option>
+<option value="https://vidlink.pro/movie/188506">Server 6</option>
+</select>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 95%; margin: 0 auto;">
+<iframe id="video-player" allow="autoplay" allowfullscreen="true" referrerpolicy="origin" frameborder="0"
+src="https://vidsrc.me/embed/movie/188506"
+style="width: 100%; height: 100%; position: absolute;">
+</iframe>
+</div>
+<div>
+<h2>Alanis Morissette - Live at Montreux (2013)</h2>
+<p><strong>Genres:</strong> Music</p>
+<p><strong>Plot:</strong> Alanis Morissette is one of the most successful female artists and songwriters of all time and has sold in excess of 60 million albums worldwide. Her voice is instantly recognisable and she is a consummate live performer. On 2 July 2012 Alanis Morissette returned to Montreux as part of her Guardian Angel Tour in support of her new album Havoc And Bright Lights . It was her third appearance at the festival. The set showcased a number of tracks from the new album (at that point still to be released) alongside classic tracks from across her career. This is Alanis Morissette live at her very best. TRACKLIST 1) I Remain 2) Woman Down 3) All I Really Want 4) You Learn 5) Guardian 6) Flinch 7) Forgiven 8) Hands Clean 9) I Remain 10) Citizen Of The Planet 11) Ironic 12) Havoc 13) Head Over Feet 14) Versions Of Violence 15) I Remain 16) You Oughta Know 17) Numb 18) Hand In My Pocket 19) Uninvited 20) Thank U</p>
+<img src="https://image.tmdb.org/t/p/original/kdJBdGbDnDV5hfJMDCtxU3kMivz.jpg" alt="Alanis Morissette - Live at Montreux poster" />
+</div>
+<a href="https://dashflix.top/home.html" class="back-button">← Home</a>
+
+    <script>
+    function changeSource() {
+        var iframe = document.getElementById("video-player");
+        var dropdown = document.getElementById("video-source");
+        iframe.src = dropdown.value;
+    }
+    </script>
+    
+</body>
+</html>
