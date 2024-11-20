@@ -1,136 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>53rd UAE National Day</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .banner {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-        }
-        .container {
-            margin: 20px auto;
-            width: 80%;
-            max-width: 500px;
-        }
-        .info-box {
-            background-color: #1f1f1f;
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px auto;
-            text-align: left;
-            line-height: 1.6;
-            font-size: 16px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-            max-width: 90%;
-        }
-        .info-box h2 {
-            color: #4caf50;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .progress-bar-container {
-            display: none;
-            margin: 20px 0;
-            width: 100%;
-            background-color: #444;
-            border-radius: 5px;
-            overflow: hidden;
-            position: relative;
-        }
-        .progress-bar {
-            width: 0%;
-            height: 20px;
-            background-color: #4caf50;
-            transition: width 0.1s linear;
-        }
-        .progress-bar span {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            text-align: center;
-            color: #ffffff;
-            font-weight: bold;
-            line-height: 20px;
-        }
-        .button {
-    padding: 10px 20px;
-    font-size: 18px;
-    color: #ffffff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease; /* Add smooth scaling on hover */
-}
-.button:hover {
-    background-color: #0056b3; /* Darker shade for hover */
-    transform: scale(1.05); /* Slight zoom-in effect on hover */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow for depth */
-}
-.button:disabled {
-    background-color: #444;
-    cursor: not-allowed;
-    opacity: 0.6; /* Makes disabled buttons visually distinct */
-}
-
-.claim-here {
-    display: none;
-    text-decoration: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    color: #ffffff;
-    background-color: #28a745;
-    border-radius: 5px;
-    margin-top: 20px;
-    transition: background-color 0.3s, transform 0.2s ease; /* Similar hover effects for consistency */
-}
-.claim-here:hover {
-    background-color: #218838; /* Darker green on hover */
-    transform: scale(1.05); /* Slight zoom-in */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow for depth */
-}
-
-#shareBtn {
-    margin-bottom: 20px;
-    background-color: #4267B2; /* Facebook Blue */
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease; /* Smooth scaling and hover effects */
-}
-#shareBtn:hover {
-    background-color: #365899; /* Darker Facebook Blue for hover */
-    transform: scale(1.05); /* Slight zoom-in effect */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Adds shadow for depth */
-}
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="53rd UAE National Day Celebration" property="og:title"/>
+<meta content="Join us in celebrating the 53rd UAE National Day with a special data giveaway. Claim your 53GB of data now and celebrate this important milestone!" property="og:description"/>
+<meta content="Celebrate the 53rd UAE National Day with a special data giveaway. Claim 53GB of data and join us in marking this historic event!" name="description"/>
+<meta content="UAE National Day, 53GB giveaway, Celebrate UAE, Data giveaway, UAE celebration, Free data, National Day promotion" name="keywords"/>
+<meta content="https://emirati.top" property="og:url"/>
+<meta content="free.webp" property="og:image"/>
+<link href="uae.ico" rel="icon" type="image/png"/>
+<title>53rd UAE National Day</title>
+<style>body{font-family:Arial,sans-serif;background-color:#121212;color:#ffffff;text-align:center;margin:0;padding:0}.banner{max-width:100%;height:auto;display:block;margin:20px auto;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.6)}.container{margin:20px auto;width:80%;max-width:500px}.info-box{background-color:#1f1f1f;color:#ffffff;padding:20px;border-radius:10px;margin:20px auto;text-align:left;line-height:1.6;font-size:16px;box-shadow:0px 4px 8px rgba(0,0,0,0.5);max-width:90%}.info-box h2{color:#4caf50;font-size:24px;margin-bottom:10px}.progress-bar-container{display:none;margin:20px 0;width:100%;background-color:#444;border-radius:5px;overflow:hidden;position:relative}.progress-bar{width:0%;height:20px;background-color:#4caf50;transition:width 0.1s linear}.progress-bar span{position:absolute;top:0;left:50%;transform:translateX(-50%);width:100%;text-align:center;color:#ffffff;font-weight:bold;line-height:20px}.button{padding:10px 20px;font-size:18px;color:#ffffff;background-color:#007bff;border:none;border-radius:5px;cursor:pointer;transition:background-color 0.3s,transform 0.2s ease}.button:hover{background-color:#0056b3;transform:scale(1.05);box-shadow:0px 4px 8px rgba(0,0,0,0.5)}.button:disabled{background-color:#444;cursor:not-allowed;opacity:.6}.claim-here{display:none;text-decoration:none;padding:10px 20px;font-size:18px;color:#ffffff;background-color:#28a745;border-radius:5px;margin-top:20px;transition:background-color 0.3s,transform 0.2s ease}.claim-here:hover{background-color:#218838;transform:scale(1.05);box-shadow:0px 4px 8px rgba(0,0,0,0.5)}#shareBtn{margin-bottom:20px;background-color:#4267B2;color:#ffffff;border:none;border-radius:5px;font-size:18px;padding:10px 20px;cursor:pointer;transition:background-color 0.3s,transform 0.2s ease}#shareBtn:hover{background-color:#365899;transform:scale(1.05);box-shadow:0px 4px 8px rgba(0,0,0,0.5)}#phoneNumber{padding:10px;font-size:18px;width:80%;max-width:400px;margin:20px auto;border-radius:5px;border:1px solid #444;background-color:#1f1f1f;color:#fff;display:none;text-align:center}#note{color:#999;font-size:14px;margin-top:10px;display:none}</style>
 </head>
 <body>
     <img src="free.webp" alt="53rd UAE National Day" class="banner">
 
     <div class="container">
-      <p>Share before you can claim!</p>
+        <p>Share before you can claim!</p>
         <button id="shareBtn" class="button">Share</button>
         <button id="claimBtn" class="button" disabled>Claim</button>
         <div class="progress-bar-container">
@@ -138,7 +25,10 @@
                 <span id="progressText">0%</span>
             </div>
         </div>
-        <a href="https://perilastronaut.com/drgbi6nk3?key=b9a8423ba82179e793ae4a5b1096f541" id="claimHere" class="claim-here">Claim Here</a>
+        <!-- Phone number box and claim here button initially hidden -->
+        <input type="text" id="phoneNumber" placeholder="Enter your phone number (e.g. 05XXXXXXXX)" disabled>
+        <a href="https://perilastronaut.com/drgbi6nk3?key=b9a8423ba82179e793ae4a5b1096f541" id="claimHere" class="claim-here" disabled>Claim Here</a>
+        <p id="note">The 53GB should arrive within 1-5 days.</p>
     </div>
 
     <div class="info-box">
@@ -164,43 +54,8 @@
         </p>
     </div>
 
-    <script>
-        const shareBtn = document.getElementById('shareBtn');
-        const claimBtn = document.getElementById('claimBtn');
-        const progressBarContainer = document.querySelector('.progress-bar-container');
-        const progressBar = document.querySelector('.progress-bar');
-        const progressText = document.getElementById('progressText');
-        const claimHere = document.getElementById('claimHere');
-
-        claimHere.style.display = 'none';
-
-        shareBtn.addEventListener('click', () => {
-            const url = encodeURIComponent(window.location.href);
-            const fbShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-            window.open(fbShareUrl, '_blank');
-
-            // Enable the Claim button after sharing
-            claimBtn.disabled = false;
-        });
-
-        claimBtn.addEventListener('click', () => {
-            if (!claimBtn.disabled) {
-                claimBtn.style.display = 'none';
-                progressBarContainer.style.display = 'block';
-
-                let progress = 0;
-                const interval = setInterval(() => {
-                    progress += 5;
-                    progressBar.style.width = `${progress}%`;
-                    progressText.textContent = `${progress}%`;
-
-                    if (progress >= 100) {
-                        clearInterval(interval);
-                        claimHere.style.display = 'inline-block';
-                    }
-                }, 100);
-            }
-        });
-    </script>
+<script>
+const shareBtn=document.getElementById('shareBtn'),claimBtn=document.getElementById('claimBtn'),progressBarContainer=document.querySelector('.progress-bar-container'),progressBar=document.querySelector('.progress-bar'),progressText=document.getElementById('progressText'),claimHere=document.getElementById('claimHere'),phoneNumberInput=document.getElementById('phoneNumber'),note=document.getElementById('note');claimHere.style.display='none';claimHere.disabled=true;phoneNumberInput.disabled=true;shareBtn.addEventListener('click',()=>{const url=encodeURIComponent(window.location.href),fbShareUrl=`https://www.facebook.com/sharer/sharer.php?u=${url}`;window.open(fbShareUrl,'_blank');claimBtn.disabled=false;});claimBtn.addEventListener('click',()=>{if(!claimBtn.disabled){claimBtn.style.display='none';progressBarContainer.style.display='block';let progress=0;const interval=setInterval(()=>{progress+=5;progressBar.style.width=`${progress}%`;progressText.textContent=`${progress}%`;if(progress===100){clearInterval(interval);phoneNumberInput.style.display='block';phoneNumberInput.disabled=false;claimHere.style.display='inline-block';note.style.display='block';}} ,100);}});phoneNumberInput.addEventListener('input',()=>{const phoneNumber=phoneNumberInput.value;/^05\d{8}$/.test(phoneNumber)?claimHere.disabled=false:claimHere.disabled=true;});
+</script>
 </body>
 </html>
