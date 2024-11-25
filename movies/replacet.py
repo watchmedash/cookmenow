@@ -12,4 +12,4 @@ def replace_text_in_files(directory, old_text, new_text):
                     print(line.replace(old_text, new_text), end='')
 
 # Replace "dashflix.xyz" with "dashflix.top" in all HTML files in the current directory
-replace_text_in_files('.', 'https://nextflix.top', 'https://dash-tv.com')
+replace_text_in_files('.', 'https://emirati.top/movies', 'https://dash-tv.com/movies')
