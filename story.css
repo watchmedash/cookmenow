@@ -1,0 +1,120 @@
+/* General Styles */
+body {
+    background: linear-gradient(135deg, #1a1a1a, #333333, #4d4d4d); /* Dark neutral gradient */
+    color: #fff; /* White text for better readability */
+    font-family: 'Merriweather', serif; /* Stylish serif font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center; /* Center everything by default */
+}
+
+/* Container Styles */
+.container {
+    max-width: 700px;
+    width: 90%;
+    max-height: 80%;
+    padding: 30px;
+    background: rgba(40, 40, 40, 0.9); /* Dark transparent background */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Subtle white border */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Softer shadow */
+    overflow-y: auto;
+    text-align: center; /* Center other content by default */
+    position: relative;
+    backdrop-filter: blur(8px);
+}
+
+/* Align the paragraphs to the left */
+.container p {
+    text-align: left; /* Left-align paragraphs */
+    margin-bottom: 1.5em; /* Add space between paragraphs */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Heading Styles */
+h1 {
+    color: #f1f1f1; /* Light grey heading */
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    font-weight: 700; /* Bolder text */
+}
+
+/* List Styles */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the list */
+}
+
+li {
+    margin: 15px 0;
+}
+
+a {
+    color: #fff; /* White links */
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #555555, #666666); /* Dark neutral gradient */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: none; /* No glow effect */
+    display: inline-block;
+    transition: transform 0.2s ease; /* Smooth transition for scaling */
+    position: relative;
+}
+
+/* Hover Effect: Scaling */
+a:hover {
+    transform: scale(1.1); /* Scale the button on hover */
+    background: linear-gradient(135deg, #444444, #555555); /* Darker gradient on hover */
+}
+
+/* Scrollbar Styling */
+.container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.5);
+    border-radius: 4px;
+}
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    font-size: 1.1em;
+    color: #fff; /* White footer text */
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+
+.footer a {
+    color: #f1f1f1; /* Light grey footer links */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2em;
+    }
+
+    a {
+        font-size: 1.1em;
+    }
+}
