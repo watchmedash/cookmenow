@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="music-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Background blur effect -->
+    <div class="background-blur"></div>
+
+    <!-- Main container -->
+    <div class="music-player">
+        <!-- Sidebar with playlists -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <h1>Music Player</h1>
+            </div>
+
+            <div class="menu">
+                <div class="menu-item active" data-view="library">
+                    <i class="fas fa-home"></i>
+                    <span>Library</span>
+                </div>
+                <div class="menu-item" data-view="playlists">
+                    <i class="fas fa-list"></i>
+                    <span>Playlists</span>
+                </div>
+                <div class="menu-item" data-view="favorites">
+                    <i class="fas fa-heart"></i>
+                    <span>Favorites</span>
+                </div>
+                <div class="menu-item" data-view="recent">
+                    <i class="fas fa-clock"></i>
+                    <span>Recently Played</span>
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <label for="file-upload" class="upload-btn">
+                    <i class="fas fa-plus"></i>
+                    <span>Add Music</span>
+                </label>
+                <input type="file" id="file-upload" multiple accept="audio/*" style="display: none;">
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search for songs, artists, or albums..." id="search-input">
+                </div>
+                <div class="header-controls">
+                    <button class="header-btn" id="shuffle-all">
+                        <i class="fas fa-random"></i>
+                        Shuffle All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Content views -->
+            <div class="content-view" id="library-view">
+                <h2>Your Music Library</h2>
+                <div class="music-grid" id="music-grid">
+                    <!-- Music items will be added here -->
+                    <div class="empty-state">
+                        <i class="fas fa-music"></i>
+                        <h3>No music yet</h3>
+                        <p>Upload your favorite songs to get started</p>
+                        <label for="file-upload" class="upload-btn-large">
+                            <i class="fas fa-plus"></i>
+                            Add Music Files
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-view hidden" id="playlists-view">
+                <h2>Playlists</h2>
+                <div class="playlists-grid" id="playlists-grid">
+                    <div class="playlist-card create-playlist">
+                        <div class="playlist-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <h3>Create Playlist</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-view hidden" id="favorites-view">
+                <h2>Favorite Songs</h2>
+                <div class="music-list" id="favorites-list">
+                    <div class="empty-state">
+                        <i class="fas fa-heart"></i>
+                        <h3>No favorites yet</h3>
+                        <p>Heart songs to add them to your favorites</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-view hidden" id="recent-view">
+                <h2>Recently Played</h2>
+                <div class="music-list" id="recent-list">
+                    <div class="empty-state">
+                        <i class="fas fa-clock"></i>
+                        <h3>No recent plays</h3>
+                        <p>Songs you play will appear here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music player controls -->
+    <div class="player-bar">
+        <!-- Current song info -->
+        <div class="current-song">
+            <div class="song-artwork">
+                <img id="current-artwork" src="" alt="Current song">
+                <div class="default-artwork">
+                    <i class="fas fa-music"></i>
+                </div>
+            </div>
+            <div class="song-info">
+                <div class="song-title" id="current-title">Select a song</div>
+                <div class="song-artist" id="current-artist">No song playing</div>
+            </div>
+            <button class="favorite-btn" id="favorite-current">
+                <i class="far fa-heart"></i>
+            </button>
+        </div>
+
+        <!-- Player controls -->
+        <div class="player-controls">
+            <div class="control-buttons">
+                <button class="control-btn" id="shuffle-btn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button class="control-btn" id="prev-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button class="control-btn play-btn" id="play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="control-btn" id="next-btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button class="control-btn" id="repeat-btn">
+                    <i class="fas fa-redo"></i>
+                </button>
+            </div>
+
+            <div class="progress-bar">
+                <span class="time" id="current-time">0:00</span>
+                <div class="progress-container">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progress-fill"></div>
+                        <div class="progress-handle" id="progress-handle"></div>
+                    </div>
+                </div>
+                <span class="time" id="total-time">0:00</span>
+            </div>
+        </div>
+
+        <!-- Volume and additional controls -->
+        <div class="right-controls">
+            <button class="control-btn" id="queue-btn">
+                <i class="fas fa-list"></i>
+            </button>
+            <div class="volume-control">
+                <button class="control-btn" id="volume-btn">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <div class="volume-slider">
+                    <div class="volume-track">
+                        <div class="volume-fill" id="volume-fill"></div>
+                        <div class="volume-handle" id="volume-handle"></div>
+                    </div>
+                </div>
+            </div>
+            <button class="control-btn" id="fullscreen-btn">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Audio visualizer -->
+    <canvas id="visualizer" class="visualizer hidden"></canvas>
+
+    <!-- Hidden audio element -->
+    <audio id="audio-player" preload="metadata"></audio>
+
+    <!-- Context menu -->
+    <div class="context-menu hidden" id="context-menu">
+        <div class="context-item" data-action="play">
+            <i class="fas fa-play"></i>
+            Play
+        </div>
+        <div class="context-item" data-action="add-to-queue">
+            <i class="fas fa-list"></i>
+            Add to Queue
+        </div>
+        <div class="context-item" data-action="favorite">
+            <i class="fas fa-heart"></i>
+            Add to Favorites
+        </div>
+        <div class="context-item" data-action="add-to-playlist">
+            <i class="fas fa-plus"></i>
+            Add to Playlist
+        </div>
+        <div class="context-divider"></div>
+        <div class="context-item" data-action="remove">
+            <i class="fas fa-trash"></i>
+            Remove
+        </div>
+    </div>
+
+    <script src="music-script.js"></script>
+</body>
+</html>
