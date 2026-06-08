@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark System — Movies &amp; TV Shows</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Dark System — discover movies and TV shows. Stream via VidVault." />
+  <link rel="canonical" href="https://darksystem.top" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://darksystem.top" />
+  <meta property="og:title" content="Dark System — Movies &amp; TV Shows" />
+  <meta property="og:description" content="Discover and stream movies and TV shows." />
+  <meta property="og:image" content="https://darksystem.top/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dark System" />
+  <meta name="twitter:description" content="Discover and stream movies and TV shows." />
+  <meta name="twitter:image" content="https://darksystem.top/og-image.jpg" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <span class="logo">DARK<span class="logo-accent">SYSTEM</span></span>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
+        <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="movies">Movies</button>
+    <button class="tab-btn" data-tab="tv">TV Shows</button>
+  </nav>
+
+  <!-- Filter Bar -->
+  <section class="filter-bar">
+    <div class="filter-top-row">
+      <input id="search-input" class="filter-input filter-search" type="search" placeholder="Search..." autocomplete="off" />
+      <button id="filter-toggle" class="filter-toggle-btn" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        Filters<span id="filter-count" class="filter-count" style="display:none"></span>
+      </button>
+    </div>
+
+    <div id="filter-advanced" class="filter-advanced">
+      <div class="filter-row">
+        <select id="filter-genre" class="filter-select">
+          <option value="">All Genres</option>
+        </select>
+
+        <div class="filter-year-pair">
+          <input id="filter-year-from" class="filter-input filter-year" type="number" placeholder="Year from" min="1900" max="2026" />
+          <input id="filter-year-to" class="filter-input filter-year" type="number" placeholder="Year to" min="1900" max="2026" />
+        </div>
+
+        <div class="filter-rating-wrap">
+          <label class="filter-label" for="filter-rating">Rating</label>
+          <input id="filter-rating" class="filter-slider" type="range" min="0" max="10" step="0.5" value="0" />
+          <span id="rating-display" class="filter-mono">Any</span>
+        </div>
+
+        <select id="filter-language" class="filter-select">
+          <option value="">All Languages</option>
+          <option value="en">English</option>
+          <option value="fr">French</option>
+          <option value="es">Spanish</option>
+          <option value="de">German</option>
+          <option value="ja">Japanese</option>
+          <option value="ko">Korean</option>
+          <option value="zh">Chinese</option>
+          <option value="it">Italian</option>
+          <option value="pt">Portuguese</option>
+          <option value="hi">Hindi</option>
+          <option value="ar">Arabic</option>
+        </select>
+
+        <select id="filter-sort" class="filter-select">
+          <option value="popularity.desc">Popularity ↓</option>
+          <option value="popularity.asc">Popularity ↑</option>
+          <option value="vote_average.desc">Rating ↓</option>
+          <option value="vote_average.asc">Rating ↑</option>
+          <option value="release_date.desc">Release Date ↓</option>
+          <option value="release_date.asc">Release Date ↑</option>
+          <option value="original_title.asc">Title A–Z</option>
+          <option value="original_title.desc">Title Z–A</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filter-chips-row">
+      <div id="filter-chips" class="filter-chips"></div>
+      <button id="clear-filters" class="clear-btn" style="display:none">Clear all</button>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <main class="main">
+    <div id="grid" class="grid"></div>
+    <div id="sentinel" class="sentinel"></div>
+  </main>
+
+  <!-- Go to Top -->
+  <button id="go-top" class="go-top" aria-label="Go to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- TV Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-backdrop" class="modal-backdrop"></div>
+    <div class="modal-box">
+      <button id="modal-close" class="modal-close" aria-label="Close">×</button>
+      <div class="modal-content">
+        <div class="modal-left">
+          <img id="modal-poster" class="modal-poster" src="" alt="" />
+          <div class="modal-left-text">
+            <h2 id="modal-title" class="modal-show-title"></h2>
+            <div class="modal-meta">
+              <span id="modal-year" class="modal-year"></span>
+              <span id="modal-rating" class="modal-rating"></span>
+            </div>
+            <p id="modal-overview" class="modal-overview"></p>
+          </div>
+        </div>
+        <div class="modal-right">
+          <div id="modal-seasons" class="modal-seasons"></div>
+          <div id="modal-episodes" class="modal-episodes"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
