@@ -5,7 +5,7 @@
   --border: #d8d8d8;
   --text: #080808;
   --text-muted: #505050;
-  --green: #00a832;
+  --green: #ff0000;
   --card-overlay: rgba(0,0,0,0.78);
   --shadow: 0 4px 16px rgba(0,0,0,0.08);
   --shadow-hover: 0 8px 28px rgba(0,0,0,0.16);
@@ -23,10 +23,10 @@
   --border: #1e1e1e;
   --text: #e8e8e8;
   --text-muted: #606060;
-  --green: #00ff41;
+  --green: #ff0000;
   --card-overlay: rgba(0,0,0,0.88);
   --shadow: 0 4px 16px rgba(0,0,0,0.6);
-  --shadow-hover: 0 8px 28px rgba(0,255,65,0.08);
+  --shadow-hover: 0 8px 28px rgba(255,0,0,0.12);
   --rating-green: #00ff41;
   --rating-yellow: #f0c000;
   --rating-red: #ff3333;
@@ -86,7 +86,7 @@ a { color: inherit; }
   color: var(--text);
 }
 .logo-accent { color: var(--green); }
-[data-theme="dark"] .logo-text { text-shadow: 0 0 18px rgba(0,255,65,0.25); }
+[data-theme="dark"] .logo-text { text-shadow: 0 0 18px rgba(255,0,0,0.3); }
 
 .theme-toggle {
   width: 30px;
@@ -357,7 +357,7 @@ a { color: inherit; }
   font-family: var(--font-mono);
   font-size: 1.8rem;
   font-weight: 900;
-  color: rgba(0,255,65,0.5);
+  color: rgba(255,0,0,0.5);
   letter-spacing: 0.08em;
 }
 [data-theme="light"] .card-placeholder::after {
