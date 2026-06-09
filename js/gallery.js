@@ -1,4 +1,5 @@
 import { IMG_BASE, TODAY, fetchShowDetail } from './api.js';
+import { getGenreMap } from './filters.js';
 import { openModal } from './modal.js';
 
 const IMG_BASE_HQ = 'https://image.tmdb.org/t/p/w780';
@@ -17,6 +18,7 @@ export function renderSkeletons() {
   cardCounter = 0;
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
+  grid.style.opacity = '1';
   for (let i = 0; i < SKELETON_COUNT; i++) {
     const card = document.createElement('div');
     card.className = 'card skeleton-card';
@@ -27,11 +29,26 @@ export function renderSkeletons() {
   }
 }
 
+export function fadeGridOut() {
+  return new Promise(resolve => {
+    const grid = document.getElementById('grid');
+    grid.style.transition = 'opacity 0.15s';
+    grid.style.opacity = '0';
+    setTimeout(resolve, 150);
+  });
+}
+
 export function renderCards(items, append = false) {
   const grid = document.getElementById('grid');
   if (!append) {
     grid.innerHTML = '';
     cardCounter = 0;
+    // Fade in after content replace
+    grid.style.opacity = '0';
+    requestAnimationFrame(() => {
+      grid.style.transition = 'opacity 0.2s';
+      grid.style.opacity = '1';
+    });
   }
   for (const item of items) grid.appendChild(createCard(item));
 }
@@ -47,6 +64,11 @@ function createCard(item) {
   const aboveFold = cardCounter < ABOVE_FOLD;
   const isNew = dateField && dateField >= ONE_WEEK_AGO && dateField <= TODAY;
   cardCounter++;
+
+  // Genre pills (max 2)
+  const genreMap = getGenreMap(currentTab);
+  const genreIds = (item.genre_ids || []).slice(0, 2);
+  const genreNames = genreIds.map(id => genreMap[id]).filter(Boolean);
 
   const card = document.createElement('div');
   card.className = 'card';
@@ -79,7 +101,6 @@ function createCard(item) {
     card.appendChild(buildPlaceholder(title));
   }
 
-  // "NEW" badge for content released in the last 7 days
   if (isNew) {
     const newBadge = document.createElement('span');
     newBadge.className = 'card-new-badge';
@@ -87,7 +108,6 @@ function createCard(item) {
     card.appendChild(newBadge);
   }
 
-  // Always-visible rating badge
   const badge = document.createElement('span');
   badge.className = `card-badge ${ratingClass}`;
   badge.textContent = rating;
@@ -95,15 +115,28 @@ function createCard(item) {
 
   const overlay = document.createElement('div');
   overlay.className = 'card-overlay';
+
+  const genrePillsHtml = genreNames.map(name => `<span class="card-genre-pill">${esc(name)}</span>`).join('');
+
   overlay.innerHTML = `
     <span class="card-title">${esc(title)}</span>
     <div class="card-meta">
       <span class="card-year">${esc(year)}</span>
     </div>
+    ${genreNames.length ? `<div class="card-genres">${genrePillsHtml}</div>` : ''}
   `;
   card.appendChild(overlay);
 
+  // Genre pill clicks set genre filter via custom event
+  overlay.querySelectorAll('.card-genre-pill').forEach((pill, i) => {
+    pill.addEventListener('click', e => {
+      e.stopPropagation();
+      document.dispatchEvent(new CustomEvent('genre-filter', { detail: { id: genreIds[i] } }));
+    });
+  });
+
   card.addEventListener('click', () => {
+    document.dispatchEvent(new CustomEvent('item-clicked', { detail: { item, tab: currentTab } }));
     if (isMovie) {
       window.open(`https://vidvault.ru/movie/${item.id}`, '_blank', 'noopener');
     } else {

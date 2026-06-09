@@ -139,6 +139,13 @@ function clearFilters() {
   syncAllInputsFromState();
 }
 
+// ─── Genre map for card pills ───
+
+export function getGenreMap(tab) {
+  const list = tab === 'movies' ? genreCache.movies : genreCache.tv;
+  return Object.fromEntries(list.map(g => [g.id, g.name]));
+}
+
 // ─── URL hash share link ───
 
 export function pushHash() {

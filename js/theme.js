@@ -6,8 +6,11 @@ export function initTheme() {
 
   document.getElementById('theme-toggle').addEventListener('click', () => {
     const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    // Enable cross-fade transition for this toggle only
+    document.documentElement.classList.add('theme-transitioning');
     applyTheme(next);
     localStorage.setItem(STORAGE_KEY, next);
+    setTimeout(() => document.documentElement.classList.remove('theme-transitioning'), 300);
   });
 }
 

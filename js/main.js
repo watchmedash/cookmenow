@@ -1,12 +1,14 @@
 import { initTheme } from './theme.js';
 import { fetchPopular, searchContent, discoverContent } from './api.js';
 import {
-  renderCards, renderSkeletons, initInfiniteScroll, destroyInfiniteScroll,
+  renderCards, renderSkeletons, fadeGridOut, initInfiniteScroll, destroyInfiniteScroll,
   showLoading, hideLoading, showEnd, showEmpty, showError,
   initGoToTop, setTab,
 } from './gallery.js';
 import { state, initFilters, onFilterChange, renderFilterBar, renderChips, saveTab, loadSavedTab, pushHash } from './filters.js';
 import { initModal } from './modal.js';
+import { openModal } from './modal.js';
+import { addRecent, renderRecents, clearRecents } from './recents.js';
 
 let isFetching = false;
 let totalPages = 1;
@@ -52,7 +54,7 @@ function schedulePrefetch() {
   const snapPage = state.page + 1;
   prefetchTimer = setTimeout(async () => {
     if (snapTab !== state.tab || snapPage > totalPages) return;
-    try { await buildFetchCall(snapTab, snapPage); } catch { /* non-critical */ }
+    try { await buildFetchCall(snapTab, snapPage); } catch {}
   }, 2000);
 }
 
@@ -73,7 +75,6 @@ async function fetchPage(append) {
 
     renderCards(results, append);
 
-    // Restore per-tab scroll position after first page render
     if (!append && pendingScrollRestore > 0) {
       const y = pendingScrollRestore;
       pendingScrollRestore = 0;
@@ -103,13 +104,14 @@ function loadMore() {
   fetchPage(true);
 }
 
-function resetAndLoad(restoreScroll = false) {
+async function resetAndLoad(restoreScroll = false) {
   clearTimeout(prefetchTimer);
   state.page = 1;
   totalPages = 1;
   isFetching = false;
   pendingScrollRestore = restoreScroll ? (tabScrollY[state.tab] || 0) : 0;
   destroyInfiniteScroll();
+  await fadeGridOut();
   renderSkeletons();
   fetchPage(false).then(() => {
     if (totalPages > 1) initInfiniteScroll(loadMore);
@@ -142,23 +144,18 @@ function setupTabs() {
   });
 }
 
-// ─── Keyboard shortcuts ───
 function initKeyboardShortcuts() {
   document.addEventListener('keydown', e => {
     const tag = document.activeElement?.tagName;
     const inInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
-    const modal = document.getElementById('modal');
-    const modalOpen = modal?.classList.contains('open');
+    const modalOpen = document.getElementById('modal')?.classList.contains('open');
 
-    // '/' focuses search (only when not already in an input and modal is closed)
     if (e.key === '/' && !inInput && !modalOpen) {
       e.preventDefault();
       const input = document.getElementById('search-input');
-      input?.focus();
-      input?.select();
+      input?.focus(); input?.select();
     }
 
-    // Escape clears + blurs search when search is focused
     if (e.key === 'Escape' && document.activeElement?.id === 'search-input') {
       const input = document.activeElement;
       if (input.value) {
@@ -171,12 +168,39 @@ function initKeyboardShortcuts() {
   });
 }
 
+function refreshRecents() {
+  renderRecents(item => openModal(item));
+}
+
 async function init() {
   initTheme();
   initModal();
   initGoToTop();
   initKeyboardShortcuts();
   setupTabs();
+
+  // Genre pill click → set filter
+  document.addEventListener('genre-filter', e => {
+    state.genre = e.detail.id;
+    const sel = document.getElementById('filter-genre');
+    if (sel) sel.value = e.detail.id;
+    renderChips();
+    pushHash();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    resetAndLoad();
+  });
+
+  // Track recently viewed
+  document.addEventListener('item-clicked', e => {
+    addRecent(e.detail.item, e.detail.tab);
+    refreshRecents();
+  });
+
+  // Clear recents button
+  document.getElementById('recents-clear')?.addEventListener('click', () => {
+    clearRecents();
+    refreshRecents();
+  });
 
   const hashTab = new URLSearchParams(location.hash.replace(/^#/, '')).get('tab');
   const tab = hashTab || loadSavedTab();
@@ -186,8 +210,11 @@ async function init() {
   await initFilters();
   onFilterChange(() => {
     renderChips();
+    window.scrollTo({ top: 0, behavior: 'instant' });
     resetAndLoad();
   });
+
+  refreshRecents();
   resetAndLoad();
 }
 

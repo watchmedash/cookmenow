@@ -1,4 +1,5 @@
-import { fetchShowDetail, fetchSeasonDetail, IMG_BASE, TODAY } from './api.js';
+import { fetchShowDetail, fetchSeasonDetail, fetchSimilarShows, IMG_BASE, TODAY } from './api.js';
+import { IMG_SMALL } from './recents.js';
 
 let currentShowId = null;
 let savedScrollY = 0;
@@ -15,9 +16,12 @@ export async function openModal(show) {
   document.body.style.overflow = 'hidden';
   renderBase(show);
 
+  document.dispatchEvent(new CustomEvent('item-clicked', { detail: { item: show, tab: 'tv' } }));
+
   try {
     const detail = await fetchShowDetail(show.id);
     renderSeasons(detail, show.id);
+    fetchSimilarShows(show.id).then(data => renderSimilar(data.results || [])).catch(() => {});
   } catch {
     document.getElementById('modal-seasons').innerHTML =
       '<p class="modal-error">Failed to load seasons.</p>';
@@ -49,6 +53,7 @@ function renderBase(show) {
   document.getElementById('modal-overview').textContent = show.overview || 'No overview available.';
   document.getElementById('modal-seasons').innerHTML = '<div class="spinner"></div>';
   document.getElementById('modal-episodes').innerHTML = '';
+  document.getElementById('modal-similar').innerHTML = '';
 }
 
 function renderSeasons(detail, showId) {
@@ -90,6 +95,12 @@ function renderSeasons(detail, showId) {
   hint.textContent = '↑↓ ←→ keys';
   container.appendChild(hint);
 
+  // Season episode progress
+  const progress = document.createElement('div');
+  progress.id = 'season-progress';
+  progress.className = 'season-progress';
+  container.appendChild(progress);
+
   select.addEventListener('change', () => {
     loadEpisodes(showId, Number(select.value));
   });
@@ -113,6 +124,19 @@ async function loadEpisodes(showId, seasonNumber) {
 function renderEpisodes(season, showId, seasonNumber) {
   allEpisodes = (season.episodes || []).filter(e => e.air_date && e.air_date <= TODAY);
   currentEpisodeIndex = -1;
+
+  // Update season progress bar
+  const seasonData = allSeasons.find(s => s.season_number === seasonNumber);
+  const totalEps = seasonData?.episode_count || 0;
+  const airedEps = allEpisodes.length;
+  const progressEl = document.getElementById('season-progress');
+  if (progressEl && totalEps > 0) {
+    const pct = Math.round((airedEps / totalEps) * 100);
+    progressEl.innerHTML = `
+      <span class="season-progress-text">${airedEps}/${totalEps} eps</span>
+      <div class="season-progress-track"><div class="season-progress-fill" style="width:${pct}%"></div></div>
+    `;
+  }
 
   if (!allEpisodes.length) {
     document.getElementById('modal-episodes').innerHTML =
@@ -148,6 +172,40 @@ function renderEpisodes(season, showId, seasonNumber) {
   document.getElementById('modal-episodes').appendChild(list);
 }
 
+function renderSimilar(shows) {
+  const container = document.getElementById('modal-similar');
+  if (!container || !shows.length) return;
+
+  const items = shows.filter(s => s.poster_path).slice(0, 8);
+  if (!items.length) return;
+
+  container.innerHTML = '';
+  const label = document.createElement('div');
+  label.className = 'similar-label';
+  label.textContent = 'Similar Shows';
+  container.appendChild(label);
+
+  const row = document.createElement('div');
+  row.className = 'similar-row';
+  for (const show of items) {
+    const card = document.createElement('div');
+    card.className = 'similar-card';
+    card.title = show.name || '';
+    const img = document.createElement('img');
+    img.src = `${IMG_SMALL}${show.poster_path}`;
+    img.alt = show.name || '';
+    img.loading = 'lazy';
+    card.appendChild(img);
+    const name = document.createElement('span');
+    name.className = 'similar-name';
+    name.textContent = show.name || '';
+    card.appendChild(name);
+    card.addEventListener('click', () => openModal(show));
+    row.appendChild(card);
+  }
+  container.appendChild(row);
+}
+
 function setActiveEpisode(index) {
   currentEpisodeIndex = index;
   document.querySelectorAll('.episode-item').forEach((el, i) => {
@@ -172,44 +230,66 @@ function handleModalKey(e) {
   if (!modal.classList.contains('open')) return;
 
   switch (e.key) {
-    case 'Escape':
-      closeModal();
-      break;
-    case 'ArrowRight':
+    case 'Escape': closeModal(); break;
     case 'ArrowDown': {
       e.preventDefault();
-      if (e.key === 'ArrowDown' && allEpisodes.length) {
-        const next = Math.min(currentEpisodeIndex + 1, allEpisodes.length - 1);
+      if (allEpisodes.length) {
         if (currentEpisodeIndex === -1) setActiveEpisode(0);
-        else setActiveEpisode(next);
-      } else if (e.key === 'ArrowRight') {
-        navigateSeason(1);
+        else setActiveEpisode(Math.min(currentEpisodeIndex + 1, allEpisodes.length - 1));
       }
       break;
     }
-    case 'ArrowLeft':
     case 'ArrowUp': {
       e.preventDefault();
-      if (e.key === 'ArrowUp' && allEpisodes.length) {
-        const prev = Math.max(currentEpisodeIndex - 1, 0);
-        setActiveEpisode(prev);
-      } else if (e.key === 'ArrowLeft') {
-        navigateSeason(-1);
-      }
+      if (allEpisodes.length && currentEpisodeIndex > 0) setActiveEpisode(currentEpisodeIndex - 1);
       break;
     }
+    case 'ArrowRight': { e.preventDefault(); navigateSeason(1); break; }
+    case 'ArrowLeft':  { e.preventDefault(); navigateSeason(-1); break; }
     case 'Enter': {
       if (currentEpisodeIndex >= 0 && allEpisodes[currentEpisodeIndex]) {
         const ep = allEpisodes[currentEpisodeIndex];
         window.open(
           `https://vidvault.ru/tv/${currentShowId}/${currentSeasonNumber}/${ep.episode_number}`,
-          '_blank',
-          'noopener'
+          '_blank', 'noopener'
         );
       }
       break;
     }
   }
+}
+
+// ─── Swipe gestures ───
+function initSwipe(box) {
+  let startX = 0, startY = 0;
+
+  box.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+  }, { passive: true });
+
+  box.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
+
+    if (Math.abs(dy) > Math.abs(dx)) {
+      // Vertical — swipe down to close
+      if (dy > 80) closeModal();
+    } else {
+      // Horizontal — navigate episodes
+      if (Math.abs(dx) < 50) return;
+      if (dx < 0) {
+        // swipe left → next episode
+        if (allEpisodes.length) {
+          if (currentEpisodeIndex === -1) setActiveEpisode(0);
+          else if (currentEpisodeIndex < allEpisodes.length - 1) setActiveEpisode(currentEpisodeIndex + 1);
+        }
+      } else {
+        // swipe right → prev episode
+        if (currentEpisodeIndex > 0) setActiveEpisode(currentEpisodeIndex - 1);
+      }
+    }
+  }, { passive: true });
 }
 
 export function closeModal() {
@@ -225,6 +305,7 @@ export function initModal() {
   document.getElementById('modal-close').addEventListener('click', closeModal);
   document.getElementById('modal-backdrop').addEventListener('click', closeModal);
   document.addEventListener('keydown', handleModalKey);
+  initSwipe(document.querySelector('.modal-box'));
 }
 
 function esc(s) {

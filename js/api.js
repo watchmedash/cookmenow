@@ -93,3 +93,7 @@ export async function fetchShowDetail(showId) {
 export async function fetchSeasonDetail(showId, seasonNumber) {
   return tmdb(`/tv/${showId}/season/${seasonNumber}`);
 }
+
+export async function fetchSimilarShows(showId) {
+  return tmdb(`/tv/${showId}/similar`);
+}
