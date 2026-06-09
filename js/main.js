@@ -1,14 +1,14 @@
 import { initTheme } from './theme.js';
-import { fetchPopular, searchContent, discoverContent } from './api.js';
+import { fetchPopular, searchContent, discoverContent, fetchMovieDetail, fetchShowDetail } from './api.js';
 import {
   renderCards, renderSkeletons, fadeGridOut, initInfiniteScroll, destroyInfiniteScroll,
   showLoading, hideLoading, showEnd, showEmpty, showError,
   initGoToTop, setTab,
 } from './gallery.js';
 import { state, initFilters, onFilterChange, renderFilterBar, renderChips, saveTab, loadSavedTab, pushHash } from './filters.js';
-import { initModal } from './modal.js';
-import { openModal } from './modal.js';
-import { addRecent, renderRecents, clearRecents } from './recents.js';
+import { initModal, openModal } from './modal.js';
+import { openMovieModal, closeMovieModal, initMovieModal } from './movieModal.js';
+import { openPersonModal, initPersonModal } from './personModal.js';
 
 let isFetching = false;
 let totalPages = 1;
@@ -150,6 +150,10 @@ function initKeyboardShortcuts() {
     const inInput = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
     const modalOpen = document.getElementById('modal')?.classList.contains('open');
 
+    if (e.key === 'Escape' && document.getElementById('movie-modal')?.classList.contains('open')) {
+      closeMovieModal(); return;
+    }
+
     if (e.key === '/' && !inInput && !modalOpen) {
       e.preventDefault();
       const input = document.getElementById('search-input');
@@ -168,18 +172,19 @@ function initKeyboardShortcuts() {
   });
 }
 
-function refreshRecents() {
-  renderRecents(item => openModal(item));
-}
-
 async function init() {
   initTheme();
   initModal();
+  initMovieModal();
+  initPersonModal();
   initGoToTop();
   initKeyboardShortcuts();
   setupTabs();
 
-  // Genre pill click → set filter
+  document.addEventListener('movie-open', e => openMovieModal(e.detail.item));
+  document.addEventListener('tv-open', e => openModal(e.detail.item));
+  document.addEventListener('person-open', e => openPersonModal(e.detail.id));
+
   document.addEventListener('genre-filter', e => {
     state.genre = e.detail.id;
     const sel = document.getElementById('filter-genre');
@@ -188,18 +193,6 @@ async function init() {
     pushHash();
     window.scrollTo({ top: 0, behavior: 'instant' });
     resetAndLoad();
-  });
-
-  // Track recently viewed
-  document.addEventListener('item-clicked', e => {
-    addRecent(e.detail.item, e.detail.tab);
-    refreshRecents();
-  });
-
-  // Clear recents button
-  document.getElementById('recents-clear')?.addEventListener('click', () => {
-    clearRecents();
-    refreshRecents();
   });
 
   const hashTab = new URLSearchParams(location.hash.replace(/^#/, '')).get('tab');
@@ -214,8 +207,22 @@ async function init() {
     resetAndLoad();
   });
 
-  refreshRecents();
   resetAndLoad();
+  restoreModal();
+}
+
+function restoreModal() {
+  try {
+    const saved = JSON.parse(sessionStorage.getItem('ds-modal') || 'null');
+    if (!saved) return;
+    if (saved.type === 'movie') {
+      fetchMovieDetail(saved.id).then(detail => openMovieModal(detail)).catch(() => {});
+    } else if (saved.type === 'tv') {
+      fetchShowDetail(saved.id).then(show => openModal(show)).catch(() => {});
+    } else if (saved.type === 'person') {
+      openPersonModal(saved.id);
+    }
+  } catch {}
 }
 
 init();

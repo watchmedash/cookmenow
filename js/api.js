@@ -86,8 +86,12 @@ export async function fetchGenres(tab) {
   return data.genres;
 }
 
+export async function fetchMovieDetail(movieId) {
+  return tmdb(`/movie/${movieId}`, { append_to_response: 'credits,videos' });
+}
+
 export async function fetchShowDetail(showId) {
-  return tmdb(`/tv/${showId}`);
+  return tmdb(`/tv/${showId}`, { append_to_response: 'credits,videos' });
 }
 
 export async function fetchSeasonDetail(showId, seasonNumber) {
@@ -96,4 +100,12 @@ export async function fetchSeasonDetail(showId, seasonNumber) {
 
 export async function fetchSimilarShows(showId) {
   return tmdb(`/tv/${showId}/similar`);
+}
+
+export async function fetchSimilarMovies(movieId) {
+  return tmdb(`/movie/${movieId}/similar`);
+}
+
+export async function fetchPersonDetail(personId) {
+  return tmdb(`/person/${personId}`, { append_to_response: 'combined_credits' });
 }

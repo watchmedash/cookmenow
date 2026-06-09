@@ -26,7 +26,7 @@ export function clearRecents() {
   localStorage.removeItem(KEY);
 }
 
-export function renderRecents(onTvClick) {
+export function renderRecents(onItemClick) {
   const section = document.getElementById('recents-section');
   const grid = document.getElementById('recents-grid');
   if (!section || !grid) return;
@@ -60,13 +60,7 @@ export function renderRecents(onTvClick) {
     label.textContent = item.title;
     card.appendChild(label);
 
-    card.addEventListener('click', () => {
-      if (item.tab === 'movies') {
-        window.open(`https://vidvault.ru/movie/${item.id}`, '_blank', 'noopener');
-      } else {
-        onTvClick(item);
-      }
-    });
+    card.addEventListener('click', () => onItemClick(item));
 
     grid.appendChild(card);
   }

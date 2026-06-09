@@ -71,7 +71,6 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow:wght@600;700;800;900&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://pl29686454.effectivecpmnetwork.com/50/16/51/501651e70cb36de4e048a042a218af5c.js"></script>
 </head>
 <body>
 
@@ -165,15 +164,6 @@
     </div>
   </section>
 
-  <!-- Recently Watched -->
-  <section id="recents-section" class="recents-section" hidden>
-    <div class="recents-header">
-      <span class="recents-label">RECENTLY WATCHED</span>
-      <button id="recents-clear" class="recents-clear">Clear</button>
-    </div>
-    <div id="recents-grid" class="recents-grid"></div>
-  </section>
-
   <!-- Grid -->
   <main class="main" id="main-content" aria-label="Browse content">
     <div id="grid" class="grid" role="list"></div>
@@ -185,10 +175,34 @@
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
+  <!-- Movie Modal -->
+  <div id="movie-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="movie-modal-title">
+    <div id="movie-modal-backdrop" class="modal-backdrop"></div>
+    <div class="modal-box movie-modal-box">
+      <button id="movie-modal-close" class="modal-close" aria-label="Close">×</button>
+      <div class="movie-modal-info">
+        <img id="movie-modal-poster" class="movie-modal-poster" src="" alt="" />
+        <div class="movie-modal-details">
+          <h2 id="movie-modal-title" class="movie-modal-title"></h2>
+          <div class="movie-modal-meta">
+            <span id="movie-modal-year" class="movie-modal-year"></span>
+            <span id="movie-modal-runtime" class="movie-modal-runtime"></span>
+            <span id="movie-modal-rating" class="movie-modal-rating"></span>
+          </div>
+          <div id="movie-modal-genres" class="movie-modal-genres"></div>
+          <p id="movie-modal-overview" class="movie-modal-overview"></p>
+          <div id="movie-modal-cast" class="movie-modal-cast"></div>
+          <a id="movie-modal-watch" class="movie-watch-btn" href="#" target="_blank" rel="noopener">Download Now <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M12 3v13M5 13l7 7 7-7"/><line x1="3" y1="21" x2="21" y2="21"/></svg></a>
+        </div>
+      </div>
+      <div id="movie-modal-similar" class="movie-modal-similar"></div>
+    </div>
+  </div>
+
   <!-- TV Modal -->
   <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div id="modal-backdrop" class="modal-backdrop"></div>
-    <div class="modal-box">
+    <div class="modal-box tv-modal-box">
       <button id="modal-close" class="modal-close" aria-label="Close">×</button>
       <div class="modal-content">
         <div class="modal-left">
@@ -200,6 +214,7 @@
               <span id="modal-rating" class="modal-rating"></span>
             </div>
             <p id="modal-overview" class="modal-overview"></p>
+            <div id="tv-modal-extra" class="tv-modal-extra"></div>
           </div>
         </div>
         <div class="modal-right">
@@ -207,6 +222,26 @@
           <div id="modal-episodes" class="modal-episodes"></div>
           <div id="modal-similar" class="modal-similar"></div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Person Modal -->
+  <div id="person-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="person-modal-name">
+    <div id="person-modal-backdrop" class="modal-backdrop"></div>
+    <div class="modal-box person-modal-box">
+      <button id="person-modal-close" class="modal-close" aria-label="Close">×</button>
+      <div class="person-modal-header">
+        <img id="person-modal-photo" class="person-modal-photo" src="" alt="" />
+        <div class="person-modal-info">
+          <h2 id="person-modal-name" class="person-modal-name"></h2>
+          <div id="person-modal-meta" class="person-modal-meta"></div>
+          <p id="person-modal-bio" class="person-modal-bio"></p>
+        </div>
+      </div>
+      <div class="person-credits-section">
+        <div class="person-credits-label">KNOWN FOR</div>
+        <div id="person-modal-credits" class="person-modal-credits"></div>
       </div>
     </div>
   </div>

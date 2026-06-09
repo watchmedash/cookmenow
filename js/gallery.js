@@ -136,9 +136,8 @@ function createCard(item) {
   });
 
   card.addEventListener('click', () => {
-    document.dispatchEvent(new CustomEvent('item-clicked', { detail: { item, tab: currentTab } }));
     if (isMovie) {
-      window.open(`https://vidvault.ru/movie/${item.id}`, '_blank', 'noopener');
+      document.dispatchEvent(new CustomEvent('movie-open', { detail: { item } }));
     } else {
       openModal(item);
     }
