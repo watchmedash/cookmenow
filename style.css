@@ -594,11 +594,9 @@ a { color: inherit; }
 }
 .modal-poster {
   width: 100%;
+  height: auto;
   border-radius: 0;
   display: block;
-  background: var(--surface);
-  aspect-ratio: 2/3;
-  object-fit: cover;
   border: 1px solid var(--border);
 }
 .modal-show-title {
@@ -861,7 +859,6 @@ a { color: inherit; }
   .modal-poster {
     width: 64px;
     min-width: 64px;
-    aspect-ratio: 2/3;
     flex-shrink: 0;
   }
   .modal-left-text {
