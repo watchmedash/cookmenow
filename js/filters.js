@@ -21,10 +21,12 @@ export function onFilterChange(cb) { onChangeCb = cb; }
 function notify() {
   state.page = 1;
   renderChips();
+  pushHash();
   if (onChangeCb) onChangeCb();
 }
 
 export async function initFilters() {
+  loadFromHash();
   try {
     [genreCache.movies, genreCache.tv] = await Promise.all([
       fetchGenres('movies'),
@@ -32,8 +34,16 @@ export async function initFilters() {
     ]);
   } catch { /* genres not critical */ }
   renderGenreOptions();
+  syncAllInputsFromState();
   bindEvents();
   bindFilterToggle();
+  window.addEventListener('hashchange', () => {
+    loadFromHash();
+    renderGenreOptions();
+    syncAllInputsFromState();
+    renderChips();
+    if (onChangeCb) onChangeCb();
+  });
 }
 
 function bindFilterToggle() {
@@ -65,9 +75,14 @@ function renderGenreOptions() {
 }
 
 function bindEvents() {
-  document.getElementById('search-input').addEventListener('input', e => {
+  const searchInput = document.getElementById('search-input');
+  const searchDot = document.getElementById('search-dot');
+
+  searchInput.addEventListener('input', e => {
+    if (searchDot) searchDot.classList.add('active');
     clearTimeout(searchTimer);
     searchTimer = setTimeout(() => {
+      if (searchDot) searchDot.classList.remove('active');
       state.search = e.target.value.trim();
       notify();
     }, 400);
@@ -121,16 +136,55 @@ function clearFilters() {
   state.minRating = null;
   state.language = null;
   state.sortBy = 'popularity.desc';
-  document.getElementById('search-input').value = '';
-  document.getElementById('filter-genre').value = '';
-  document.getElementById('filter-year-from').value = '';
-  document.getElementById('filter-year-to').value = '';
-  const slider = document.getElementById('filter-rating');
-  slider.value = 0;
-  document.getElementById('rating-display').textContent = 'Any';
-  document.getElementById('filter-language').value = '';
-  document.getElementById('filter-sort').value = 'popularity.desc';
+  syncAllInputsFromState();
 }
+
+// ─── URL hash share link ───
+
+export function pushHash() {
+  const p = {};
+  if (state.tab !== 'movies')             p.tab = state.tab;
+  if (state.search)                        p.q = state.search;
+  if (state.genre)                         p.genre = state.genre;
+  if (state.yearFrom)                      p.yf = state.yearFrom;
+  if (state.yearTo)                        p.yt = state.yearTo;
+  if (state.minRating)                     p.rating = state.minRating;
+  if (state.language)                      p.lang = state.language;
+  if (state.sortBy !== 'popularity.desc')  p.sort = state.sortBy;
+
+  const hash = Object.keys(p).length
+    ? '#' + new URLSearchParams(p).toString()
+    : '#';
+  history.replaceState(null, '', hash);
+}
+
+function loadFromHash() {
+  const raw = location.hash.replace(/^#/, '');
+  if (!raw) return;
+  const p = Object.fromEntries(new URLSearchParams(raw));
+  if (p.tab)    state.tab    = p.tab;
+  if (p.q)      state.search = p.q;
+  if (p.genre)  state.genre  = Number(p.genre);
+  if (p.yf)     state.yearFrom  = Number(p.yf);
+  if (p.yt)     state.yearTo    = Number(p.yt);
+  if (p.rating) state.minRating = Number(p.rating);
+  if (p.lang)   state.language  = p.lang;
+  if (p.sort)   state.sortBy    = p.sort;
+}
+
+// ─── Tab persistence ───
+
+const TAB_KEY = 'ds-tab';
+
+export function saveTab(tab) {
+  localStorage.setItem(TAB_KEY, tab);
+}
+
+export function loadSavedTab() {
+  return localStorage.getItem(TAB_KEY) || 'movies';
+}
+
+// ─── Chips ───
 
 const LANG_LABELS = {
   en: 'English', fr: 'French', es: 'Spanish', de: 'German',
@@ -181,6 +235,20 @@ export function renderChips() {
     container.appendChild(span);
   }
 
+  // Share link chip when any filter active
+  if (chips.length) {
+    const shareBtn = document.createElement('button');
+    shareBtn.className = 'chip share-chip';
+    shareBtn.textContent = '⇪ Copy link';
+    shareBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(location.href).then(() => {
+        shareBtn.textContent = '✓ Copied';
+        setTimeout(() => { shareBtn.textContent = '⇪ Copy link'; }, 1800);
+      });
+    });
+    container.appendChild(shareBtn);
+  }
+
   document.getElementById('clear-filters').style.display =
     chips.length ? 'inline-block' : 'none';
 
@@ -203,6 +271,11 @@ function syncInputFromState(key) {
     },
     language:  () => { document.getElementById('filter-language').value = state.language || ''; },
     sortBy:    () => { document.getElementById('filter-sort').value = state.sortBy; },
+    search:    () => { document.getElementById('search-input').value = state.search || ''; },
   };
   if (map[key]) map[key]();
+}
+
+function syncAllInputsFromState() {
+  ['genre', 'yearFrom', 'yearTo', 'minRating', 'language', 'sortBy', 'search'].forEach(syncInputFromState);
 }

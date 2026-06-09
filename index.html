@@ -3,32 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dark System — Movies &amp; TV Shows</title>
+  <title>Dark System — Movies &amp; TV Shows | Download Links</title>
 
   <!-- SEO -->
-  <meta name="description" content="Dark System — browse movies and TV shows. Find download links for the latest films and series all in one place." />
-  <link rel="canonical" href="https://darksystem.top" />
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <meta name="description" content="Dark System — browse thousands of movies and TV shows. Find download links for the latest films and series all in one place." />
+  <meta name="keywords" content="movies, tv shows, download movies, download tv shows, film download, series download, dark system, streaming, free movies" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://darksystem.top/" />
+  <link rel="alternate" hreflang="x-default" href="https://darksystem.top/" />
+  <meta name="theme-color" content="#ff0000" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://darksystem.top" />
-  <meta property="og:title" content="Dark System — Movies &amp; TV Shows" />
-  <meta property="og:description" content="Browse movies and TV shows and find download links for the latest films and series." />
+  <meta property="og:url" content="https://darksystem.top/" />
+  <meta property="og:title" content="Dark System — Movies &amp; TV Shows | Download Links" />
+  <meta property="og:description" content="Browse thousands of movies and TV shows. Find download links for the latest films and series all in one place." />
   <meta property="og:image" content="https://darksystem.top/logo.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Dark System logo" />
+  <meta property="og:site_name" content="Dark System" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Dark System" />
-  <meta name="twitter:description" content="Browse movies and TV shows and find download links for the latest films and series." />
+  <meta name="twitter:title" content="Dark System — Movies &amp; TV Shows" />
+  <meta name="twitter:description" content="Browse thousands of movies and TV shows. Find download links for the latest films and series." />
   <meta name="twitter:image" content="https://darksystem.top/logo.png" />
+  <meta name="twitter:image:alt" content="Dark System logo" />
 
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Dark System",
+    "url": "https://darksystem.top/",
+    "description": "Browse movies and TV shows. Find download links for the latest films and series.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://darksystem.top/#q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
+
+  <!-- Inline theme: runs before first paint to prevent flash -->
+  <script>(function(){var t=localStorage.getItem('ds-theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
+
+  <!-- Preconnect: image CDN + fonts -->
+  <link rel="preconnect" href="https://image.tmdb.org" crossorigin />
+  <link rel="preconnect" href="https://api.themoviedb.org" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Preload font stylesheet so it's non-render-blocking -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow:wght@600;700;800;900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Barlow:wght@600;700;800;900&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -37,50 +78,59 @@
   <header class="header">
     <div class="header-inner">
       <a href="/" class="logo" aria-label="Dark System home">
-        <img src="logo.png" alt="Dark System" class="logo-img" />
+        <picture>
+          <source srcset="logo.webp" type="image/webp" />
+          <img src="logo.png" alt="Dark System logo" class="logo-img" width="30" height="30" />
+        </picture>
         <span class="logo-text">DARK<span class="logo-accent">SYSTEM</span></span>
       </a>
-      <button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark mode">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Switch to light mode">
         <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
     </div>
   </header>
 
+  <!-- Visually hidden H1 for crawlers — visible content is the logo -->
+  <h1 class="sr-only">Dark System — Browse Movies and TV Shows, Find Download Links</h1>
+
   <!-- Tabs -->
-  <nav class="tabs">
+  <nav class="tabs" aria-label="Content type">
     <button class="tab-btn active" data-tab="movies">Movies</button>
     <button class="tab-btn" data-tab="tv">TV Shows</button>
   </nav>
 
   <!-- Filter Bar -->
-  <section class="filter-bar">
+  <section class="filter-bar" aria-label="Search and filters">
     <div class="filter-top-row">
-      <input id="search-input" class="filter-input filter-search" type="search" placeholder="Search..." autocomplete="off" />
-      <button id="filter-toggle" class="filter-toggle-btn" aria-expanded="false">
+      <div class="search-wrap">
+        <input id="search-input" class="filter-input filter-search" type="search" placeholder="Search a movie to download..." autocomplete="off" aria-label="Search" />
+        <span id="search-dot" class="search-dot" aria-hidden="true"></span>
+      </div>
+      <button id="filter-toggle" class="filter-toggle-btn" aria-expanded="false" aria-controls="filter-advanced">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
-        Filters<span id="filter-count" class="filter-count" style="display:none"></span>
+        Filters<span id="filter-count" class="filter-count" style="display:none" aria-label="active filters"></span>
       </button>
     </div>
 
     <div id="filter-advanced" class="filter-advanced">
       <div class="filter-row">
-        <select id="filter-genre" class="filter-select">
+        <select id="filter-genre" class="filter-select" aria-label="Genre">
           <option value="">All Genres</option>
         </select>
 
         <div class="filter-year-pair">
-          <input id="filter-year-from" class="filter-input filter-year" type="number" placeholder="Year from" min="1900" max="2026" />
-          <input id="filter-year-to" class="filter-input filter-year" type="number" placeholder="Year to" min="1900" max="2026" />
+          <input id="filter-year-from" class="filter-input filter-year" type="number" placeholder="Year from" min="1900" max="2026" aria-label="Year from" />
+          <input id="filter-year-to" class="filter-input filter-year" type="number" placeholder="Year to" min="1900" max="2026" aria-label="Year to" />
         </div>
 
         <div class="filter-rating-wrap">
           <label class="filter-label" for="filter-rating">Rating</label>
           <input id="filter-rating" class="filter-slider" type="range" min="0" max="10" step="0.5" value="0" />
-          <span id="rating-display" class="filter-mono">Any</span>
+          <span id="rating-display" class="filter-mono" aria-live="polite">Any</span>
         </div>
 
-        <select id="filter-language" class="filter-select">
+        <select id="filter-language" class="filter-select" aria-label="Language">
           <option value="">All Languages</option>
           <option value="en">English</option>
           <option value="fr">French</option>
@@ -95,7 +145,7 @@
           <option value="ar">Arabic</option>
         </select>
 
-        <select id="filter-sort" class="filter-select">
+        <select id="filter-sort" class="filter-select" aria-label="Sort by">
           <option value="popularity.desc">Popularity ↓</option>
           <option value="popularity.asc">Popularity ↑</option>
           <option value="vote_average.desc">Rating ↓</option>
@@ -109,15 +159,15 @@
     </div>
 
     <div class="filter-chips-row">
-      <div id="filter-chips" class="filter-chips"></div>
+      <div id="filter-chips" class="filter-chips" aria-label="Active filters"></div>
       <button id="clear-filters" class="clear-btn" style="display:none">Clear all</button>
     </div>
   </section>
 
   <!-- Grid -->
-  <main class="main">
-    <div id="grid" class="grid"></div>
-    <div id="sentinel" class="sentinel"></div>
+  <main class="main" id="main-content" aria-label="Browse content">
+    <div id="grid" class="grid" role="list"></div>
+    <div id="sentinel" class="sentinel" aria-hidden="true"></div>
   </main>
 
   <!-- Go to Top -->
@@ -132,7 +182,7 @@
       <button id="modal-close" class="modal-close" aria-label="Close">×</button>
       <div class="modal-content">
         <div class="modal-left">
-          <img id="modal-poster" class="modal-poster" src="" alt="" />
+          <img id="modal-poster" class="modal-poster" src="" alt="" width="174" height="261" />
           <div class="modal-left-text">
             <h2 id="modal-title" class="modal-show-title"></h2>
             <div class="modal-meta">
@@ -149,6 +199,45 @@
       </div>
     </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-links">
+        <span class="footer-label">MOVIES</span>
+        <a href="#sort=release_date.desc">Latest</a>
+        <a href="#sort=vote_average.desc&rating=7">Top Rated</a>
+        <a href="#genre=28">Action</a>
+        <a href="#genre=35">Comedy</a>
+        <a href="#genre=27">Horror</a>
+        <a href="#genre=878">Sci-Fi</a>
+      </div>
+      <div class="footer-links">
+        <span class="footer-label">TV SHOWS</span>
+        <a href="#tab=tv&sort=release_date.desc">Latest</a>
+        <a href="#tab=tv&sort=vote_average.desc&rating=7">Top Rated</a>
+        <a href="#tab=tv&genre=10759">Action</a>
+        <a href="#tab=tv&genre=35">Comedy</a>
+        <a href="#tab=tv&genre=80">Crime</a>
+        <a href="#tab=tv&genre=18">Drama</a>
+      </div>
+      <div class="footer-copy">
+        <span>© <script>document.write(new Date().getFullYear())</script> Dark System</span>
+        <a href="https://www.themoviedb.org/" target="_blank" rel="noopener" class="footer-tmdb">
+          <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" alt="Powered by TMDB" class="footer-tmdb-logo" width="100" height="13" loading="lazy" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Noscript fallback for crawlers -->
+  <noscript>
+    <div style="padding:40px;text-align:center;font-family:sans-serif;color:#ccc;background:#050505;">
+      <h2>Dark System — Movies &amp; TV Shows</h2>
+      <p>Browse and find download links for thousands of movies and TV series.</p>
+      <p>Please enable JavaScript to use Dark System.</p>
+    </div>
+  </noscript>
 
   <script type="module" src="js/main.js"></script>
 </body>

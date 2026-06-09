@@ -1,0 +1,13 @@
+{
+  "name": "Dark System",
+  "short_name": "DarkSystem",
+  "description": "Browse movies and TV shows. Find download links for the latest films and series.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#ff0000",
+  "icons": [
+    { "src": "logo.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "logo.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

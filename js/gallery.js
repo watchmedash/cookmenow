@@ -1,14 +1,38 @@
-import { IMG_BASE } from './api.js';
+import { IMG_BASE, TODAY, fetchShowDetail } from './api.js';
 import { openModal } from './modal.js';
+
+const IMG_BASE_HQ = 'https://image.tmdb.org/t/p/w780';
+const SKELETON_COUNT = 20;
+const ABOVE_FOLD = 8;
+const ONE_WEEK_AGO = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
 let currentTab = 'movies';
 let scrollObserver = null;
+let scrollObserverPending = false;
+let cardCounter = 0;
 
 export function setTab(tab) { currentTab = tab; }
 
+export function renderSkeletons() {
+  cardCounter = 0;
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  for (let i = 0; i < SKELETON_COUNT; i++) {
+    const card = document.createElement('div');
+    card.className = 'card skeleton-card';
+    const wrap = document.createElement('div');
+    wrap.className = 'card-img-wrap loading';
+    card.appendChild(wrap);
+    grid.appendChild(card);
+  }
+}
+
 export function renderCards(items, append = false) {
   const grid = document.getElementById('grid');
-  if (!append) grid.innerHTML = '';
+  if (!append) {
+    grid.innerHTML = '';
+    cardCounter = 0;
+  }
   for (const item of items) grid.appendChild(createCard(item));
 }
 
@@ -20,20 +44,54 @@ function createCard(item) {
   const score = item.vote_average || 0;
   const rating = score > 0 ? score.toFixed(1) : 'N/A';
   const ratingClass = score >= 7 ? 'rating-green' : score >= 5 ? 'rating-yellow' : 'rating-red';
+  const aboveFold = cardCounter < ABOVE_FOLD;
+  const isNew = dateField && dateField >= ONE_WEEK_AGO && dateField <= TODAY;
+  cardCounter++;
 
   const card = document.createElement('div');
   card.className = 'card';
 
   if (item.poster_path) {
+    const wrap = document.createElement('div');
+    wrap.className = 'card-img-wrap loading';
     const img = document.createElement('img');
     img.src = `${IMG_BASE}${item.poster_path}`;
     img.alt = title;
-    img.loading = 'lazy';
-    img.onerror = () => img.replaceWith(buildPlaceholder(title));
-    card.appendChild(img);
+    if (aboveFold) {
+      img.setAttribute('fetchpriority', 'high');
+    } else {
+      img.loading = 'lazy';
+    }
+    img.onload = () => wrap.classList.remove('loading');
+    img.onerror = () => wrap.replaceWith(buildPlaceholder(title));
+
+    card.addEventListener('mouseenter', () => {
+      if (!img.dataset.hq) {
+        img.dataset.hq = '1';
+        img.src = `${IMG_BASE_HQ}${item.poster_path}`;
+      }
+      if (!isMovie) fetchShowDetail(item.id).catch(() => {});
+    });
+
+    wrap.appendChild(img);
+    card.appendChild(wrap);
   } else {
     card.appendChild(buildPlaceholder(title));
   }
+
+  // "NEW" badge for content released in the last 7 days
+  if (isNew) {
+    const newBadge = document.createElement('span');
+    newBadge.className = 'card-new-badge';
+    newBadge.textContent = 'NEW';
+    card.appendChild(newBadge);
+  }
+
+  // Always-visible rating badge
+  const badge = document.createElement('span');
+  badge.className = `card-badge ${ratingClass}`;
+  badge.textContent = rating;
+  card.appendChild(badge);
 
   const overlay = document.createElement('div');
   overlay.className = 'card-overlay';
@@ -41,7 +99,6 @@ function createCard(item) {
     <span class="card-title">${esc(title)}</span>
     <div class="card-meta">
       <span class="card-year">${esc(year)}</span>
-      <span class="card-rating ${ratingClass}">${esc(rating)}</span>
     </div>
   `;
   card.appendChild(overlay);
@@ -80,9 +137,18 @@ export function hideLoading() {
 export function showEnd() {
   document.getElementById('sentinel').innerHTML = '<p class="end-message">— end —</p>';
 }
-export function showEmpty() {
-  document.getElementById('grid').innerHTML =
-    '<div class="empty-state"><p>No results found. Try adjusting your filters.</p></div>';
+export function showEmpty(query = '') {
+  const googleUrl = query
+    ? `https://www.google.com/search?q=${encodeURIComponent(query + ' download')}`
+    : '';
+  const fallback = googleUrl
+    ? `<a class="empty-google-link" href="${googleUrl}" target="_blank" rel="noopener">Search "${esc(query)}" on Google →</a>`
+    : '';
+  document.getElementById('grid').innerHTML = `
+    <div class="empty-state">
+      <p>No results found. Try adjusting your filters.</p>
+      ${fallback}
+    </div>`;
   document.getElementById('sentinel').innerHTML = '';
 }
 export function showError(message, onRetry) {
@@ -100,13 +166,20 @@ export function initInfiniteScroll(onLoadMore) {
   destroyInfiniteScroll();
   const sentinel = document.getElementById('sentinel');
   scrollObserver = new IntersectionObserver(
-    entries => { if (entries[0].isIntersecting) onLoadMore(); },
+    entries => {
+      if (!entries[0].isIntersecting) return;
+      if (scrollObserverPending) return;
+      scrollObserverPending = true;
+      onLoadMore();
+      setTimeout(() => { scrollObserverPending = false; }, 300);
+    },
     { rootMargin: '300px' }
   );
   scrollObserver.observe(sentinel);
 }
 export function destroyInfiniteScroll() {
   if (scrollObserver) { scrollObserver.disconnect(); scrollObserver = null; }
+  scrollObserverPending = false;
 }
 
 export function initGoToTop() {

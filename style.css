@@ -32,6 +32,19 @@
   --rating-red: #ff3333;
 }
 
+/* ─── Accessibility ─── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ─── Reset ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 15px; }
@@ -57,7 +70,7 @@ a { color: inherit; }
   transition: background 0.2s;
 }
 .header-inner {
-  max-width: 1600px;
+  max-width: 2400px;
   margin: 0 auto;
   padding: 0 16px;
   height: 46px;
@@ -107,7 +120,7 @@ a { color: inherit; }
 
 /* ─── Tabs ─── */
 .tabs {
-  max-width: 1600px;
+  max-width: 2400px;
   margin: 0 auto;
   padding: 10px 16px 0;
   display: flex;
@@ -135,7 +148,7 @@ a { color: inherit; }
 
 /* ─── Filter Bar ─── */
 .filter-bar {
-  max-width: 1600px;
+  max-width: 2400px;
   margin: 0 auto;
   padding: 10px 16px 8px;
   border-bottom: 1px solid var(--border);
@@ -147,7 +160,6 @@ a { color: inherit; }
   align-items: center;
 }
 .filter-search {
-  flex: 1;
   min-width: 0;
 }
 .filter-toggle-btn {
@@ -219,6 +231,9 @@ a { color: inherit; }
 .filter-input:focus, .filter-select:focus { border-color: var(--green); }
 .filter-input { min-width: 140px; }
 .filter-year { min-width: 90px; max-width: 110px; }
+.filter-year::-webkit-inner-spin-button,
+.filter-year::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.filter-year { -moz-appearance: textfield; }
 .filter-select { min-width: 130px; }
 
 .filter-rating-wrap {
@@ -302,7 +317,7 @@ a { color: inherit; }
 
 /* ─── Main Grid (Masonry via CSS columns) ─── */
 .main {
-  max-width: 1600px;
+  max-width: 2400px;
   margin: 0 auto;
   padding: 14px;
 }
@@ -313,7 +328,9 @@ a { color: inherit; }
 @media (min-width: 500px)  { .grid { columns: 3; } }
 @media (min-width: 900px)  { .grid { columns: 4; } }
 @media (min-width: 1200px) { .grid { columns: 5; } }
-@media (min-width: 1600px) { .grid { columns: 6; } }
+@media (min-width: 1500px) { .grid { columns: 6; } }
+@media (min-width: 1800px) { .grid { columns: 7; } }
+@media (min-width: 2100px) { .grid { columns: 8; } }
 
 /* ─── Cards ─── */
 .card {
@@ -333,11 +350,45 @@ a { color: inherit; }
   transform: translateY(-2px);
   border-color: var(--green);
 }
-.card img {
+.card-img-wrap {
+  display: block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.card-img-wrap.loading {
+  padding-top: 150%;
+  background: var(--surface);
+}
+.card-img-wrap.loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
+[data-theme="light"] .card-img-wrap.loading::after {
+  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.06) 50%, transparent 100%);
+  background-size: 200% 100%;
+}
+.card-img-wrap img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.card-img-wrap:not(.loading) img {
+  opacity: 1;
+}
+.card-img-wrap:not(.loading) {
+  padding-top: 0;
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
 }
 .card-placeholder {
   width: 100%;
@@ -669,6 +720,96 @@ a { color: inherit; }
   color: var(--text-muted);
 }
 
+/* ─── Search debounce dot ─── */
+.search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+.search-wrap .filter-search {
+  width: 100%;
+}
+.search-dot {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.search-dot.active {
+  opacity: 1;
+  animation: pulse-dot 0.6s ease-in-out infinite alternate;
+}
+@keyframes pulse-dot {
+  from { opacity: 0.4; transform: translateY(-50%) scale(0.8); }
+  to   { opacity: 1;   transform: translateY(-50%) scale(1.2); }
+}
+
+/* ─── Card badge (always-visible rating) ─── */
+.card-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 900;
+  padding: 2px 5px;
+  background: rgba(0,0,0,0.72);
+  border-radius: 0;
+  line-height: 1.4;
+  z-index: 2;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Skeleton card (no overlay, just shimmer) ─── */
+.skeleton-card .card-img-wrap.loading {
+  min-height: 180px;
+}
+
+/* ─── Active episode highlight ─── */
+.episode-item.active {
+  background: var(--surface);
+}
+.episode-item.active .ep-num {
+  color: var(--green);
+}
+
+/* ─── Season keyboard hint ─── */
+.season-hint {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-left: auto;
+  opacity: 0.6;
+}
+
+/* ─── Share chip ─── */
+.share-chip {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 0;
+  transition: border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.share-chip:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
 /* ─── Mobile styles ─── */
 @media (max-width: 640px) {
   .tabs { padding: 8px 10px 0; }
@@ -739,6 +880,123 @@ a { color: inherit; }
     flex: 1;
     min-height: 0;
   }
+}
+
+/* ─── Focus visible ─── */
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+/* ─── NEW badge ─── */
+.card-new-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 2px 5px;
+  background: var(--green);
+  color: #fff;
+  border-radius: 0;
+  z-index: 2;
+  line-height: 1.4;
+}
+
+/* ─── Empty state Google fallback ─── */
+.empty-google-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+.empty-google-link:hover { opacity: 0.8; }
+
+/* ─── Footer ─── */
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+  padding: 28px 16px 24px;
+  background: var(--bg);
+}
+.footer-inner {
+  max-width: 2400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px 48px;
+  align-items: flex-start;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+}
+.footer-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+.footer-links a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--green); }
+.footer-copy {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.footer-tmdb { display: flex; align-items: center; }
+.footer-tmdb-logo {
+  height: 13px;
+  width: auto;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+.footer-tmdb:hover .footer-tmdb-logo { opacity: 1; }
+
+/* ─── Print styles ─── */
+@media print {
+  .header, .tabs, .filter-bar, .go-top, .modal,
+  .cdn-warning, .footer, #sentinel { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .main { padding: 0; max-width: 100%; }
+  .grid { columns: 4; column-gap: 8px; }
+  .card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 8px; }
+  .card-img-wrap img { max-height: 160px; width: auto; margin: 0 auto; display: block; }
+  .card-overlay { position: static; background: none; padding: 4px; }
+  .card-title { color: #000; font-size: 8pt; -webkit-line-clamp: 1; }
+  .card-year, .card-badge { color: #555; font-size: 7pt; }
+  .card-new-badge { background: #000; }
+  a[href]::after { content: none; }
 }
 
 /* ─── Scrollbar (Webkit) ─── */

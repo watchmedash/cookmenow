@@ -3,6 +3,24 @@ const BASE = 'https://api.themoviedb.org/3';
 export const IMG_BASE = 'https://image.tmdb.org/t/p/w500';
 export const TODAY = new Date().toISOString().split('T')[0];
 
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+function cacheGet(key) {
+  try {
+    const raw = sessionStorage.getItem(key);
+    if (!raw) return null;
+    const { data, expires } = JSON.parse(raw);
+    if (Date.now() > expires) { sessionStorage.removeItem(key); return null; }
+    return data;
+  } catch { return null; }
+}
+
+function cacheSet(key, data) {
+  try {
+    sessionStorage.setItem(key, JSON.stringify({ data, expires: Date.now() + CACHE_TTL }));
+  } catch { /* storage full — non-critical */ }
+}
+
 async function tmdb(path, params = {}) {
   const url = new URL(BASE + path);
   url.searchParams.set('api_key', API_KEY);
@@ -11,10 +29,17 @@ async function tmdb(path, params = {}) {
       url.searchParams.set(k, v);
     }
   }
+
+  const key = url.pathname + url.search;
+  const cached = cacheGet(key);
+  if (cached) return cached;
+
   const res = await fetch(url);
   if (res.status === 429) throw new Error('RATE_LIMIT');
   if (!res.ok) throw new Error(`TMDB_${res.status}`);
-  return res.json();
+  const data = await res.json();
+  cacheSet(key, data);
+  return data;
 }
 
 export async function fetchPopular(tab, page = 1) {
