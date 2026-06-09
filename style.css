@@ -1031,6 +1031,11 @@ a { color: inherit; }
     min-width: 0;
     max-width: none;
   }
+
+  /* iOS zoom prevention — font-size must be ≥16px on any focused input */
+  input, select, textarea, .filter-input, .filter-select, .season-select {
+    font-size: 16px !important;
+  }
   .filter-year { max-width: none; }
   .filter-year-pair .filter-year { flex: 1; }
   .filter-rating-wrap { height: auto; padding: 4px 0; }
