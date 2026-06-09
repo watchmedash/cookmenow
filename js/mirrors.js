@@ -20,6 +20,10 @@ export const MOVIE_MIRRORS = [
   },
   {
     label: 'Mirror 3',
+    url: id => `https://db.screenopps.com/db/movie/${id}`,
+  },
+  {
+    label: 'Mirror 4',
     url: id => `https://02moviedownloader.top/api/download/movie/${id}`,
   },
 ];
@@ -35,6 +39,10 @@ export const TV_MIRRORS = [
   },
   {
     label: 'Mirror 3',
+    url: (id, season, episode) => `https://db.screenopps.com/db/tv/${id}/${season}/${episode}`,
+  },
+  {
+    label: 'Mirror 4',
     url: (id, season, episode) => `https://02moviedownloader.top/api/download/tv/${id}/${season}/${episode}`,
   },
 ];
