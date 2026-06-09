@@ -1,6 +1,7 @@
 import { IMG_BASE, TODAY, fetchShowDetail } from './api.js';
 import { getGenreMap } from './filters.js';
 import { openModal } from './modal.js';
+import { showMovieContextMenu } from './contextMenu.js';
 
 const IMG_BASE_HQ = 'https://image.tmdb.org/t/p/w780';
 const SKELETON_COUNT = 20;
@@ -143,8 +144,16 @@ function createCard(item) {
     }
   });
 
+  if (isMovie) {
+    card.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      showMovieContextMenu(e.clientX, e.clientY, item.id);
+    });
+  }
+
   return card;
 }
+
 
 function buildPlaceholder(title) {
   const initials = title.trim()

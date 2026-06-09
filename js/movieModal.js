@@ -1,4 +1,6 @@
 import { fetchMovieDetail, fetchSimilarMovies, IMG_BASE } from './api.js';
+import { showMovieContextMenu } from './contextMenu.js';
+import { MOVIE_MIRRORS } from './mirrors.js';
 
 const IMG_PROFILE = 'https://image.tmdb.org/t/p/w185';
 const IMG_POSTER  = 'https://image.tmdb.org/t/p/w185';
@@ -51,7 +53,21 @@ function renderBase(movie) {
   poster.alt = title;
 
   document.getElementById('movie-modal-overview').textContent = movie.overview || '';
-  document.getElementById('movie-modal-watch').href = `https://vidvault.ru/movie/${movie.id}`;
+  const dlGroup = document.getElementById('movie-download-group');
+  dlGroup.innerHTML = '';
+  MOVIE_MIRRORS.forEach((m, i) => {
+    const a = document.createElement('a');
+    a.href = m.url(movie.id);
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.className = i === 0 ? 'movie-dl-btn movie-dl-primary' : 'movie-dl-btn';
+    if (i === 0) {
+      a.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M12 3v13M5 13l7 7 7-7"/><line x1="3" y1="21" x2="21" y2="21"/></svg> ${m.label}`;
+    } else {
+      a.textContent = m.label;
+    }
+    dlGroup.appendChild(a);
+  });
   document.getElementById('movie-modal-runtime').textContent = '';
   document.getElementById('movie-modal-genres').innerHTML = '';
   document.getElementById('movie-modal-cast').innerHTML = '';
@@ -159,6 +175,10 @@ function renderSimilarMovies(movies) {
 
     card.addEventListener('click', () => {
       document.dispatchEvent(new CustomEvent('movie-open', { detail: { item: movie } }));
+    });
+    card.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      showMovieContextMenu(e.clientX, e.clientY, movie.id);
     });
 
     row.appendChild(card);

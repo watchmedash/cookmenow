@@ -1,4 +1,5 @@
 import { fetchPersonDetail } from './api.js';
+import { showMovieContextMenu } from './contextMenu.js';
 
 const IMG_PROFILE = 'https://image.tmdb.org/t/p/w185';
 const IMG_POSTER  = 'https://image.tmdb.org/t/p/w185';
@@ -98,7 +99,6 @@ function renderPerson(person) {
 
     card.addEventListener('click', () => {
       closePersonModal();
-      // Close any parent modal that was open underneath person modal
       document.getElementById('movie-modal')?.classList.remove('open');
       document.getElementById('modal')?.classList.remove('open');
       if (credit.media_type === 'movie') {
@@ -107,6 +107,13 @@ function renderPerson(person) {
         document.dispatchEvent(new CustomEvent('tv-open', { detail: { item: credit } }));
       }
     });
+
+    if (credit.media_type === 'movie') {
+      card.addEventListener('contextmenu', e => {
+        e.preventDefault();
+        showMovieContextMenu(e.clientX, e.clientY, credit.id);
+      });
+    }
 
     grid.appendChild(card);
   }

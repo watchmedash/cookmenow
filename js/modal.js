@@ -1,5 +1,6 @@
 import { fetchShowDetail, fetchSeasonDetail, fetchSimilarShows, IMG_BASE, TODAY } from './api.js';
 import { IMG_SMALL } from './recents.js';
+import { TV_MIRRORS } from './mirrors.js';
 
 const IMG_PROFILE = 'https://image.tmdb.org/t/p/w185';
 
@@ -228,17 +229,26 @@ function renderEpisodes(season, showId, seasonNumber) {
     item.innerHTML = `
       <span class="ep-num">E${String(ep.episode_number).padStart(2, '0')}</span>
       <span class="ep-title">${esc(ep.name || `Episode ${ep.episode_number}`)}</span>
+      <svg class="ep-dl-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M12 3v13M5 13l7 7 7-7"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
       <span class="ep-date">${ep.air_date || ''}</span>
-      <svg class="ep-dl-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter" aria-hidden="true"><path d="M12 3v13M5 13l7 7 7-7"/><line x1="3" y1="21" x2="21" y2="21"/></svg>
     `;
-    item.addEventListener('click', () => {
+    item.addEventListener('click', () => setActiveEpisode(i));
+
+    const openPopover = (anchor) => {
       setActiveEpisode(i);
-      window.open(
-        `https://vidvault.ru/tv/${showId}/${seasonNumber}/${ep.episode_number}`,
-        '_blank',
-        'noopener'
-      );
+      showMirrorPopover(anchor, showId, seasonNumber, ep.episode_number);
+    };
+
+    item.querySelector('.ep-dl-icon').addEventListener('click', e => {
+      e.stopPropagation();
+      openPopover(e.currentTarget);
     });
+
+    item.querySelector('.ep-title').addEventListener('click', e => {
+      e.stopPropagation();
+      openPopover(item.querySelector('.ep-dl-icon'));
+    });
+
     list.appendChild(item);
   }
 
@@ -323,10 +333,7 @@ function handleModalKey(e) {
     case 'Enter': {
       if (currentEpisodeIndex >= 0 && allEpisodes[currentEpisodeIndex]) {
         const ep = allEpisodes[currentEpisodeIndex];
-        window.open(
-          `https://vidvault.ru/tv/${currentShowId}/${currentSeasonNumber}/${ep.episode_number}`,
-          '_blank', 'noopener'
-        );
+        window.open(TV_MIRRORS[0].url(currentShowId, currentSeasonNumber, ep.episode_number), '_blank', 'noopener');
       }
       break;
     }
@@ -369,6 +376,7 @@ export function closeModal() {
   currentShowId = null;
   allEpisodes = [];
   currentEpisodeIndex = -1;
+  hideMirrorPopover();
   window.scrollTo({ top: savedScrollY, behavior: 'instant' });
 }
 
@@ -377,6 +385,60 @@ export function initModal() {
   document.getElementById('modal-backdrop').addEventListener('click', closeModal);
   document.addEventListener('keydown', handleModalKey);
   initSwipe(document.querySelector('#modal .modal-box'));
+
+  document.addEventListener('click', e => {
+    const pop = document.getElementById('ep-mirror-popover');
+    if (pop && pop.classList.contains('open') && !pop.contains(e.target)) {
+      hideMirrorPopover();
+    }
+  });
+
+  document.querySelector('#modal .modal-box').addEventListener('scroll', hideMirrorPopover, { passive: true });
+}
+
+let currentPopoverAnchor = null;
+
+function showMirrorPopover(anchor, showId, season, epNum) {
+  let pop = document.getElementById('ep-mirror-popover');
+
+  // Toggle: same anchor while open → close
+  if (pop && pop.classList.contains('open') && currentPopoverAnchor === anchor) {
+    hideMirrorPopover();
+    return;
+  }
+  currentPopoverAnchor = anchor;
+
+  if (!pop) {
+    pop = document.createElement('div');
+    pop.id = 'ep-mirror-popover';
+    pop.className = 'ep-mirror-popover';
+    TV_MIRRORS.forEach(m => {
+      const a = document.createElement('a');
+      a.className = 'ep-mirror-opt';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = m.label;
+      a.addEventListener('click', () => hideMirrorPopover());
+      pop.appendChild(a);
+    });
+    document.body.appendChild(pop);
+  }
+
+  pop.querySelectorAll('.ep-mirror-opt').forEach((a, i) => {
+    a.href = TV_MIRRORS[i].url(showId, season, epNum);
+  });
+
+  const rect = anchor.getBoundingClientRect();
+  pop.style.top = `${rect.bottom + 6}px`;
+  pop.style.right = `${window.innerWidth - rect.right}px`;
+  pop.style.left = 'auto';
+  pop.classList.add('open');
+}
+
+function hideMirrorPopover() {
+  const pop = document.getElementById('ep-mirror-popover');
+  if (pop) pop.classList.remove('open');
+  currentPopoverAnchor = null;
 }
 
 function esc(s) {
