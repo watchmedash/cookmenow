@@ -1,4 +1,5 @@
 import { initTheme } from './theme.js';
+import { initNav } from './nav.js';
 import { fetchPopular, searchContent, discoverContent, fetchMovieDetail, fetchShowDetail } from './api.js';
 import {
   renderCards, renderSkeletons, fadeGridOut, initInfiniteScroll, destroyInfiniteScroll,
@@ -174,6 +175,7 @@ function initKeyboardShortcuts() {
 
 async function init() {
   initTheme();
+  initNav();
   initModal();
   initMovieModal();
   initPersonModal();
